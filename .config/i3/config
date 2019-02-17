@@ -191,5 +191,12 @@ bar {
 }
 
 
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +2% # Raise Volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -2% # Lower Volume
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # Toggle Mute
+bindsym Print exec scrot ~/Pictures/%Y-%m-%d-%T-screenshot.png -e 'mv $f ~/Pictures/Screenshots' # Screenshot and move to Pictures/Screenshots
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
 exec_always --no-startup-id "feh --bg-scale /home/req/Pictures/Wallpapers/moon.png"
 
