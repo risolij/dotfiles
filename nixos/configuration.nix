@@ -29,9 +29,8 @@
   networking.hostName = "nixos"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.wireless.networks = {
-    F41B4D = {
-      pskRaw = "33909a78adb7cbb21f36ef359792df966b66d837a8b75cfbba462518540a3ae7";
-    };
+    ## Insert SSDIT
+    ## Insert pskRaw
   };
   networking.useDHCP = false;
   networking.interfaces.wlp0s20f3.useDHCP = true;
