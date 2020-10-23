@@ -1,0 +1,10 @@
+big() {
+  DATA=$(du -sh /nix/store/* | sort -h | tail -10)
+  SIZE=$(echo "$DATA" | awk '{print $1}')
+  PACKAGE=$(echo "$DATA" | awk '{print $2}' | sed 's/\/nix\/store\///g')
+
+  paste <(echo "Size") <(echo "Package")
+  echo "========================================================="
+  paste <(echo "$SIZE") <(echo "$PACKAGE")
+  echo "========================================================="
+}
