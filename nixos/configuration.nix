@@ -25,14 +25,20 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.devices = [ "nodev" ];
 
+
   ## Networking
   networking.hostName = "nixos"; # Define your hostname.
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.extraHosts = ''
+    xxxxxxxxxxxx control
+    xxxxxxxxxxxx node01
+    xxxxxxxxxxxx node02'';
+
   networking.wireless.networks = {
-    ## Insert SSDIT
-    ## Insert pskRaw
-  };
-  networking.useDHCP = false;
+    F41B4D = {
+      pskRaw = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+    };
+  }; networking.useDHCP = false;
   networking.interfaces.wlp0s20f3.useDHCP = true;
 
   ## Locale
