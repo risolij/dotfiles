@@ -1,3 +1,5 @@
+#!/bin/bash
+
 big() {
   pasteit() {
   		paste <(echo "$1") <(echo "$2")
