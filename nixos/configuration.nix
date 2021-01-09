@@ -10,36 +10,60 @@
       ./hardware-configuration.nix
     ];
 
-  ## Sound Boot Configurations
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.blacklistedKernelModules = [ "snd_hda_intel" "snd_soc_skl" ];
-  hardware.pulseaudio.extraConfig = ''
-    load-module module-alsa-sink	device=hw:0,0 channels=4
-    load-module module-alsa-source	device=hw:0,6 channels-4
-  '';
+
+  ## Video
+  environment.etc."X11/xorg.conf.d/20-intel.conf" = {
+    text = ''
+      Section "Device"
+        Identifier "Intel Graphics"
+        Driver "intel"
+        Option "TearFree" "true"
+      EndSection
+      '';
+  };
+
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
+
+  nixpkgs.config.allowUnfree = true;
 
   ## Boot Loader
-  boot.kernelParams = [ "intel_iommu=off" ];
-  boot.loader.grub.enable = true;
-  boot.loader.grub.efiInstallAsRemovable = true;
-  boot.loader.grub.efiSupport = true;
-  boot.loader.grub.devices = [ "nodev" ];
+  boot = {
+    kernelParams = ["intel_iommu=off" ];
+    kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
+    blacklistedKernelModules = [ "snd_hda_intel" "snd_soc_skl" ];
+    loader.grub = {
+      enable = true;
+      efiInstallAsRemovable = true;
+      efiSupport = true;
+      devices = [ "nodev" ];
+    };
+  };
 
 
   ## Networking
-  networking.hostName = "nixos"; # Define your hostname.
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.extraHosts = ''
-    xxxxxxxxxxxx control
-    xxxxxxxxxxxx node01
-    xxxxxxxxxxxx node02'';
-
-  networking.wireless.networks = {
-    F41B4D = {
-      pskRaw = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
+  networking = {
+    hostName = "nixos";
+    wireless.enable = true;
+    extraHosts = ''
+      xxxxxxxxxxxx control
+      xxxxxxxxxxxx node01
+      xxxxxxxxxxxx node02'';
+    useDHCP = false;
+    interfaces.wlp0s20f3.useDHCP = true;
+    wireless.networks = {
+      F41B4D = {
+        pskRaw = "XXXXXXXXXXXXXX";
+      };
     };
-  }; networking.useDHCP = false;
-  networking.interfaces.wlp0s20f3.useDHCP = true;
+  };
 
   ## Locale
   i18n.defaultLocale = "en_US.UTF-8";
@@ -55,33 +79,61 @@
   environment.systemPackages = with pkgs; [
     dzen2
     rofi
+    rustup
+    binutils-unwrapped
+    gcc
+    openssl
   ];
 
   ## Environment variables
-  environment.variables.EDITOR = "nvim";
-  environment.variables.TERMINAL = "alacritty";
+  environment.variables = {
+    EDITOR = "nvim";
+    TERMINAL = "alacritty";
+  };
+
+  ## Trezor 
+  services.trezord.enable = true;
 
   ## Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.thermald = {
+    enable = true;
+    configFile = "/home/req/.config/thermald/thermal-conf.xml";
+  };
   
   ## Enable Auto upgrades
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
+  system.autoUpgrade = {
+    enable = true;
+    allowReboot = true;
+  };
 
-  ## Enable sound.
+  ## Enable sound && sound boot options
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
-  hardware.pulseaudio.support32Bit = true;
-  hardware.pulseaudio.package = pkgs.pulseaudioFull;
+  hardware.pulseaudio = {
+    enable = true;
+    support32Bit = true;
+    package = pkgs.pulseaudioFull;
+    extraConfig = ''
+      load-module module-alsa-sink	    device=hw:0,0 channels=4
+      load-module module-alsa-source	device=hw:0,6 channels-4
+    '';
+  };
 
   ## Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "us";
-  services.xserver.windowManager.herbstluftwm.enable = true;
-  services.xserver.windowManager.herbstluftwm.configFile = "/home/req/.config/herbstluftwm/autostart";
+  services.xserver = {
+    ## X Server
+    enable = true;
+    layout = "us";
+    
+    ## Touchpad
+    libinput.enable = true;
 
-  ## Enable touchpad support.
-  services.xserver.libinput.enable = true;
+    ## WM
+    windowManager.herbstluftwm = {
+      enable = true;
+      configFile = "/home/req/.config/herbstluftwm/autostart";
+    };
+  };
 
   ## Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.req = {
