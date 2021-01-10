@@ -1,0 +1,16 @@
+#!/bin/bash
+
+killp () {
+	data=$(ps -U $USER | grep -i "$1" | awk '{print $1, $4}')
+	count=$(echo "$data" | wc -l)
+
+	while read line
+	do
+		process="${line##*\ }"
+		processid="${line%\ *}"
+		echo "$count) Killing :: $processid -> $process"
+		count=$(( count - 1 ))
+		kill -9 $processid
+	done <<< $data
+
+}
