@@ -38,11 +38,11 @@ cry() {
 	for index in "${!coins[@]}"
 	do
 		case "${coins[$index]}" in
-			eth	) 	coins[$index]="ethereum"; 	;;
-			btc	) 	coins[$index]="bitcoin"; 	;;
-			ada	) 	coins[$index]="cardano"; 	;;
-			atom) 	coins[$index]="cosmos"; 	;;
-			xrp	) 	coins[$index]="ripple"; 	;;
+			eth		) 	coins[$index]="ethereum"; 	;;
+			btc		) 	coins[$index]="bitcoin"; 	;;
+			ada		) 	coins[$index]="cardano"; 	;;
+			atom	)	coins[$index]="cosmos"; 	;;
+			xrp		) 	coins[$index]="ripple"; 	;;
 		esac
 	done
 
