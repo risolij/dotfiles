@@ -4,27 +4,32 @@
   ## Enable Home Manager
   programs.home-manager.enable = true;
 
+  ## Disable manual manpages
+  manual.manpages.enable = false;
+
   home.packages = with pkgs; [
 
     ## Command Line Tools
+    lsof
     acpi
     feh
     file
     jq
     neofetch
-    netcat
-    parallel
+    nmap
     pulsemixer
-    python
     scrot
     tree
     unzip
     weechat
+    pavucontrol
+    bc
+    appimage-run
+    rustup
   ];
 
   programs.bash = {
     enable = true;
-    ##bashrcExtra = ''set -o vi'';
     initExtra = ''
       set -o vi
       neofetch
@@ -41,8 +46,8 @@
   ## Git
   programs.git = {
     enable = true;
-    userName = "xxxxxxxxxxxxxx";
-    userEmail = "xxxxxxxxxxxxx";
+    userName = "risolij";
+    userEmail = "risolij@gmail.com";
   };
 
   ## Terminal 
@@ -105,13 +110,6 @@
   ## Firefox
   programs.firefox = {
     enable = true;
-    profiles = {
-      myprofile = {
-        settings = {
-          "general.smoothScroll" = false;
-        };
-      };
-    };
   };
 
 
@@ -131,10 +129,30 @@
       nnoremap <Leader>bp :bp<CR>
       nnoremap <Leader>bd :bd<CR>
       nnoremap <Leader>wq :wq<CR>
-      nnoremap <Leader>w :w<CR>
+      nnoremap <Leader>w  :w<CR>
+      nnoremap <Leader>q  :q<CR>
+
+
+      function! WinMove(key)
+          let t:curwin = winnr()
+          exec "wincmd ".a:key
+          if (t:curwin == winnr())
+              if (match(a:key, '[jk]'))
+                  wincmd v
+              else
+                  wincmd s
+              endif
+              exec "wincmd ".a:key
+          endif
+      endfunction
+
+      nnoremap <silent> <C-h> :call WinMove('h')<CR>
+      nnoremap <silent> <C-j> :call WinMove('j')<CR>
+      nnoremap <silent> <C-k> :call WinMove('k')<CR>
+      nnoremap <silent> <C-l> :call WinMove('l')<CR>
+
     '';
-    plugins = [
-      pkgs.vimPlugins.vim-nix
-    ];
+    plugins = with pkgs.vimPlugins; [ vim-nix rust-vim ];
+
   };
 }
