@@ -1,0 +1,6 @@
+* dotfiles
+This repository is to store all my dotfiles specifically for *nix* rebuilds if the time ever comes
+
+#+begin_example
+I hope the day never comes
+#+end_example
