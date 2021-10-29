@@ -1,0 +1,121 @@
+* {
+  background-color: #282a36;
+  text-color: #f8f8f2;
+}
+
+window {
+  padding: 1em;
+  border: none;
+  width: 800px;
+  height: 500px;
+  background-color: #282a36;
+}
+
+mainbox {
+  spacing: 0px;
+  children: [inputbar,listview,wrapper-mode-switcher];
+}
+
+element {
+  background: #282a36;
+  children: [ element-icon, element-text ];
+}
+
+element,element-text,element-icon, button {
+  cursor: pointer;
+}
+
+inputbar {
+  margin: 0px 0px 0.5em 0em;
+  spacing: 0.2em;
+  children: [ button-clipboard, entry,overlay,case-indicator ];
+}
+
+entry {
+  background-color: transparent;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+button-clipboard {
+  padding: 10px;
+  expand: false;
+  content: "❯";
+  action: "kb-primary-paste";
+}
+
+listview, inputbar, message {
+  padding: 0.5em;  
+  border: none;
+  background-color: #282a36;
+  columns: 4;
+  lines: 4;
+}
+
+listview {
+  border: 0px;
+  border-radius: 0px;
+}
+
+element {
+  border: 0;
+  padding: 10px;
+  font: "Mono 8";
+  orientation: vertical;
+}
+
+element-icon {
+  size: 6em;
+  horizontal-align: 0.5;
+}
+
+element-icon selected {
+  background-color: #44475a;
+}
+
+element selected {
+  border-radius: 10px;
+  background-color: #44475a;
+}
+
+
+element-text {
+  font: inherit; 
+  horizontal-align: 0.5;
+  background-color: transparent;
+}
+
+wrapper-mode-switcher {
+  orientation: horizontal;
+  expand: false;
+  spacing: 0;
+  children: [ mode-switcher ];
+}
+
+icon-ms-ic1 {
+  filename: "go-previous";
+}
+
+mode-switcher {
+  border:  none;
+  spacing: 0px;
+  expand: true;
+}
+
+button {
+  text-color: #f8f8f2;
+  border-radius: 0px;
+  horizontal-align: 0.5;
+  padding: 10px;
+  background-color: #282a36;
+}
+
+button selected.normal {
+  text-color: #282a36;
+  background-color: #ff79c6;
+  margin: 0px;
+  padding: 0px;
+  border-color: #bd93f9;
+  border-radius: 5px;
+}
+
