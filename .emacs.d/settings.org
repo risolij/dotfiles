@@ -1,0 +1,129 @@
+* Keybindings
+** Evil Mode
+
+ #+begin_src emacs-lisp
+ (require 'evil)
+ (evil-mode 1)
+ #+end_src
+
+** org-tempo '<s'
+
+ #+begin_src emacs-lisp
+ (require 'org-tempo)
+ #+end_src
+
+* Visual
+** Remove bars
+
+ #+begin_src emacs-lisp
+ (menu-bar-mode -1)
+ (toggle-scroll-bar -1)
+ (tool-bar-mode -1)
+ #+end_src
+
+** dracula theme
+
+ #+begin_src emacs-lisp
+ (load-theme 'dracula t)
+ #+end_src
+
+** rainbow delimiters
+
+ #+begin_src emacs-lisp
+ (require 'rainbow-delimiters)
+ (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+ #+end_src
+
+** org superstar
+
+ #+begin_src emacs-lisp
+ (require 'org-superstar)
+ (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+ #+end_src
+
+** code blocks
+
+ #+begin_src emacs-lisp
+ (setq org-src-fontify-natively t)
+ #+end_src
+
+** visual-line-mode
+   #+begin_src emacs-lisp
+   (setq visual-line-mode t)
+   #+end_src
+
+** default font
+   #+begin_src emacs-lisp
+     (add-to-list 'default-frame-alist
+             '(font . "Inconsolata-18"))
+   #+end_src
+
+** icons
+   #+begin_src emacs-lisp
+     (require 'all-the-icons)
+   #+end_src
+
+** collapsed headers on open
+   #+begin_src emacs-lisp
+     (setq org-startup-folded t)
+   #+end_src
+* Languages
+#+begin_src emacs-lisp
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)
+  (haskell . t)))
+#+end_src
+  
+* functionality
+** set firefox to open =.html= and =.xhtml=
+
+ #+begin_src emacs-lisp
+ (setq org-file-apps
+       '((auto-mode . emacs)
+         ("\\(?:xhtml\\|html\\)\\'" . "firefox %s")))
+ #+end_src
+ 
+** remove auto indent
+
+ #+begin_src emacs-lisp
+ (setq-default evil-auto-indent nil)
+ #+end_src
+
+** org capture
+*** setup
+   #+begin_src emacs-lisp
+   (setq org-default-notes-file (concat org-directory "~/org/notes/notes.org"))
+   #+end_src
+*** templates
+    #+begin_src emacs-lisp
+    (setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/org/notes/notes.org" "Tasks")
+         "* TODO %?\n  %i\n  %a")
+        ("j" "Journal" entry (file+datetree "~/org/notes/notes.org")
+         "* %?\nEntered on %U\n  %i\n  %a")))
+    #+end_src
+
+** dashboard
+   #+begin_src emacs-lisp
+     (require 'dashboard)
+     (dashboard-setup-startup-hook)
+     (setq dashboard-banner-logo-title "")
+     (setq dashboard-center-content t)
+     (setq dashboard-set-heading-icons t)
+     (setq dashboard-set-file-icons t)
+     (setq dashboard-startup-banner "/home/req/Pictures/logos/lambda.png")
+     (setq dashboard-set-navigator nil)
+     (setq dashboard-set-init-info nil)
+     (setq dashboard-set-footer nil)
+   #+end_src
+   
+** eyebrowse
+   #+begin_src emacs-lisp
+   (eyebrowse-mode t)
+   #+end_src
+
+** backup files
+   #+begin_src emacs-lisp
+   (setq make-backup-files nil)
+   #+end_src
