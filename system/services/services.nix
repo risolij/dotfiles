@@ -7,7 +7,7 @@
       ./node-exporter.nix
       ./grafana.nix
       ./postgres.nix
-      ./clamav.nix
+      ## ./clamav.nix
     ];
 
   ## Trezor 
