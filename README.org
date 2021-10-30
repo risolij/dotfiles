@@ -4,3 +4,10 @@ This repository is to store all my dotfiles specifically for *nix* rebuilds if t
 #+begin_example
 I hope the day never comes
 #+end_example
+
+
+* System Configuration Setup
+  #+begin_src sh
+    ln -s ~/org/dev/dotfiles/system/configuraiton.nix /etc/nixos/configuration.nix
+    sudo nixos rebuild switch
+  #+end_src
