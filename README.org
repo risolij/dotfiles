@@ -7,7 +7,17 @@ I hope the day never comes
 
 
 * System Configuration Setup
+** setup symlink
   #+begin_src sh
     ln -s ~/org/dev/dotfiles/system/configuraiton.nix /etc/nixos/configuration.nix
     sudo nixos rebuild switch
   #+end_src
+** nix flakes
+*** initialize
+   #+begin_src sh
+     nix flake init
+   #+end_src
+*** build
+    #+begin_src sh
+      nixos-rebuild build --flake .# --impure
+    #+end_src
