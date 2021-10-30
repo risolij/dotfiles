@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./networking/networking.nix
+      ## ./networking/networking.nix
       ./services/services.nix
     ];
 
