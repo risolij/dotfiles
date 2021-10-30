@@ -14,7 +14,7 @@
     useDHCP = false;
     interfaces.wlp0s20f3.useDHCP = true;
     wireless = {
-      ## environmentFile = /home/req/keys/wireless.env;
+      environmentFile = /home/req/keys/wireless.env;
       enable = true;
       interfaces = [ "wlp0s20f3" ];
       networks = {
