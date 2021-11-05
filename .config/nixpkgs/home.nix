@@ -9,6 +9,17 @@
   ## Disable manual manpages
   manual.manpages.enable = false;
 
+  programs.texlive = {
+    enable = true;
+    extraPackages = tpkgs: {
+      inherit (tpkgs)
+        wrapfig
+        capt-of
+        paralist
+        scheme-medium;
+    };
+  };
+
   ## Custom Configuration Packages
   imports =  [
     ./packages/no_custom.nix

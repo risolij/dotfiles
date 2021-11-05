@@ -12,13 +12,13 @@
     emacs-all-the-icons-fonts
     feh
     file
+    filezilla
     firefox
     ghc
     google-chrome
     htop
     imagemagick
     inconsolata
-    latex
     lsof
     neofetch
     nmap
@@ -26,7 +26,6 @@
     pavucontrol
     pciutils
     pulsemixer
-    ## python3
     scrot
     sqlite
     tcpdump
@@ -35,6 +34,7 @@
     weechat
     zip
     zoom-us
+    ## python3
     ## jq
     ## openvpn
     ## file
