@@ -12,7 +12,6 @@
     emacs-all-the-icons-fonts
     feh
     file
-    filezilla
     firefox
     ghc
     google-chrome
@@ -34,6 +33,7 @@
     weechat
     zip
     zoom-us
+    ## filezilla
     ## python3
     ## jq
     ## openvpn

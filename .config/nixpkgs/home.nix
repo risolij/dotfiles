@@ -9,17 +9,6 @@
   ## Disable manual manpages
   manual.manpages.enable = false;
 
-  programs.texlive = {
-    enable = true;
-    extraPackages = tpkgs: {
-      inherit (tpkgs)
-        wrapfig
-        capt-of
-        paralist
-        scheme-medium;
-    };
-  };
-
   ## Custom Configuration Packages
   imports =  [
     ./packages/no_custom.nix
@@ -34,5 +23,6 @@
     ./packages/qutebrowser/qutebrowser.nix
     ./packages/mpd/mpd.nix
     ./packages/ncmpcpp/ncmpcpp.nix
+    ./packages/texlive/texlive.nix
   ];
 }
