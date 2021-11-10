@@ -12,7 +12,7 @@
     emacs-all-the-icons-fonts
     feh
     file
-    firefox
+    ## firefox
     ghc
     google-chrome
     htop

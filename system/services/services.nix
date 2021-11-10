@@ -11,7 +11,7 @@
     ];
 
   ## Trezor 
-  ## services.trezord.enable = true;
+  services.trezord.enable = true;
 
   ## Enable the OpenSSH daemon.
   services.openssh.enable = true;
