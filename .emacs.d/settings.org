@@ -70,6 +70,12 @@
    #+begin_src emacs-lisp
      (setq org-startup-folded t)
    #+end_src
+** remove startup
+   #+begin_src emacs-lisp
+     (setq inhibit-startup-screen t)
+     (setq inhibit-splash-screen t)
+     (setq inhibit-startup-message t)
+   #+end_src
 * Languages
 #+begin_src emacs-lisp
 (org-babel-do-load-languages
@@ -130,4 +136,5 @@
    #+begin_src emacs-lisp
    (setq make-backup-files nil)
    #+end_src
+
 
