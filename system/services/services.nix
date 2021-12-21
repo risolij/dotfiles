@@ -3,15 +3,20 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./prometheus.nix
-      ./node-exporter.nix
-      ./grafana.nix
-      ./postgres.nix
-      ./clamav.nix
+      ./actkbd.nix
+      ./dnscrypt-proxy2.nix
+      ./cron.nix
+      ## ./prometheus.nix
+      ## ./node-exporter.nix
+      ## ./grafana.nix
+      ## ./postgres.nix
+      ## ./clamav.nix
+      ## ./fprintd.nix
+      ## ./tlp.nix
     ];
 
   ## Trezor 
-  services.trezord.enable = true;
+  ## services.trezord.enable = true;
 
   ## Enable the OpenSSH daemon.
   services.openssh.enable = true;

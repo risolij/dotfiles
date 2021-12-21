@@ -31,8 +31,18 @@
       '';
   };
 
+  ## hardware.enableAllFirmware = true;
+  ## hardware.enableRedistributableFirmware = true;
+
+  ## microcode
+  hardware.cpu = {
+    intel.updateMicrocode = true;
+  };
+
+  ## Open GL
   hardware.opengl = {
     enable = true;
+    driSupport = true;
     extraPackages = with pkgs; [
       intel-media-driver
       vaapiIntel
@@ -43,9 +53,12 @@
 
   ## Boot Loader
   boot = {
-    kernelParams = ["intel_iommu=off" ];
+    kernelParams = [
+      "intel_iommu=off" 
+      "fastboot=1"
+      "nuclear_pageflip=1"
+    ];
     kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
-    ## blacklistedKernelModules = [ "snd_hda_intel" "snd_soc_skl" ];
     loader.grub = {
       enable = true;
       efiInstallAsRemovable = true;
@@ -61,20 +74,30 @@
     keyMap = "us";
   };
 
+  ## Systemd
+  #### systemd = {
+  ####   services.cpufreq.enable = false;
+  ####   sockets.systemd-rfkill.enable = false;
+  ####   services.systemd-rfkill.enable = false;
+  #### };
+
   ## Set your time zone.
   time.timeZone = "America/Phoenix";
 
   ## System Packages
-  environment.systemPackages = with pkgs; [ 
-  ];
+  #### environment.systemPackages = with pkgs; [ 
+  ####   firmwareLinuxNonfree
+  #### ];
 
   ## Environment variables
-  environment.variables = {
-    EDITOR = "nvim";
-    TERMINAL = "alacritty";
-    BROWSER = "firefox";
-    ANSIBLE_CONFIG= "/home/req/dev/ansible/ansible.cfg";
-  };
+  #### environment.variables = {
+  ####   EDITOR = "nvim";
+  ####   TERMINAL = "alacritty";
+  ####   BROWSER = "firefox";
+  ####   ANSIBLE_CONFIG = "/home/req/dev/ansible/ansible.cfg";
+  ####   XCURSOR_SIZE = "32";
+  #### };
+
   
   ## Enable Auto upgrades
   system.autoUpgrade = {
@@ -89,6 +112,9 @@
     support32Bit = true;
     package = pkgs.pulseaudioFull;
   };
+
+  ## dconf
+  programs.dconf.enable = true;
 
   ## Enable the X11 windowing system.
   services.xserver = {
