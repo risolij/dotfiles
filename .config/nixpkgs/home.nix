@@ -38,25 +38,21 @@
     dzen2
     emacs
     emacs-all-the-icons-fonts
-    eww
     fd
     feh
     file
     ghc
-    htop
     imagemagick
     inconsolata
     inxi
     jq
     libnotify
     lsof
-    neofetch
     nmap
     papirus-icon-theme
     parted
     pavucontrol
     pciutils
-    pulsemixer
     python3
     ripgrep
     scrot
@@ -65,6 +61,7 @@
     usbutils
     weechat
     zip
+    haskellPackages.HTTP
     #### May need for later ####
       ## sqlite
       ## vulkan-tools
@@ -98,9 +95,9 @@
     ./packages/picom/picom.nix
     ./packages/qutebrowser/qutebrowser.nix
     ./packages/rofi/rofi.nix
-    #./packages/sxiv/sxiv.nix
     ./packages/texlive/texlive.nix
     ./packages/xmonad/xmobar.nix
     ./packages/xmonad/xmonad.nix
+    #./packages/sxiv/sxiv.nix
   ];
 }

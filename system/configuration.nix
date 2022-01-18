@@ -31,9 +31,6 @@
       '';
   };
 
-  ## hardware.enableAllFirmware = true;
-  ## hardware.enableRedistributableFirmware = true;
-
   ## microcode
   hardware.cpu = {
     intel.updateMicrocode = true;
@@ -74,31 +71,9 @@
     keyMap = "us";
   };
 
-  ## Systemd
-  #### systemd = {
-  ####   services.cpufreq.enable = false;
-  ####   sockets.systemd-rfkill.enable = false;
-  ####   services.systemd-rfkill.enable = false;
-  #### };
-
   ## Set your time zone.
   time.timeZone = "America/Phoenix";
 
-  ## System Packages
-  #### environment.systemPackages = with pkgs; [ 
-  ####   firmwareLinuxNonfree
-  #### ];
-
-  ## Environment variables
-  #### environment.variables = {
-  ####   EDITOR = "nvim";
-  ####   TERMINAL = "alacritty";
-  ####   BROWSER = "firefox";
-  ####   ANSIBLE_CONFIG = "/home/req/dev/ansible/ansible.cfg";
-  ####   XCURSOR_SIZE = "32";
-  #### };
-
-  
   ## Enable Auto upgrades
   system.autoUpgrade = {
     enable = true;

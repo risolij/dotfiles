@@ -11,7 +11,6 @@
         server_names = [ "cloudflare" "google" ];
         blocked_names = {
           blocked_names_file = /tmp/blacklist.txt;
-          #log_file = /tmp/blocked-names.log;
         };
       };
     };
