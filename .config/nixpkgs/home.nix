@@ -52,6 +52,7 @@
     papirus-icon-theme
     parted
     pavucontrol
+    pulsemixer
     pciutils
     python3
     ripgrep
