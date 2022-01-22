@@ -38,7 +38,17 @@
       nnoremap <silent> <C-l> :call WinMove('l')<CR>
 
     '';
-    plugins = with pkgs.vimPlugins; [ vim-nix rust-vim ];
+    plugins = with pkgs.vimPlugins; [ 
+      vim-nix 
+      rust-vim 
+      coc-nvim
+      coc-rust-analyzer 
+    ];
 
+
+  };
+  xdg.configFile."nvim/coc-settings.json".text = builtins.toJSON {
+    "rust-analyzer.server.path" = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+    "rust-analyzer.inlayHints.enable" = true;
   };
 }

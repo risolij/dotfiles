@@ -88,6 +88,8 @@
     package = pkgs.pulseaudioFull;
   };
 
+  ## ledger udev 
+  hardware.ledger.enable = true;
   ## dconf
   programs.dconf.enable = true;
 

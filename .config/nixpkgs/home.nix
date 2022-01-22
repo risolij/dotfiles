@@ -42,6 +42,8 @@
     feh
     file
     ghc
+    google-chrome
+    haskellPackages.HTTP
     imagemagick
     inconsolata
     inxi
@@ -49,11 +51,12 @@
     libnotify
     lsof
     nmap
+    nodejs
     papirus-icon-theme
     parted
     pavucontrol
-    pulsemixer
     pciutils
+    pulsemixer
     python3
     ripgrep
     scrot
@@ -62,7 +65,6 @@
     usbutils
     weechat
     zip
-    haskellPackages.HTTP
     #### May need for later ####
       ## sqlite
       ## vulkan-tools
