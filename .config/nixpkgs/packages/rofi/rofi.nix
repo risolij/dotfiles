@@ -102,7 +102,7 @@ in
     
     chosen="$(echo -e "$options" | $rofi_command -p "Screenshots" -dmenu -selected-row 2)"
     case $chosen in
-        $screenshot) notify-send "Screenshotting in 5 seconds" && scrot -e 'mv $f ~/Pictures/ScreenShots' -d 5; ;;
+        $screenshot) seq 5 -1 1 | while read line; do echo "Screenshotting: $line" | dzen2 -p 1 -h 100 -fg "#ffffff" -bg "#ff79c6" -y 500 -w 750 -x 585; done && scrot -e 'mv $f ~/Pictures/ScreenShots' -d 5; ;;
         $desktop) scrot -e 'mv $f ~/Pictures/ScreenShots' -d 1 && notify-send "Screenshotting desktop"; ;;
         $app) scrot -d 1 -s -e 'mv $f ~/Pictures/ScreenShots' && notify-send "Screenshotting application"; ;;
         $out) exit 0; ;;
