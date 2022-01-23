@@ -77,7 +77,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_d     ), spawn "rofi -combi-modi window,drun,ssh,filebrowser -show-icons -show drun")
 
     -- powermenu
-    , ((modm,               xK_p     ), spawn "/home/req/org/dev/git/shell/powermenu.sh")
+    , ((modm,               xK_p     ), spawn "/home/req/.config/rofi/powermenu.sh")
+    
+    -- screenie
+    , ((modm,               xK_s     ), spawn "/home/req/.config/rofi/screenie.sh")
 
     -- close focused window
     , ((modm .|. shiftMask, xK_q     ), kill)

@@ -1,8 +1,115 @@
 { config, lib, pkgs, ... }:
 
+let 
+  writeBashScript = name: text: pkgs.writeTextFile {
+    inherit name text;
+    executable = true;
+    checkPhase = ''
+      ${pkgs.stdenv.shell} -n $out
+    '';
+  };
+in
+
 {
+  home.file."${config.xdg.configHome}/rofi/powermenu.sh".source = writeBashScript "powermenu.sh" ''
+    #!/run/current-system/sw/bin/bash
+
+    theme="full_circle"
+    dir="$HOME/.config/rofi/powermenu"
+    color="mask.rasi"
+    theme="full_square.rasi"
+    
+    sed -i -e "s/@import .*/@import \"$color\"/g" $dir/styles/colors.rasi
+    
+    uptime=$(uptime | awk '{print $3}' | tr -d ',')
+    rofi_command="rofi -theme $dir/$theme"
+    
+    ##  Options
+    shutdown=""
+    reboot=""
+    lock=""
+    suspend=""
+    logout=""
+    
+    # Confirmation
+    confirm_exit() {
+        rofi -dmenu                 \
+        	-i                      \
+        	-no-fixed-num-lines     \
+        	-p "Are You Sure? : "   \
+        	-theme $dir/confirm.rasi
+    }
+    
+    is_yes() {
+        local ans="$1"
+        local com="$2"
+    
+        case "$ans" in 
+            [yY][eE][sS]|[yY]) $com; ;;
+            [Nn][oO]|[nN]) exit 0; ;;
+            *) msg ; ;;
+        esac
+    }
+    
+    # Message
+    msg() {
+        rofi -theme "$dir/message.rasi" -e "Available Options  -  yes / y / no / n"
+    }
+    
+    # Variable passed to rofi
+    options="$shutdown\n$reboot\n$lock\n$suspend\n$logout"
+    
+    chosen="$(echo -e "$options" | $rofi_command -p "Uptime: $uptime" -dmenu -selected-row 2)"
+    case $chosen in
+        $shutdown)
+            ans=$(confirm_exit &)
+            is_yes "$ans" "systemctl poweroff"
+            ;;
+        $reboot)
+            ans=$(confirm_exit &)
+            is_yes "$ans" "systemctl reboot"
+            ;;
+        $lock) readlink -f $(which betterlockscreen) -l; ;;
+        $suspend)
+            ans=$(confirm_exit &)
+            is_yes "$ans" "systemctl suspend"
+            ;;
+        $logout)
+            ans=$(confirm_exit &)
+            is_yes "$ans" "loginctl terminate-user $USER"
+            ;;
+    esac
+  '';
+  home.file."${config.xdg.configHome}/rofi/screenie.sh".source = writeBashScript "screenie.sh" ''
+    #!/run/current-system/sw/bin/bash
+    
+    dir="$HOME/.config/rofi/powermenu"
+    color="mask.rasi"
+    theme="card_square.rasi"
+    
+    sed -i -e "s/@import .*/@import \"$color\"/g" $dir/styles/colors.rasi
+    
+    rofi_command="rofi -theme $dir/$theme"
+    
+    ##  Options
+    screenshot=""
+    desktop=""
+    app=""
+    out=""
+    
+    # Variable passed to rofi
+    options="$screenshot\n$desktop\n$app\n$out"
+    
+    chosen="$(echo -e "$options" | $rofi_command -p "Screenshots" -dmenu -selected-row 2)"
+    case $chosen in
+        $screenshot) notify-send "Screenshotting in 5 seconds" && scrot -e 'mv $f ~/Pictures/ScreenShots' -d 5; ;;
+        $desktop) scrot -e 'mv $f ~/Pictures/ScreenShots' -d 1 && notify-send "Screenshotting desktop"; ;;
+        $app) scrot -d 1 -s -e 'mv $f ~/Pictures/ScreenShots' && notify-send "Screenshotting application"; ;;
+        $out) exit 0; ;;
+        *) exit 0; ;;
+    esac
+  '';
   programs.rofi = {
-    ## theme = ./custom.rasi;
     enable = true;
     cycle = true;
     configPath = "${config.xdg.configHome}/rofi/config.rasi";
