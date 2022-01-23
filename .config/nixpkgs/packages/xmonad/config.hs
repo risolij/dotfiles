@@ -76,6 +76,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- , ((modm,               xK_d     ), spawn "rofi -combi-modi window,drun,ssh -theme android_notification -show-icons -show combi")
     , ((modm,               xK_d     ), spawn "rofi -combi-modi window,drun,ssh,filebrowser -show-icons -show drun")
 
+    -- powermenu
+    , ((modm,               xK_p     ), spawn "/home/req/org/dev/git/shell/powermenu.sh")
+
     -- close focused window
     , ((modm .|. shiftMask, xK_q     ), kill)
 

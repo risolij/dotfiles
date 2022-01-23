@@ -43,14 +43,15 @@
     file
     ghc
     google-chrome
-    haskellPackages.HTTP
     imagemagick
     inconsolata
     inxi
     jq
+    killall
     libnotify
     lsof
     nmap
+    nmon
     nodejs
     papirus-icon-theme
     parted
