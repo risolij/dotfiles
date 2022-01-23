@@ -32,6 +32,7 @@
   ## Packages without custom configuration
   home.packages = with pkgs; [
     acpi
+    betterlockscreen
     cpulimit
     dig
     dmidecode
@@ -86,6 +87,7 @@
     ./packages/alacritty/alacritty.nix 
     ./packages/bash/bash.nix
     ./packages/bat/bat.nix
+    ./packages/betterlockscreen/betterlockscreen.nix
     ./packages/broot/broot.nix
     ./packages/direnv/direnv.nix
     ./packages/exa/exa.nix

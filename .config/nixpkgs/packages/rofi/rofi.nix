@@ -69,7 +69,7 @@ in
             ans=$(confirm_exit &)
             is_yes "$ans" "systemctl reboot"
             ;;
-        $lock) readlink -f $(which betterlockscreen) -l; ;;
+        $lock) is_yes "$(confirm_exit &)" "$(readlink -f $(which betterlockscreen)) --lock"; ;;
         $suspend)
             ans=$(confirm_exit &)
             is_yes "$ans" "systemctl suspend"
