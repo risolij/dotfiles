@@ -43,9 +43,9 @@
     feh
     file
     ghc
-    google-chrome
     imagemagick
     inconsolata
+    font-awesome
     inxi
     jq
     killall
@@ -68,6 +68,7 @@
     weechat
     zip
     #### May need for later ####
+      ## google-chrome
       ## sqlite
       ## vulkan-tools
       ## zoom-us
@@ -101,9 +102,9 @@
     ./packages/picom/picom.nix
     ./packages/qutebrowser/qutebrowser.nix
     ./packages/rofi/rofi.nix
-    ./packages/texlive/texlive.nix
     ./packages/xmonad/xmobar.nix
     ./packages/xmonad/xmonad.nix
-    #./packages/sxiv/sxiv.nix
+    # ./packages/sxiv/sxiv.nix
+    # ./packages/texlive/texlive.nix
   ];
 }

@@ -29,7 +29,7 @@ in
     reboot=""
     lock=""
     suspend=""
-    logout=""
+    logout=""
     
     # Confirmation
     confirm_exit() {

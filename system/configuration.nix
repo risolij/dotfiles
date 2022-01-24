@@ -102,18 +102,17 @@
     ## Touchpad
     libinput.enable = true;
 
+    ## windowManager.leftwm.enable = true;
     ## herbstluftwm
     ## windowManager.herbstluftwm = {
     ##   enable = true;
     ##   configFile = "/home/req/.config/herbstluftwm/autostart";
     ## };
 
-    ## xmonad
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
     };
-
     displayManager.sddm.enable = true;
   };
 

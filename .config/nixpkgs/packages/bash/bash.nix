@@ -35,7 +35,7 @@ in
     '';
 
     profileExtra = ''
-      ./.fehbg
+      . "./.fehbg"
     '';
 
     shellAliases = {
