@@ -113,7 +113,11 @@
       enable = true;
       enableContribAndExtras = true;
     };
-    displayManager.sddm.enable = true;
+
+    displayManager.sddm = {
+      enable = true;
+      theme = "elarun";
+    };
   };
 
   ## Define a user account. Don't forget to set a password with ‘passwd’.
@@ -132,4 +136,3 @@
   system.stateVersion = "20.09"; # Did you read the comment?
 
 }
-
