@@ -4,7 +4,13 @@
   services.xserver = {
     enable = true;
     layout = "us";
-    libinput.enable = true;
+    libinput = {
+      enable = true;
+      touchpad = {
+        accelProfile = "adaptive";
+        naturalScrolling = true;
+      };
+    };
     
     windowManager.xmonad = {
       enable = true;

@@ -8,6 +8,7 @@
       ./clamav.nix
       ./cron.nix
       ./dnscrypt-proxy2.nix
+      ./fail2ban.nix
     ];
 
   services.openssh.enable = true;

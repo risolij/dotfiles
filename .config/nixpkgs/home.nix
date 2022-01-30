@@ -42,7 +42,6 @@
     fd
     feh
     file
-    google-chrome
     ghc
     imagemagick
     inconsolata
