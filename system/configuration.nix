@@ -81,7 +81,16 @@
   };
 
   ## Enable sound && sound boot options
-  sound.enable = true;
+  sound = {
+    enable = true;
+    mediaKeys.enable = true;
+    ## extraConfig = ''
+    ##   defaults.pcm.card 0
+    ##   defaults.ctl.card 0
+    ## '';
+
+  };
+
   hardware.pulseaudio = {
     enable = true;
     support32Bit = true;
@@ -125,7 +134,7 @@
   users.groups.plugdev = {};
   users.users.req = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "plugdev"]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "audio" "wheel" "plugdev"]; # Enable ‘sudo’ for the user.
   };
 
   # This value determines the NixOS release from which the default

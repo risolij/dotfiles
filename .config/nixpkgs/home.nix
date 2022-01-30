@@ -32,6 +32,7 @@
   ## Packages without custom configuration
   home.packages = with pkgs; [
     acpi
+    brightnessctl
     cpulimit
     dig
     dmidecode
