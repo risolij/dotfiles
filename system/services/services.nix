@@ -4,14 +4,14 @@
   imports =
     [ # Include the results of the hardware scan.
       ./actkbd.nix
-      ./dnscrypt-proxy2.nix
+      ./clamav.nix
       ./cron.nix
+      ./dnscrypt-proxy2.nix
       ## ./hydra.nix
       ## ./prometheus.nix
       ## ./node-exporter.nix
       ## ./grafana.nix
       ## ./postgres.nix
-      ## ./clamav.nix
       ## ./fprintd.nix
       ## ./tlp.nix
     ];
@@ -27,6 +27,4 @@
 
   ## upower
   services.upower.enable = true;
-  
-
 }
