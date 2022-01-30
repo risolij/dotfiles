@@ -42,6 +42,7 @@
     fd
     feh
     file
+    google-chrome
     ghc
     imagemagick
     inconsolata
@@ -88,7 +89,7 @@
     ./packages/notify-osd/notify-osd.nix
     ./packages/nushell/nushell.nix
     ./packages/picom/picom.nix
-    ./packages/qutebrowser/qutebrowser.nix
+    # ./packages/qutebrowser/qutebrowser.nix
     ./packages/rofi/rofi.nix
     ./packages/xmonad/xmobar.nix
     ./packages/xmonad/xmonad.nix
