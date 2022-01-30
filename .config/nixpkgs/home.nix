@@ -5,8 +5,8 @@
   programs.home-manager.enable = true;
 
 
-  ## Disable manual manpages
-  manual.manpages.enable = false;
+  ## Enable manual manpages
+  manual.manpages.enable = true;
 
 
   ## Session Variables

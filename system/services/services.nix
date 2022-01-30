@@ -6,6 +6,7 @@
       ./actkbd.nix
       ./dnscrypt-proxy2.nix
       ./cron.nix
+      ./hydra.nix
       ## ./prometheus.nix
       ## ./node-exporter.nix
       ## ./grafana.nix
