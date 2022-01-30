@@ -67,20 +67,6 @@
     usbutils
     weechat
     zip
-    #### May need for later ####
-      ## google-chrome
-      ## sqlite
-      ## vulkan-tools
-      ## zoom-us
-      ## p7zip
-      ## google-chrome
-      ## filezilla
-      ## openvpn
-      ## file
-      ## ansible
-      ## sshpass
-      ## nixops
-      ## xlsx2csv
   ];
 
   ## Custom Configuration Packages
@@ -88,6 +74,8 @@
     ./packages/alacritty/alacritty.nix 
     ./packages/bash/bash.nix
     ./packages/bat/bat.nix
+    # Don't use until bug is fixed "https://github.com/NixOS/nixpkgs/issues/157112"
+    # ./packages/betterlockscreen/betterlockscreen.nix
     ./packages/broot/broot.nix
     ./packages/direnv/direnv.nix
     ./packages/exa/exa.nix
@@ -106,8 +94,3 @@
     ./packages/xmonad/xmonad.nix
   ];
 }
-
-# ./packages/sxiv/sxiv.nix
-# ./packages/texlive/texlive.nix
-# Don't use until bug is fixed "https://github.com/NixOS/nixpkgs/issues/157112"
-# ./packages/betterlockscreen/betterlockscreen.nix
