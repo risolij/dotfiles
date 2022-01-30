@@ -86,8 +86,6 @@
   imports = [
     ./packages/alacritty/alacritty.nix 
     ./packages/bash/bash.nix
-    ./packages/betterlockscreen/betterlockscreen.nix
-    ./packages/nushell/nushell.nix
     ./packages/bat/bat.nix
     ./packages/broot/broot.nix
     ./packages/direnv/direnv.nix
@@ -99,6 +97,7 @@
     ./packages/ncmpcpp/ncmpcpp.nix
     ./packages/neovim/neovim.nix
     ./packages/notify-osd/notify-osd.nix
+    ./packages/nushell/nushell.nix
     ./packages/picom/picom.nix
     ./packages/qutebrowser/qutebrowser.nix
     ./packages/rofi/rofi.nix
@@ -106,5 +105,7 @@
     ./packages/xmonad/xmonad.nix
     # ./packages/sxiv/sxiv.nix
     # ./packages/texlive/texlive.nix
+    # Don't use until bug is fixed "https://github.com/NixOS/nixpkgs/issues/157112"
+    # ./packages/betterlockscreen/betterlockscreen.nix
   ];
 }
