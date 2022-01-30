@@ -3,6 +3,8 @@
 {
   imports =
     [ 
+      ./boot.nix
+      ./nix.nix
       ./hardware-configuration.nix
       ./networking/networking.nix
       ./services/services.nix
