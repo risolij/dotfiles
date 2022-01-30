@@ -8,10 +8,26 @@
     [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
-  boot.extraModulePackages = [ ];
+  boot = {
+    kernelModules = [ "kvm-intel" ];
+    kernelParams = [
+      "intel_iommu=off" 
+      "fastboot=1"
+      "nuclear_pageflip=1"
+    ];
+    kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
+    loader.grub = {
+      enable = true;
+      efiInstallAsRemovable = true;
+      efiSupport = true;
+      devices = [ "nodev" ];
+    };
+    initrd = {
+      availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
+      kernelModules = [ ];
+    };
+    extraModulePackages = [ ];
+  };
 
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/bc3398ef-284f-4407-be19-47510ed1f706";
@@ -32,6 +48,13 @@
     [ { device = "/dev/disk/by-uuid/064eca58-dfcf-4f28-aee1-d4d4175f59c3"; }
     ];
 
-  nix.settings.max-jobs = lib.mkDefault 8;
+  nix = {
+    package = pkgs.nixUnstable;
+    settings.max-jobs = lib.mkDefault 8;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }

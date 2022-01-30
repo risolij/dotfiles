@@ -104,9 +104,10 @@
     ./packages/rofi/rofi.nix
     ./packages/xmonad/xmobar.nix
     ./packages/xmonad/xmonad.nix
-    # ./packages/sxiv/sxiv.nix
-    # ./packages/texlive/texlive.nix
-    # Don't use until bug is fixed "https://github.com/NixOS/nixpkgs/issues/157112"
-    # ./packages/betterlockscreen/betterlockscreen.nix
   ];
 }
+
+# ./packages/sxiv/sxiv.nix
+# ./packages/texlive/texlive.nix
+# Don't use until bug is fixed "https://github.com/NixOS/nixpkgs/issues/157112"
+# ./packages/betterlockscreen/betterlockscreen.nix
