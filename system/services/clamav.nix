@@ -10,7 +10,7 @@
       enable = true;
       settings = {
         LogVerbose = true;
-	    LogFile = "/home/req/logs/clamav.log";
+        LogFile = "/home/req/logs/clamav.log";
       };
     };
   };
