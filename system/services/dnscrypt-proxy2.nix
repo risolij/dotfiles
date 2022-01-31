@@ -22,6 +22,14 @@
           file = /home/req/logs/dns_query.log;
           format = "tsv";
         };
+
+        anonymized_dns = {
+          skip_incompatible = true;
+        ##   routes = {
+        ##     server_name = "*";
+        ##     via = ["anon-cs-il" "anon-cs-il2"];
+        ##   };
+        };
       };
     };
 }
