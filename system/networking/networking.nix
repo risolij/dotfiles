@@ -7,12 +7,7 @@
 {
   networking = {
     hostName = "nixos";
-    ## extraHosts = ''
-    ##   @CONTROL@ control
-    ##   @NODE01@ node01
-    ##   @NODE02@ node02'';
     useDHCP = false;
-    ## nameservers = [ "1.1.1.1" "8.8.8.8" ];
     interfaces.wlp0s20f3.useDHCP = true;
     wireless = {
       environmentFile = /home/req/keys/wireless.env;
@@ -27,3 +22,8 @@
     };
   };
 }
+    ## nameservers = [ "1.1.1.1" "8.8.8.8" ];
+    ## extraHosts = ''
+    ##   @CONTROL@ control
+    ##   @NODE01@ node01
+    ##   @NODE02@ node02'';
