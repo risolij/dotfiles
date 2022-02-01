@@ -5,6 +5,10 @@ This repository is to store all my dotfiles specifically for *nix* rebuilds if t
 I hope the day never comes
 #+end_example
 
+* TODO Items [50%]
+- [ ] Switch emacs configuration into nix
+- [X] Test out magit
+
 * System Configuration Setup
 ** setup symlink
   #+begin_src sh
