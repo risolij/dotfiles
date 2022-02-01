@@ -1,0 +1,15 @@
+ls
+rm *~
+ls
+rm recentf settings.html 
+ls
+ll
+ls -al
+ls
+rm settings.html 
+cd /home/req/logs/
+ll
+ls
+tail -f lastscan.txt 
+ls
+ll

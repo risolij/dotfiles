@@ -1,0 +1,179 @@
+#+TITLE: Emacs Confirugation File
+#+DATE: <2022-01-31 Mon>
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* Functionality
+** Evil
+#+begin_quote
+Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions. Also see our page on EmacsWiki.
+#+end_quote
+
+*** Base
+#+begin_src emacs-lisp
+(use-package evil
+  :ensure t
+  :defer .1
+  :init
+  (setq evil-want-keybinding nil)
+  (setq evil-want-integration t)
+  (setq evil-search-module 'evil-search)
+  (setq evil-ex-complete-emacs-commands nil)
+  (setq evil-vsplit-window-right t)
+  (setq evil-split-window-below t)
+  (setq evil-shift-round nil)
+  (setq evil-want-C-u-scroll t)
+  (setq-default evil-auto-indent nil)
+  :config
+  (evil-mode))
+#+end_src
+
+*** Collection
+#+begin_src emacs-lisp
+(use-package evil-collection
+  :after evil
+  :ensure t
+  :config
+  (evil-collection-init))
+#+end_src
+
+** org-tempo
+This lets me use '<s' to auto complete source blocks
+#+begin_src emacs-lisp
+(require 'org-tempo)
+#+end_src
+
+** backup files
+Get rid of emacs clutter
+#+begin_src emacs-lisp
+(setq make-backup-files nil)
+#+end_src
+
+** set firefox to open =.html= and =.xhtml=
+Allow export to html to open in firefox
+ #+begin_src emacs-lisp
+ (setq org-file-apps
+       '((auto-mode . emacs)
+         ("\\(?:xhtml\\|html\\)\\'" . "firefox %s")))
+ #+end_src
+
+** magit
+#+begin_src emacs-lisp
+(use-package magit
+  :ensure t)
+#+end_src
+
+* UI
+** remove startup screens
+#+begin_src emacs-lisp
+(setq inhibit-startup-screen t)
+(setq inhibit-splash-screen t)
+(setq inhibit-startup-message t)
+#+end_src
+
+** Bars
+Remove all the toolbars & scrollbars
+#+begin_src emacs-lisp
+(menu-bar-mode -1)
+(toggle-scroll-bar -1)
+(tool-bar-mode -1)
+#+end_src
+
+** all-the-icons
+give me all the icons
+#+begin_src emacs-lisp
+(use-package all-the-icons
+  :ensure t
+  :config
+  (set-fontset-font t 'unicode (font-spec :family "FontAwesome") nil 'append))
+#+end_src
+
+** Dashboard
+Startup dashboard for a nice looking entrance
+#+begin_src emacs-lisp
+(use-package dashboard
+  :init
+  (setq dashboard-banner-logo-title "")
+  (setq dashboard-center-content t)
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-startup-banner "/home/req/Pictures/logos/lambda.png")
+  (setq dashboard-set-navigator nil)
+  (setq dashboard-set-init-info nil)
+  (setq dashboard-set-footer nil)
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
+#+end_src
+
+** themes
+Let's not try to create our own theme & just use a good one that exists
+#+begin_src emacs-lisp
+(use-package doom-themes
+  :ensure t
+  :config
+  (setq doom-themes-enable-bold t
+ doom-themes-enable-italic t)
+  (load-theme 'doom-one t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-neotree-config)
+  (setq doom-themes-treemacs-theme "doom-atom")
+  (doom-themes-treemacs-config)
+  (doom-themes-org-config))
+#+end_src
+
+** font
+*** Inconsolata
+#+begin_src emacs-lisp
+(add-to-list 'default-frame-alist
+   '(font . "Inconsolata-20"))
+#+end_src
+
+*** fontawesome
+#+begin_src emacs-lisp
+(use-package fontawesome
+  :ensure t)
+#+end_src
+
+** pretty bullets
+Make org files that much better looking with font awesome icon
+#+begin_src emacs-lisp
+(use-package org-superstar
+  :ensure t
+  :config
+  (setq org-superstar-headline-bullets-list (fontawesome "gear"))
+  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
+#+end_src
+
+** rainbow delimiters
+So I can tell where 1 begins and 1 ends
+#+begin_src emacs-lisp
+(use-package rainbow-delimiters
+  :ensure t
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+#+end_src
+
+** writeroom
+Focus mode in org files for centered text & remove all the extras
+#+begin_src emacs-lisp
+(use-package writeroom-mode
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (writeroom-mode 1))))
+#+end_src
+
+** collapsed headers on open
+#+begin_src emacs-lisp
+(setq org-startup-folded t)
+#+end_src
+
+** code blocks
+Trying to get rid of the auto indentation when creating source blocks. Don't think this quite fixes everything.
+#+begin_src emacs-lisp
+(setq org-src-fontify-natively t
+  org-src-window-setup 'current-window
+  org-edit-src-content-indentation 0
+  org-src-strip-leading-and-trailing-blank-lines t
+  org-src-preserve-indentation t
+  org-src-tab-acts-natively t)
+#+end_src

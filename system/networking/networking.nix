@@ -9,6 +9,7 @@
     hostName = "nixos";
     useDHCP = false;
     nameservers = [ "127.0.0.1" "::1" ];
+    resolvconf.useLocalResolver = true;
     dhcpcd.extraConfig = "nohook resolv.conf";
     interfaces.wlp0s20f3.useDHCP = true;
     wireless = {
