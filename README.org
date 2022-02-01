@@ -15,6 +15,7 @@ I hope the day never comes
     ln -s ~/org/dev/git/dotfiles/system/configuraiton.nix /etc/nixos/configuration.nix
     sudo nixos-rebuild switch
   #+end_src
+
 ** nix flakes
 *** initialize
    #+begin_src sh
