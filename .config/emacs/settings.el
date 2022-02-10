@@ -31,6 +31,14 @@
 (use-package magit
   :ensure t)
 
+(use-package yasnippet
+  :ensure t
+  :init
+  (yas-global-mode 1))
+
+(use-package ox-reveal
+  :ensure t)
+
 (setq inhibit-startup-screen t)
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
@@ -38,6 +46,8 @@
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
+
+(global-visual-line-mode 1)
 
 (use-package all-the-icons
   :ensure t
@@ -98,5 +108,5 @@
   org-src-window-setup 'current-window
   org-edit-src-content-indentation 0
   org-src-strip-leading-and-trailing-blank-lines t
-  org-src-preserve-indentation t
+  org-src-preserve-indentation nil
   org-src-tab-acts-natively t)

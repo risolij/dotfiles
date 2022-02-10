@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: header 
+# key: <header
+# --
+
+#+TITLE: ${1:title}
+#+AUTHOR: ${2:author}
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/readtheorg.setup

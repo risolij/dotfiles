@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: reveal
+# key: <reveal
+# --
+
+:REVEAL_PROPERTIES:
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+REVEAL_REVEAL_JS_VERSION: 4
+:END:
+
+#+TITLE: ${1:title}
+#+AUTHOR: ${2:author}
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/readtheorg.setup
