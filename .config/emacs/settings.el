@@ -17,6 +17,8 @@
 (use-package evil-collection
   :after evil
   :ensure t
+  :custom
+  (evil-collection-setup-minibuffer t)
   :config
   (evil-collection-init))
 
@@ -38,6 +40,17 @@
 
 (use-package ox-reveal
   :ensure t)
+
+(use-package helm
+  :ensure t
+  :init
+  (helm-mode 1)
+  :config
+  (global-set-key (kbd "M-x") 'helm-M-x)
+  ;;(define-key evil-ex-map "e" 'helm-find-files)
+  (setq-default helm-M-x-fuzzy-match t)
+  (setq helm-split-window-in-side-p t)
+  (setq helm-move-to-line-cycle-in-source t))
 
 (setq inhibit-startup-screen t)
 (setq inhibit-splash-screen t)

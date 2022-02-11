@@ -32,6 +32,8 @@ Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, 
 (use-package evil-collection
   :after evil
   :ensure t
+  :custom
+  (evil-collection-setup-minibuffer t)
   :config
   (evil-collection-init))
 #+end_src
@@ -74,6 +76,20 @@ Allow export to html to open in firefox
 #+begin_src emacs-lisp
 (use-package ox-reveal
   :ensure t)
+#+end_src
+
+** helm
+#+begin_src emacs-lisp
+(use-package helm
+  :ensure t
+  :init
+  (helm-mode 1)
+  :config
+  (global-set-key (kbd "M-x") 'helm-M-x)
+  ;;(define-key evil-ex-map "e" 'helm-find-files)
+  (setq-default helm-M-x-fuzzy-match t)
+  (setq helm-split-window-in-side-p t)
+  (setq helm-move-to-line-cycle-in-source t))
 #+end_src
 
 * UI
