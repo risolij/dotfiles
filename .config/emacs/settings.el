@@ -11,6 +11,10 @@
   (setq evil-shift-round nil)
   (setq evil-want-C-u-scroll t)
   (setq-default evil-auto-indent nil)
+  (with-eval-after-load 'evil-maps
+    (define-key evil-motion-state-map (kbd ":") 'evil-repeat-find-char)
+    (define-key evil-motion-state-map (kbd "<SPC>") 'evil-ex)
+    (define-key evil-motion-state-map (kbd "f") 'helm-find-files))
   :config
   (evil-mode))
 
