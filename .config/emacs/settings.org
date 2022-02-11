@@ -120,6 +120,16 @@ Allow export to html to open in firefox
   (persp-mode))
 #+end_src
 
+** exwm
+#+begin_src emacs-lisp
+(use-package exwm
+  :ensure t
+  :config
+  (require 'exwm-config)
+  (server-start)
+  (setq exwm-workspace-number 1))
+#+end_src
+
 * UI
 ** remove startup screens
 #+begin_src emacs-lisp
@@ -141,6 +151,7 @@ Remove all the toolbars & scrollbars
 (global-hl-line-mode t)
 (set-face-background 'hl-line "#25262B")
 #+end_src
+
 ** visual line mode
 #+begin_src emacs-lisp
 ;; (global-visual-line-mode 1)
@@ -180,7 +191,7 @@ Startup dashboard for a nice looking entrance
               "Probably watch gingergm"
               (lambda (&rest _) (browse-url "https://youtube.com")))
 
-       (,(all-the-icons-material "note" :height 0.9 :v-adjust 0.0)
+       (,(all-the-icons-faicon "sticky-note" :height 0.9 :v-adjust 0.0)
               "Notes"
               "Notes file"
               (lambda (&rest _) (find-file "~/org/notes.org")))

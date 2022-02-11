@@ -69,6 +69,13 @@
   :config
   (persp-mode))
 
+(use-package exwm
+  :ensure t
+  :config
+  (require 'exwm-config)
+  (server-start)
+  (setq exwm-workspace-number 1))
+
 (setq inhibit-startup-screen t)
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
@@ -109,7 +116,7 @@
               "Probably watch gingergm"
               (lambda (&rest _) (browse-url "https://youtube.com")))
 
-       (,(all-the-icons-material "note" :height 0.9 :v-adjust 0.0)
+       (,(all-the-icons-faicon "sticky-note" :height 0.9 :v-adjust 0.0)
               "Notes"
               "Notes file"
               (lambda (&rest _) (find-file "~/org/notes.org")))

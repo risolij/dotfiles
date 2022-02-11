@@ -12,14 +12,25 @@
       };
     };
     
+    windowManager.exwm = {
+      enable = false;
+      loadScript = ''
+        (require 'exwm)
+        (exwm-enable)
+      '';
+      enableDefaultConfig = true;
+    };
+
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
     };
 
-    displayManager.sddm = {
+    displayManager.lightdm = {
       enable = true;
-      theme = "elarun";
+      greeters.enso = {
+        enable = true;
+      };
     };
   };
 }
