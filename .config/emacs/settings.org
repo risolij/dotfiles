@@ -1,6 +1,11 @@
-#+TITLE: Emacs Confirugation File
+:REVEAL_PROPERTIES:
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+REVEAL_REVEAL_JS_VERSION: 4
+:END:
+
+#+TITLE: Emacs Configuration File
 #+DATE: <2022-01-31 Mon>
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+EXPORT_FILE_NAME: ~/org/exports/settings.html
 
 * Functionality
 ** Evil
