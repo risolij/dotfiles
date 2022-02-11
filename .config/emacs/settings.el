@@ -56,6 +56,19 @@
   (setq helm-split-window-in-side-p t)
   (setq helm-move-to-line-cycle-in-source t))
 
+(use-package nix-mode
+  :ensure t
+  :mode "\\.nix\\'")
+
+(use-package perspective
+  :ensure t
+  :bind
+  (
+    ("C-x C-b" . persp-list-buffers)
+  )
+  :config
+  (persp-mode))
+
 (setq inhibit-startup-screen t)
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
@@ -64,7 +77,10 @@
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 
-(global-visual-line-mode 1)
+(global-hl-line-mode t)
+(set-face-background 'hl-line "#25262B")
+
+;; (global-visual-line-mode 1)
 
 (use-package all-the-icons
   :ensure t
@@ -77,10 +93,31 @@
   (setq dashboard-center-content t)
   (setq dashboard-set-heading-icons t)
   (setq dashboard-set-file-icons t)
-  (setq dashboard-startup-banner "/home/req/Pictures/logos/lambda.png")
-  (setq dashboard-set-navigator nil)
-  (setq dashboard-set-init-info nil)
-  (setq dashboard-set-footer nil)
+  (setq dashboard-startup-banner "/home/req/Pictures/logos/logo.png")
+  (setq dashboard-set-init-info t)
+  (setq dashboard-set-footer t)
+  (setq dashboard-set-navigator t)
+  (setq dashboard-navigator-buttons
+    `((
+       (,(all-the-icons-octicon "mark-github" :height 0.9 :v-adjust 0.0)
+              "Homepage"
+              "Browse homepage"
+              (lambda (&rest _) (browse-url "https://github.com/risolij/dotfiles")))
+
+       (,(all-the-icons-faicon "youtube-play" :height 0.9 :v-adjust 0.0)
+              "Youtube"
+              "Probably watch gingergm"
+              (lambda (&rest _) (browse-url "https://youtube.com")))
+
+       (,(all-the-icons-material "note" :height 0.9 :v-adjust 0.0)
+              "Notes"
+              "Notes file"
+              (lambda (&rest _) (find-file "~/org/notes.org")))
+
+       (,(all-the-icons-octicon "gear" :height 0.9 :v-adjust 0.0)
+              "Configuration"
+              "Click to config Emacs"
+              (lambda (&rest _) (find-file "~/org/dev/git/dotfiles/.config/emacs/settings.org"))))))
   :ensure t
   :config
   (dashboard-setup-startup-hook))
@@ -97,8 +134,7 @@
   (doom-themes-treemacs-config)
   (doom-themes-org-config))
 
-(add-to-list 'default-frame-alist
-   '(font . "Inconsolata-20"))
+(set-face-attribute 'default nil :font "Inconsolata-14" )
 
 (use-package fontawesome
   :ensure t)
@@ -121,9 +157,9 @@
 
 (setq org-startup-folded t)
 
-(setq org-src-fontify-natively t
-  org-src-window-setup 'current-window
-  org-edit-src-content-indentation 0
-  org-src-strip-leading-and-trailing-blank-lines t
-  org-src-preserve-indentation nil
-  org-src-tab-acts-natively t)
+(setq org-src-fontify-natively t)
+(setq org-src-window-setup 'current-window)
+(setq org-edit-src-content-indentation 0)
+(setq org-src-strip-leading-and-trailing-blank-lines t)
+(setq org-src-preserve-indentation nil)
+(setq org-src-tab-acts-natively t)

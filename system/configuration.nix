@@ -49,7 +49,6 @@
   };
   
   time.timeZone = "America/Phoenix";
-  sound.enable = true;
   programs.dconf.enable = true;
   nixpkgs.config.allowUnfree = true;
 

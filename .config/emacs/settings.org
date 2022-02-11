@@ -101,6 +101,25 @@ Allow export to html to open in firefox
   (setq helm-move-to-line-cycle-in-source t))
 #+end_src
 
+** nix mode
+#+begin_src emacs-lisp
+(use-package nix-mode
+  :ensure t
+  :mode "\\.nix\\'")
+#+end_src
+
+** perspective
+#+begin_src emacs-lisp
+(use-package perspective
+  :ensure t
+  :bind
+  (
+    ("C-x C-b" . persp-list-buffers)
+  )
+  :config
+  (persp-mode))
+#+end_src
+
 * UI
 ** remove startup screens
 #+begin_src emacs-lisp
@@ -117,9 +136,14 @@ Remove all the toolbars & scrollbars
 (tool-bar-mode -1)
 #+end_src
 
+** highlight current line
+#+begin_src emacs-lisp
+(global-hl-line-mode t)
+(set-face-background 'hl-line "#25262B")
+#+end_src
 ** visual line mode
 #+begin_src emacs-lisp
-(global-visual-line-mode 1)
+;; (global-visual-line-mode 1)
 #+end_src
 
 ** all-the-icons
@@ -140,10 +164,31 @@ Startup dashboard for a nice looking entrance
   (setq dashboard-center-content t)
   (setq dashboard-set-heading-icons t)
   (setq dashboard-set-file-icons t)
-  (setq dashboard-startup-banner "/home/req/Pictures/logos/lambda.png")
-  (setq dashboard-set-navigator nil)
-  (setq dashboard-set-init-info nil)
-  (setq dashboard-set-footer nil)
+  (setq dashboard-startup-banner "/home/req/Pictures/logos/logo.png")
+  (setq dashboard-set-init-info t)
+  (setq dashboard-set-footer t)
+  (setq dashboard-set-navigator t)
+  (setq dashboard-navigator-buttons
+    `((
+       (,(all-the-icons-octicon "mark-github" :height 0.9 :v-adjust 0.0)
+              "Homepage"
+              "Browse homepage"
+              (lambda (&rest _) (browse-url "https://github.com/risolij/dotfiles")))
+
+       (,(all-the-icons-faicon "youtube-play" :height 0.9 :v-adjust 0.0)
+              "Youtube"
+              "Probably watch gingergm"
+              (lambda (&rest _) (browse-url "https://youtube.com")))
+
+       (,(all-the-icons-material "note" :height 0.9 :v-adjust 0.0)
+              "Notes"
+              "Notes file"
+              (lambda (&rest _) (find-file "~/org/notes.org")))
+
+       (,(all-the-icons-octicon "gear" :height 0.9 :v-adjust 0.0)
+              "Configuration"
+              "Click to config Emacs"
+              (lambda (&rest _) (find-file "~/org/dev/git/dotfiles/.config/emacs/settings.org"))))))
   :ensure t
   :config
   (dashboard-setup-startup-hook))
@@ -168,8 +213,7 @@ Let's not try to create our own theme & just use a good one that exists
 ** font
 *** Inconsolata
 #+begin_src emacs-lisp
-(add-to-list 'default-frame-alist
-   '(font . "Inconsolata-20"))
+(set-face-attribute 'default nil :font "Inconsolata-14" )
 #+end_src
 
 *** fontawesome
@@ -214,11 +258,11 @@ Focus mode in org files for centered text & remove all the extras
 ** code blocks
 Trying to get rid of the auto indentation when creating source blocks. Don't think this quite fixes everything.
 #+begin_src emacs-lisp
-(setq org-src-fontify-natively t
-  org-src-window-setup 'current-window
-  org-edit-src-content-indentation 0
-  org-src-strip-leading-and-trailing-blank-lines t
-  org-src-preserve-indentation nil
-  org-src-tab-acts-natively t)
+(setq org-src-fontify-natively t)
+(setq org-src-window-setup 'current-window)
+(setq org-edit-src-content-indentation 0)
+(setq org-src-strip-leading-and-trailing-blank-lines t)
+(setq org-src-preserve-indentation nil)
+(setq org-src-tab-acts-natively t)
 #+end_src
 
