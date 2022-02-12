@@ -33,7 +33,6 @@
   home.packages = with pkgs; [
     acpi
     brightnessctl
-    cpulimit
     dig
     dmidecode
     dzen2
@@ -52,7 +51,6 @@
     libnotify
     lsof
     nmap
-    nmon
     nodejs
     papirus-icon-theme
     parted
@@ -60,13 +58,16 @@
     pciutils
     pulsemixer
     python3
-    ripgrep
     scrot
     tcpdump
     unzip
     usbutils
     weechat
     zip
+
+    ## ripgrep
+    ## nmon
+    ## cpulimit
   ];
 
   ## Custom Configuration Packages
