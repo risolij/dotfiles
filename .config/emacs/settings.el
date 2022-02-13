@@ -60,6 +60,11 @@
   :ensure t
   :mode "\\.nix\\'")
 
+(use-package direnv
+  :ensure t
+  :config
+  (direnv-mode))
+
 (use-package perspective
   :ensure t
   :bind
@@ -76,6 +81,8 @@
   (server-start)
   (setq exwm-workspace-number 1))
 
+(add-to-list 'load-path "~/.config/emacs/lisp/")
+
 (setq inhibit-startup-screen t)
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
@@ -83,6 +90,13 @@
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
+
+(use-package s
+  :ensure t)
+
+(load "org-bars")
+(require 'org-bars)
+(add-hook 'org-mode-hook #'org-bars-mode)
 
 (global-hl-line-mode t)
 (set-face-background 'hl-line "#25262B")
@@ -148,9 +162,18 @@
 
 (use-package org-superstar
   :ensure t
+  :hook (org-mode . (lambda () (org-superstar-mode 1)))
   :config
   (setq org-superstar-headline-bullets-list (fontawesome "gear"))
-  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
+  (setq org-superstar-special-todo-items t)
+  (setq org-superstar-todo-bullet-alist
+      '(
+        ("TODO" "")
+        ("NEXT" "✒")
+        ("WAIT" "☕")
+        ("CXLD" "✘")
+        ("DONE" "✔")
+       )))
 
 (use-package rainbow-delimiters
   :ensure t
@@ -159,8 +182,7 @@
 
 (use-package writeroom-mode
   :ensure t
-  :config
-  (add-hook 'org-mode-hook (lambda () (writeroom-mode 1))))
+  :hook org-mode)
 
 (setq org-startup-folded t)
 

@@ -31,52 +31,61 @@
 
   ## Packages without custom configuration
   home.packages = with pkgs; [
-    acpi
+    ## Common Tools
     brightnessctl
-    dig
-    dmidecode
-    dzen2
-    emacs
-    emacs-all-the-icons-fonts
-    fd
-    feh
     file
-    ghc
-    imagemagick
-    inconsolata
-    font-awesome
-    inxi
     jq
     killall
-    libnotify
-    lsof
-    nmap
-    nodejs
-    papirus-icon-theme
-    parted
-    pavucontrol
-    pciutils
-    pulsemixer
-    python3
-    scrot
-    tcpdump
     unzip
-    usbutils
     weechat
     zip
 
-    ## ripgrep
-    ## nmon
-    ## cpulimit
+    ## Hardware Tools
+    acpi
+    dmidecode
+    inxi
+    parted
+    pciutils
+    usbutils
+
+    ## Notification Tools
+    dzen2
+    libnotify
+
+    ## Networking Tools
+    dig
+    lsof
+    nmap
+    tcpdump
+
+    ## Development Tools
+    emacs
+    ghc
+    nodejs
+    python3
+
+    ## Image Tools
+    feh
+    imagemagick
+    scrot
+
+    ## Fonts && Themes
+    emacs-all-the-icons-fonts
+    font-awesome
+    inconsolata
+    papirus-icon-theme
+
+    ## Audio Tools
+    pavucontrol
+    pulsemixer
   ];
+
 
   ## Custom Configuration Packages
   imports = [
     ./packages/alacritty/alacritty.nix 
     ./packages/bash/bash.nix
     ./packages/bat/bat.nix
-    # Don't use until bug is fixed "https://github.com/NixOS/nixpkgs/issues/157112"
-    # ./packages/betterlockscreen/betterlockscreen.nix
     ./packages/broot/broot.nix
     ./packages/direnv/direnv.nix
     ./packages/exa/exa.nix
@@ -89,9 +98,13 @@
     ./packages/notify-osd/notify-osd.nix
     ./packages/nushell/nushell.nix
     ./packages/picom/picom.nix
-    # ./packages/qutebrowser/qutebrowser.nix
     ./packages/rofi/rofi.nix
     ./packages/xmonad/xmobar.nix
     ./packages/xmonad/xmonad.nix
+
+    ## Require some fix
+      # Don't use until bug is fixed "https://github.com/NixOS/nixpkgs/issues/157112"
+      # ./packages/betterlockscreen/betterlockscreen.nix
+      # ./packages/qutebrowser/qutebrowser.nix
   ];
 }

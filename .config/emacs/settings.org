@@ -108,6 +108,14 @@ Allow export to html to open in firefox
   :mode "\\.nix\\'")
 #+end_src
 
+** direnv
+#+begin_src emacs-lisp
+(use-package direnv
+  :ensure t
+  :config
+  (direnv-mode))
+#+end_src
+
 ** perspective
 #+begin_src emacs-lisp
 (use-package perspective
@@ -130,6 +138,11 @@ Allow export to html to open in firefox
   (setq exwm-workspace-number 1))
 #+end_src
 
+** load custom path
+#+begin_src emacs-lisp
+(add-to-list 'load-path "~/.config/emacs/lisp/")
+#+end_src
+
 * UI
 ** remove startup screens
 #+begin_src emacs-lisp
@@ -139,11 +152,24 @@ Allow export to html to open in firefox
 #+end_src
 
 ** Bars
+*** General
 Remove all the toolbars & scrollbars
 #+begin_src emacs-lisp
 (menu-bar-mode -1)
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
+#+end_src
+*** org-bars
+Dependency package for org-bars
+#+begin_src emacs-lisp
+(use-package s
+  :ensure t)
+#+end_src
+
+#+begin_src emacs-lisp
+(load "org-bars")
+(require 'org-bars)
+(add-hook 'org-mode-hook #'org-bars-mode)
 #+end_src
 
 ** highlight current line
@@ -238,9 +264,18 @@ Make org files that much better looking with font awesome icon
 #+begin_src emacs-lisp
 (use-package org-superstar
   :ensure t
+  :hook (org-mode . (lambda () (org-superstar-mode 1)))
   :config
   (setq org-superstar-headline-bullets-list (fontawesome "gear"))
-  (add-hook 'org-mode-hook (lambda () (org-superstar-mode 1))))
+  (setq org-superstar-special-todo-items t)
+  (setq org-superstar-todo-bullet-alist
+      '(
+        ("TODO" "")
+        ("NEXT" "✒")
+        ("WAIT" "☕")
+        ("CXLD" "✘")
+        ("DONE" "✔")
+       )))
 #+end_src
 
 ** rainbow delimiters
@@ -257,8 +292,7 @@ Focus mode in org files for centered text & remove all the extras
 #+begin_src emacs-lisp
 (use-package writeroom-mode
   :ensure t
-  :config
-  (add-hook 'org-mode-hook (lambda () (writeroom-mode 1))))
+  :hook org-mode)
 #+end_src
 
 ** collapsed headers on open
@@ -276,4 +310,5 @@ Trying to get rid of the auto indentation when creating source blocks. Don't thi
 (setq org-src-preserve-indentation nil)
 (setq org-src-tab-acts-natively t)
 #+end_src
+
 
