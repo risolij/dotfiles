@@ -117,6 +117,7 @@ Allow export to html to open in firefox
 #+end_src
 
 ** perspective
+
 #+begin_src emacs-lisp
 (use-package perspective
   :ensure t
@@ -151,7 +152,7 @@ Allow export to html to open in firefox
 (setq inhibit-startup-message t)
 #+end_src
 
-** Bars
+** bars
 *** General
 Remove all the toolbars & scrollbars
 #+begin_src emacs-lisp
@@ -169,6 +170,20 @@ Dependency package for org-bars
 #+begin_src emacs-lisp
 (load "org-bars")
 (require 'org-bars)
+(setq org-bars-extra-pixels-height 20)
+(setq org-bars-with-dynamic-stars-p t)
+(setq org-bars-stars '(
+    :empty "*"
+    :invisible "+"
+    :visible "-"))
+
+(defun org-no-ellipsis-in-headlines ()
+  "Remove use of ellipsis in headlines.
+See `buffer-invisibility-spec'."
+  (remove-from-invisibility-spec '(outline . t))
+  (add-to-invisibility-spec 'outline))
+
+(add-hook 'org-mode-hook 'org-no-ellipsis-in-headlines)
 (add-hook 'org-mode-hook #'org-bars-mode)
 #+end_src
 
@@ -262,20 +277,21 @@ Let's not try to create our own theme & just use a good one that exists
 ** pretty bullets
 Make org files that much better looking with font awesome icon
 #+begin_src emacs-lisp
-(use-package org-superstar
-  :ensure t
-  :hook (org-mode . (lambda () (org-superstar-mode 1)))
-  :config
-  (setq org-superstar-headline-bullets-list (fontawesome "gear"))
-  (setq org-superstar-special-todo-items t)
-  (setq org-superstar-todo-bullet-alist
-      '(
-        ("TODO" "")
-        ("NEXT" "✒")
-        ("WAIT" "☕")
-        ("CXLD" "✘")
-        ("DONE" "✔")
-       )))
+;; (use-package org-superstar
+;;   :ensure t
+;;   :hook (org-mode . (lambda () (org-superstar-mode 1)))
+;;   :config
+;;   (setq org-superstar-headline-bullets-list (fontawesome "square-caret-right"))
+;;   ;;(setq org-superstar-headline-bullets-list (fontawesome "gear"))
+;;   (setq org-superstar-special-todo-items t)
+;;   (setq org-superstar-todo-bullet-alist
+;;       '(
+;;         ("TODO" "")
+;;         ("NEXT" "✒")
+;;         ("WAIT" "☕")
+;;         ("CXLD" "✘")
+;;         ("DONE" "✔")
+;;        )))
 #+end_src
 
 ** rainbow delimiters
@@ -301,7 +317,7 @@ Focus mode in org files for centered text & remove all the extras
 #+end_src
 
 ** code blocks
-Trying to get rid of the auto indentation when creating source blocks. Don't think this quite fixes everything.
+trying to get rid of the auto indentation when creating source blocks. Don't think this quite fixes everything.
 #+begin_src emacs-lisp
 (setq org-src-fontify-natively t)
 (setq org-src-window-setup 'current-window)
@@ -311,4 +327,20 @@ Trying to get rid of the auto indentation when creating source blocks. Don't thi
 (setq org-src-tab-acts-natively t)
 #+end_src
 
-
+** flycheck
+*** base
+#+begin_src emacs-lisp
+(use-package flycheck
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook 'flycheck-mode))
+#+end_src
+*** flycheck-grammarly
+#+begin_src emacs-lisp
+(use-package flycheck-grammarly
+  :ensure t
+  :after flycheck
+  :config
+  (setq flycheck-grammarly-check-time 0.8)
+  (add-to-list 'flycheck-checkers 'grammarly))
+#+end_src
