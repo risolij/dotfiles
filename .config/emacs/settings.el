@@ -169,7 +169,7 @@ See `buffer-invisibility-spec'."
   (doom-themes-treemacs-config)
   (doom-themes-org-config))
 
-(set-face-attribute 'default nil :font "Inconsolata-14" )
+(set-face-attribute 'default nil :font "Inconsolata-18" )
 
 (use-package fontawesome
   :ensure t)

@@ -144,6 +144,23 @@ Allow export to html to open in firefox
 (add-to-list 'load-path "~/.config/emacs/lisp/")
 #+end_src
 
+** flycheck
+*** base
+#+begin_src emacs-lisp
+(use-package flycheck
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook 'flycheck-mode))
+#+end_src
+*** flycheck-grammarly
+#+begin_src emacs-lisp
+(use-package flycheck-grammarly
+  :ensure t
+  :after flycheck
+  :config
+  (setq flycheck-grammarly-check-time 0.8)
+  (add-to-list 'flycheck-checkers 'grammarly))
+#+end_src
 * UI
 ** remove startup screens
 #+begin_src emacs-lisp
@@ -265,7 +282,7 @@ Let's not try to create our own theme & just use a good one that exists
 ** font
 *** Inconsolata
 #+begin_src emacs-lisp
-(set-face-attribute 'default nil :font "Inconsolata-14" )
+(set-face-attribute 'default nil :font "Inconsolata-18" )
 #+end_src
 
 *** fontawesome
@@ -327,20 +344,3 @@ trying to get rid of the auto indentation when creating source blocks. Don't thi
 (setq org-src-tab-acts-natively t)
 #+end_src
 
-** flycheck
-*** base
-#+begin_src emacs-lisp
-(use-package flycheck
-  :ensure t
-  :config
-  (add-hook 'org-mode-hook 'flycheck-mode))
-#+end_src
-*** flycheck-grammarly
-#+begin_src emacs-lisp
-(use-package flycheck-grammarly
-  :ensure t
-  :after flycheck
-  :config
-  (setq flycheck-grammarly-check-time 0.8)
-  (add-to-list 'flycheck-checkers 'grammarly))
-#+end_src
