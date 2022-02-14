@@ -83,6 +83,18 @@
 
 (add-to-list 'load-path "~/.config/emacs/lisp/")
 
+(use-package flycheck
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook 'flycheck-mode))
+
+(use-package flycheck-grammarly
+  :ensure t
+  :after flycheck
+  :config
+  (setq flycheck-grammarly-check-time 0.8)
+  (add-to-list 'flycheck-checkers 'grammarly))
+
 (setq inhibit-startup-screen t)
 (setq inhibit-splash-screen t)
 (setq inhibit-startup-message t)
@@ -208,14 +220,6 @@ See `buffer-invisibility-spec'."
 (setq org-src-preserve-indentation nil)
 (setq org-src-tab-acts-natively t)
 
-(use-package flycheck
+(use-package focus
   :ensure t
-  :config
-  (add-hook 'org-mode-hook 'flycheck-mode))
-
-(use-package flycheck-grammarly
-  :ensure t
-  :after flycheck
-  :config
-  (setq flycheck-grammarly-check-time 0.8)
-  (add-to-list 'flycheck-checkers 'grammarly))
+  :hook (org-mode . (lambda () (focus-mode))))

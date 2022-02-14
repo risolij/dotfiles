@@ -344,3 +344,9 @@ trying to get rid of the auto indentation when creating source blocks. Don't thi
 (setq org-src-tab-acts-natively t)
 #+end_src
 
+** focus
+#+begin_src emacs-lisp
+(use-package focus
+  :ensure t
+  :hook (org-mode . (lambda () (focus-mode))))
+#+end_src
