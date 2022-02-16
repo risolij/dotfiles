@@ -103,26 +103,26 @@
 (toggle-scroll-bar -1)
 (tool-bar-mode -1)
 
-(use-package s
-  :ensure t)
+;; (use-package s
+;;   :ensure t)
 
-(load "org-bars")
-(require 'org-bars)
-(setq org-bars-extra-pixels-height 20)
-(setq org-bars-with-dynamic-stars-p t)
-(setq org-bars-stars '(
-    :empty "*"
-    :invisible "+"
-    :visible "-"))
-
-(defun org-no-ellipsis-in-headlines ()
-  "Remove use of ellipsis in headlines.
-See `buffer-invisibility-spec'."
-  (remove-from-invisibility-spec '(outline . t))
-  (add-to-invisibility-spec 'outline))
-
-(add-hook 'org-mode-hook 'org-no-ellipsis-in-headlines)
-(add-hook 'org-mode-hook #'org-bars-mode)
+;; (load "org-bars")
+;; (require 'org-bars)
+;; (setq org-bars-extra-pixels-height 20)
+;; (setq org-bars-with-dynamic-stars-p t)
+;; (setq org-bars-stars '(
+;;     :empty "*"
+;;     :invisible "+"
+;;     :visible "-"))
+;; 
+;; (defun org-no-ellipsis-in-headlines ()
+;;   "Remove use of ellipsis in headlines.
+;; See `buffer-invisibility-spec'."
+;;   (remove-from-invisibility-spec '(outline . t))
+;;   (add-to-invisibility-spec 'outline))
+;; 
+;; (add-hook 'org-mode-hook 'org-no-ellipsis-in-headlines)
+;; (add-hook 'org-mode-hook #'org-bars-mode)
 
 (global-hl-line-mode t)
 (set-face-background 'hl-line "#25262B")
@@ -186,26 +186,29 @@ See `buffer-invisibility-spec'."
 (use-package fontawesome
   :ensure t)
 
-;; (use-package org-superstar
-;;   :ensure t
-;;   :hook (org-mode . (lambda () (org-superstar-mode 1)))
-;;   :config
-;;   (setq org-superstar-headline-bullets-list (fontawesome "square-caret-right"))
-;;   ;;(setq org-superstar-headline-bullets-list (fontawesome "gear"))
-;;   (setq org-superstar-special-todo-items t)
-;;   (setq org-superstar-todo-bullet-alist
-;;       '(
-;;         ("TODO" "")
-;;         ("NEXT" "✒")
-;;         ("WAIT" "☕")
-;;         ("CXLD" "✘")
-;;         ("DONE" "✔")
-;;        )))
+(use-package org-superstar
+  :ensure t
+  :hook (org-mode . (lambda () (org-superstar-mode 1)))
+  :config
+  (setq org-superstar-headline-bullets-list (fontawesome "gear"))
+  (setq org-superstar-special-todo-items t)
+  (setq org-superstar-todo-bullet-alist
+      '(
+        ("TODO" "")
+        ("NEXT" "✒")
+        ("WAIT" "☕")
+        ("CXLD" "✘")
+        ("DONE" "✔")
+       )))
 
 (use-package rainbow-delimiters
   :ensure t
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+
+(use-package rainbow-mode
+  :ensure t
+  :hook (org-mode . rainbow-mode))
 
 (use-package writeroom-mode
   :ensure t
