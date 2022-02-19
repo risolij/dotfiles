@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: header 
+# key: <header
+# --
+
+#+TITLE: ${1:title}
+#+AUTHOR: ${2:author}
+#+EXPORT_FILE_NAME: ~/org/exports/${3:filename}.html
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
