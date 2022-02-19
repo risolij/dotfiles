@@ -1,6 +1,2 @@
-.config/emacs/elpa
-.config/emacs/eshell
-.config/emacs/transient
-.config/emacs/recentf
-.config/emacs/auto-save-list
-.config/emacs/request
+.config/backup.emacs
+.config/emacs
