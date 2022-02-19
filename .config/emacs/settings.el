@@ -11,10 +11,6 @@
   (setq evil-shift-round nil)
   (setq evil-want-C-u-scroll t)
   (setq-default evil-auto-indent nil)
-  (with-eval-after-load 'evil-maps
-    (define-key evil-motion-state-map (kbd ":") 'evil-repeat-find-char)
-    (define-key evil-motion-state-map (kbd "<SPC>") 'evil-ex)
-    (define-key evil-motion-state-map (kbd "f") 'helm-find-files))
   :config
   (evil-mode))
 
@@ -50,8 +46,9 @@
   :init
   (helm-mode 1)
   :config
+  (with-eval-after-load 'helm
+    (define-key helm-map (kbd "TAB") #'helm-maybe-exit-minibuffer))
   (global-set-key (kbd "M-x") 'helm-M-x)
-  ;;(define-key evil-ex-map "e" 'helm-find-files)
   (setq-default helm-M-x-fuzzy-match t)
   (setq helm-split-window-in-side-p t)
   (setq helm-move-to-line-cycle-in-source t))
@@ -59,6 +56,11 @@
 (use-package nix-mode
   :ensure t
   :mode "\\.nix\\'")
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (python . t)))
 
 (use-package direnv
   :ensure t
@@ -74,14 +76,17 @@
   :config
   (persp-mode))
 
-(use-package exwm
-  :ensure t
-  :config
-  (require 'exwm-config)
-  (server-start)
-  (setq exwm-workspace-number 1))
+;; (use-package exwm
+;;   :ensure t
+;;   :config
+;;   (require 'exwm-config)
+;;   (server-start)
+;;   (setq exwm-workspace-number 1))
 
 (add-to-list 'load-path "~/.config/emacs/lisp/")
+
+;; (use-package lsp-mode
+;;   :ensure t)
 
 (use-package flycheck
   :ensure t
@@ -94,6 +99,22 @@
   :config
   (setq flycheck-grammarly-check-time 0.8)
   (add-to-list 'flycheck-checkers 'grammarly))
+
+(use-package flycheck-rust
+  :after flycheck
+  :ensure t)
+
+;; (use-package rust-analyzer
+;;   :ensure t)
+
+(use-package rustic
+  :ensure t
+  :mode ("\\.rs\\'" . rustic-mode)
+  :config
+  (setq rustic-lsp-client nil))
+
+(use-package term
+  :ensure t)
 
 (setq inhibit-startup-screen t)
 (setq inhibit-splash-screen t)
@@ -123,6 +144,8 @@
 ;; 
 ;; (add-hook 'org-mode-hook 'org-no-ellipsis-in-headlines)
 ;; (add-hook 'org-mode-hook #'org-bars-mode)
+
+(setq org-fontify-done-headline t)
 
 (global-hl-line-mode t)
 (set-face-background 'hl-line "#25262B")
@@ -172,9 +195,9 @@
 (use-package doom-themes
   :ensure t
   :config
-  (setq doom-themes-enable-bold t
- doom-themes-enable-italic t)
-  (load-theme 'doom-one t)
+  (setq doom-themes-enable-bold t)
+  (setq doom-themes-enable-italic t)
+  (load-theme 'doom-moonlight t)
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
   (setq doom-themes-treemacs-theme "doom-atom")
@@ -224,5 +247,5 @@
 (setq org-src-tab-acts-natively t)
 
 (use-package focus
-  :ensure t
-  :hook (org-mode . (lambda () (focus-mode))))
+  :ensure t)
+  ;;:hook (org-mode . (lambda () (focus-mode))))

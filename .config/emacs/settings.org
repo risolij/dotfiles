@@ -28,10 +28,6 @@ Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, 
   (setq evil-shift-round nil)
   (setq evil-want-C-u-scroll t)
   (setq-default evil-auto-indent nil)
-  (with-eval-after-load 'evil-maps
-    (define-key evil-motion-state-map (kbd ":") 'evil-repeat-find-char)
-    (define-key evil-motion-state-map (kbd "<SPC>") 'evil-ex)
-    (define-key evil-motion-state-map (kbd "f") 'helm-find-files))
   :config
   (evil-mode))
 #+end_src
@@ -94,8 +90,9 @@ Allow export to html to open in firefox
   :init
   (helm-mode 1)
   :config
+  (with-eval-after-load 'helm
+    (define-key helm-map (kbd "TAB") #'helm-maybe-exit-minibuffer))
   (global-set-key (kbd "M-x") 'helm-M-x)
-  ;;(define-key evil-ex-map "e" 'helm-find-files)
   (setq-default helm-M-x-fuzzy-match t)
   (setq helm-split-window-in-side-p t)
   (setq helm-move-to-line-cycle-in-source t))
@@ -106,6 +103,14 @@ Allow export to html to open in firefox
 (use-package nix-mode
   :ensure t
   :mode "\\.nix\\'")
+#+end_src
+
+** language support
+#+begin_src emacs-lisp
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (python . t)))
 #+end_src
 
 ** direnv
@@ -131,17 +136,23 @@ Allow export to html to open in firefox
 
 ** exwm
 #+begin_src emacs-lisp
-(use-package exwm
-  :ensure t
-  :config
-  (require 'exwm-config)
-  (server-start)
-  (setq exwm-workspace-number 1))
+;; (use-package exwm
+;;   :ensure t
+;;   :config
+;;   (require 'exwm-config)
+;;   (server-start)
+;;   (setq exwm-workspace-number 1))
 #+end_src
 
 ** load custom path
 #+begin_src emacs-lisp
 (add-to-list 'load-path "~/.config/emacs/lisp/")
+#+end_src
+
+** lsp
+#+begin_src emacs-lisp
+;; (use-package lsp-mode
+;;   :ensure t)
 #+end_src
 
 ** flycheck
@@ -161,6 +172,35 @@ Allow export to html to open in firefox
   :config
   (setq flycheck-grammarly-check-time 0.8)
   (add-to-list 'flycheck-checkers 'grammarly))
+#+end_src
+
+*** flycheck-rust
+#+begin_src emacs-lisp
+(use-package flycheck-rust
+  :after flycheck
+  :ensure t)
+#+end_src
+
+** rust
+*** rust-analyzer
+#+begin_src emacs-lisp
+;; (use-package rust-analyzer
+;;   :ensure t)
+#+end_src
+
+*** rustic
+#+begin_src emacs-lisp
+(use-package rustic
+  :ensure t
+  :mode ("\\.rs\\'" . rustic-mode)
+  :config
+  (setq rustic-lsp-client nil))
+#+end_src
+
+** term
+#+begin_src emacs-lisp
+(use-package term
+  :ensure t)
 #+end_src
 
 * UI
@@ -204,6 +244,11 @@ Dependency package for org-bars
 ;; 
 ;; (add-hook 'org-mode-hook 'org-no-ellipsis-in-headlines)
 ;; (add-hook 'org-mode-hook #'org-bars-mode)
+#+end_src
+
+** org strikethrough
+#+begin_src emacs-lisp
+(setq org-fontify-done-headline t)
 #+end_src
 
 ** highlight current line
@@ -271,9 +316,9 @@ Let's not try to create our own theme & just use a good one that exists
 (use-package doom-themes
   :ensure t
   :config
-  (setq doom-themes-enable-bold t
- doom-themes-enable-italic t)
-  (load-theme 'doom-one t)
+  (setq doom-themes-enable-bold t)
+  (setq doom-themes-enable-italic t)
+  (load-theme 'doom-moonlight t)
   (doom-themes-visual-bell-config)
   (doom-themes-neotree-config)
   (setq doom-themes-treemacs-theme "doom-atom")
@@ -355,6 +400,6 @@ trying to get rid of the auto indentation when creating source blocks. Don't thi
 ** focus
 #+begin_src emacs-lisp
 (use-package focus
-  :ensure t
-  :hook (org-mode . (lambda () (focus-mode))))
+  :ensure t)
+  ;;:hook (org-mode . (lambda () (focus-mode))))
 #+end_src
