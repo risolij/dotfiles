@@ -28,6 +28,10 @@
           url = "https://lazamar.co.uk/nix-versions/";
         };
 
+        "pihole dns" = {
+          url = "https://discourse.pi-hole.net/t/how-do-i-configure-my-devices-to-use-pi-hole-as-their-dns-server/245";
+        };
+
       };
     };
   };

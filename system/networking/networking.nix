@@ -11,14 +11,13 @@
     ## nameservers = [ "127.0.0.1" "::1" ];
     ## resolvconf.useLocalResolver = true;
     ## dhcpcd.extraConfig = "nohook resolv.conf";
-    nameservers = [ "1.1.1.1" "8.8.8.8" ];
     interfaces.wlp0s20f3.useDHCP = true;
     wireless = {
       environmentFile = /home/req/keys/wireless.env;
       enable = true;
       interfaces = [ "wlp0s20f3" ];
       networks = {
-        F41B4D = {
+        Impossible = {
           pskRaw = "@PSK_HOME@";
           authProtocols = [ "WPA-PSK" ];
         };
