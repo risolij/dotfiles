@@ -32,6 +32,13 @@
           url = "https://discourse.pi-hole.net/t/how-do-i-configure-my-devices-to-use-pi-hole-as-their-dns-server/245";
         };
 
+        "wolfram" = {
+          url = "https://www.wolframalpha.com/";
+        };
+
+        "books" = {
+          url = "https://brytewave.redshelf.com/";
+        };
       };
     };
   };

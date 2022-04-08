@@ -1,0 +1,35 @@
+# -*- mode: snippet -*-
+# name: pdf
+# key: <pdf
+# --
+
+#+OPTIONS: toc:nil ^:nil title:nil num:nil
+#+ODT_EXTRA_STYLE: <style:style style:family="paragraph"></style:style>
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [a4paper, 12pt]
+#+LATEX_HEADER: \usepackage{setspace}
+#+LATEX_HEADER: \doublespacing
+#+LATEX_HEADER: \usepackage{fancyhdr}
+#+LATEX_HEADER: \pagestyle{fancy}
+#+LATEX_HEADER: \fancyhf{}
+#+LATEX_HEADER: \renewcommand{\headrulewidth}{0pt}
+#+LATEX_HEADER: \rhead{\thepage}%
+#+LATEX_HEADER: \usepackage{indentfirst}
+#+LATEX_HEADER: \hypersetup{colorlinks=true, linkcolor=red}
+#+LATEX_HEADER: \usepackage{times}
+#+LATEX_HEADER: \usepackage[margin=1in]{geometry}
+#+bibliography: local.bib
+
+#+begin_src latex
+\begin{titlepage}
+\begin{center}
+\textbf{$0}
+\\Jim Risoli
+\\Department of Technology, Rio Salado College
+\\ITS120: Legal, Ethical and Regulatory Issues
+\\Class Number: 16594
+\\Dr. Sang Nguyen
+\\March 12, 2022
+\end{center}
+\end{titlepage}
+#+end_src

@@ -74,6 +74,7 @@
     font-awesome
     inconsolata
     papirus-icon-theme
+    libreoffice
 
     ## Audio Tools
     pavucontrol
@@ -99,6 +100,7 @@
     ./packages/nushell/nushell.nix
     ./packages/picom/picom.nix
     ./packages/rofi/rofi.nix
+    ## ./packages/texlive/texlive.nix
     ./packages/xmonad/xmobar.nix
     ./packages/xmonad/xmonad.nix
 

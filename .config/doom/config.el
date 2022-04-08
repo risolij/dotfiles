@@ -74,3 +74,11 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+
+ (setq org-file-apps
+       '((auto-mode . emacs)
+         ("\\(?:xhtml\\|html\\)\\'" . "firefox %s")))
+
+(setq org-odt-preferred-output-format "docx")
+(setq TeX-engine 'lualatex)

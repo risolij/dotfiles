@@ -12,14 +12,14 @@
       };
     };
     
-    windowManager.exwm = {
-      enable = false;
-      loadScript = ''
-        (require 'exwm)
-        (exwm-enable)
-      '';
-      enableDefaultConfig = true;
-    };
+    ## windowManager.exwm = {
+    ##   enable = false;
+    ##   loadScript = ''
+    ##     (require 'exwm)
+    ##     (exwm-enable)
+    ##   '';
+    ##   enableDefaultConfig = true;
+    ## };
 
     windowManager.xmonad = {
       enable = true;
