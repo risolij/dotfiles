@@ -100,7 +100,7 @@
     ./packages/nushell/nushell.nix
     ./packages/picom/picom.nix
     ./packages/rofi/rofi.nix
-    ## ./packages/texlive/texlive.nix
+    ./packages/texlive/texlive.nix
     ./packages/xmonad/xmobar.nix
     ./packages/xmonad/xmonad.nix
 

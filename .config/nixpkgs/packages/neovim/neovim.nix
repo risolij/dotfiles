@@ -50,5 +50,8 @@
   xdg.configFile."nvim/coc-settings.json".text = builtins.toJSON {
     "rust-analyzer.server.path" = "${pkgs.rust-analyzer}/bin/rust-analyzer";
     "rust-analyzer.inlayHints.enable" = true;
+    "rust-analyzer.inlayHints.typeHints" = true;
+    "rust-analyzer.procMacro.enable" = true;
+    "rust-analyzer.cargo.loadOutDirsFromCheck" = true;
   };
 }

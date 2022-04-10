@@ -2,7 +2,6 @@
 # name: pdf
 # key: <pdf
 # --
-
 #+OPTIONS: toc:nil ^:nil title:nil num:nil
 #+ODT_EXTRA_STYLE: <style:style style:family="paragraph"></style:style>
 #+LATEX_CLASS: article
@@ -23,13 +22,13 @@
 #+begin_src latex
 \begin{titlepage}
 \begin{center}
-\textbf{$0}
-\\Jim Risoli
-\\Department of Technology, Rio Salado College
-\\ITS120: Legal, Ethical and Regulatory Issues
-\\Class Number: 16594
-\\Dr. Sang Nguyen
-\\March 12, 2022
+\textbf{ ${1:title} }
+\\\ ${2:author}
+\\\ ${3:Department}, ${4:CollegeName}
+\\\ ${5:CourseNumber}: ${6:CourseTitle}
+\\\ Class Number: ${7:ClassNumber}
+\\\ ${8:teacher}
+\\\ ${9:date}
 \end{center}
 \end{titlepage}
 #+end_src
