@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: fcomponent
+# key: <fc
+# --
+
+#[function_component(${1: component})]
+pub fn $1() -> Html {
+    html! {
+
+    }
+}

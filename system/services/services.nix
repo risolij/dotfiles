@@ -12,7 +12,7 @@
     ];
 
   services.openssh.enable = true;
-  ## services.thermald.enable = true;
+  services.thermald.enable = true;
   services.upower.enable = true;
   services.trezord.enable = true;
 

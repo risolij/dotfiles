@@ -79,6 +79,9 @@
     ## Audio Tools
     pavucontrol
     pulsemixer
+
+    ## browser
+    google-chrome
   ];
 
 
