@@ -74,14 +74,10 @@
     font-awesome
     inconsolata
     papirus-icon-theme
-    libreoffice
 
     ## Audio Tools
     pavucontrol
     pulsemixer
-
-    ## browser
-    google-chrome
   ];
 
 
@@ -106,10 +102,10 @@
     ./packages/texlive/texlive.nix
     ./packages/xmonad/xmobar.nix
     ./packages/xmonad/xmonad.nix
+    ./packages/betterlockscreen/betterlockscreen.nix
 
     ## Require some fix
       # Don't use until bug is fixed "https://github.com/NixOS/nixpkgs/issues/157112"
-      # ./packages/betterlockscreen/betterlockscreen.nix
       # ./packages/qutebrowser/qutebrowser.nix
   ];
 }

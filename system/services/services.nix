@@ -14,7 +14,6 @@
   services.openssh.enable = true;
   services.thermald.enable = true;
   services.upower.enable = true;
-  services.trezord.enable = true;
 
   ## Extras 
   ##########################################
@@ -25,4 +24,6 @@
   ## ./postgres.nix
   ## ./fprintd.nix
   ## ./tlp.nix
+  ## services.trezord.enable = true;
+
 }

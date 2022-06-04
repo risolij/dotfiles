@@ -8,9 +8,7 @@
   networking = {
     hostName = "nixos";
     useDHCP = false;
-    ## nameservers = [ "127.0.0.1" "::1" ];
-    ## resolvconf.useLocalResolver = true;
-    ## dhcpcd.extraConfig = "nohook resolv.conf";
+    nameservers = [ "127.0.0.1" "::1" ];
     interfaces.wlp0s20f3.useDHCP = true;
     wireless = {
       environmentFile = /home/req/keys/wireless.env;
@@ -25,7 +23,8 @@
     };
   };
 }
-    ## nameservers = [ "1.1.1.1" "8.8.8.8" ];
+    ## resolvconf.useLocalResolver = true;
+    ## dhcpcd.extraConfig = "nohook resolv.conf";
     ## extraHosts = ''
     ##   @CONTROL@ control
     ##   @NODE01@ node01
