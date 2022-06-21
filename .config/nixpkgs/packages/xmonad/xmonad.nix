@@ -17,13 +17,6 @@ in
       config = ./config.hs;
     };
 
-    ## Set xcursor 
-    pointerCursor = {
-      package = pkgs.vanilla-dmz;
-      name = "Vanilla-DMZ";
-      size = 32;
-      defaultCursor = "left_ptr";
-    };
     initExtra = ''
       ${pkgs.xorg.xsetroot}/bin/xsetroot -xcf ${cfg.package}/share/icons/${cfg.name}/cursors/${cfg.defaultCursor} ${
         toString cfg.size

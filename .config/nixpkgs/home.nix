@@ -8,13 +8,71 @@
   ## Enable manual manpages
   manual.manpages.enable = true;
 
+  home = {
+    stateVersion = "21.05";
+    username = "req";
+    homeDirectory = "/home/req";
+    sessionVariables = {
+      EDITOR = "nvim";
+      TERMINAL = "alacritty";
+      BROWSER = "firefox";
+      ANSIBLE_CONFIG = "/home/req/dev/ansible/ansible.cfg";
+    };
+    pointerCursor = {
+      x11 = {
+        enable = true;
+        defaultCursor = "left_ptr";
+      };
 
-  ## Session Variables
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    TERMINAL = "alacritty";
-    BROWSER = "firefox";
-    ANSIBLE_CONFIG = "/home/req/dev/ansible/ansible.cfg";
+      package = pkgs.vanilla-dmz;
+      name = "Vanilla-DMZ";
+      size = 32;
+    };
+    packages = with pkgs; [
+      ## Common Tools
+      brightnessctl
+      file
+      unzip
+      weechat
+
+      ## Hardware Tools
+      acpi
+      dmidecode
+      inxi
+      parted
+      pciutils
+      usbutils
+
+      ## Notification Tools
+      dzen2
+      libnotify
+
+      ## Networking Tools
+      dig
+      lsof
+      nmap
+      tcpdump
+
+      ## Development Tools
+      emacs
+      ghc
+      nodejs
+
+      ## Image Tools
+      feh
+      imagemagick
+      scrot
+
+      ## Fonts && Themes
+      emacs-all-the-icons-fonts
+      font-awesome
+      inconsolata
+      papirus-icon-theme
+
+      ## Audio Tools
+      pavucontrol
+      pulsemixer
+    ];
   };
 
 
@@ -27,58 +85,6 @@
       };
     };
   };
-
-
-  ## Packages without custom configuration
-  home.packages = with pkgs; [
-    ## Common Tools
-    brightnessctl
-    file
-    jq
-    killall
-    unzip
-    weechat
-    zip
-
-    ## Hardware Tools
-    acpi
-    dmidecode
-    inxi
-    parted
-    pciutils
-    usbutils
-
-    ## Notification Tools
-    dzen2
-    libnotify
-
-    ## Networking Tools
-    dig
-    lsof
-    nmap
-    tcpdump
-
-    ## Development Tools
-    emacs
-    ghc
-    nodejs
-    python3
-
-    ## Image Tools
-    feh
-    imagemagick
-    scrot
-
-    ## Fonts && Themes
-    emacs-all-the-icons-fonts
-    font-awesome
-    inconsolata
-    papirus-icon-theme
-
-    ## Audio Tools
-    pavucontrol
-    pulsemixer
-  ];
 
 
   ## Custom Configuration Packages
@@ -96,16 +102,12 @@
     ./packages/ncmpcpp/ncmpcpp.nix
     ./packages/neovim/neovim.nix
     ./packages/notify-osd/notify-osd.nix
-    ./packages/nushell/nushell.nix
     ./packages/picom/picom.nix
+    ./packages/qutebrowser/qutebrowser.nix
     ./packages/rofi/rofi.nix
     ./packages/texlive/texlive.nix
     ./packages/xmonad/xmobar.nix
     ./packages/xmonad/xmonad.nix
     ./packages/betterlockscreen/betterlockscreen.nix
-
-    ## Require some fix
-      # Don't use until bug is fixed "https://github.com/NixOS/nixpkgs/issues/157112"
-      # ./packages/qutebrowser/qutebrowser.nix
   ];
 }

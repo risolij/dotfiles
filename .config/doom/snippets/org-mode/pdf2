@@ -1,35 +1,35 @@
 # -*- mode: snippet -*-
-# name: pdf
-# key: <pdf
+# name: pdf2
+# key: <pdf2
 # --
-#+OPTIONS: toc:nil ^:nil title:nil num:nil
+
+#+OPTIONS: toc:nil ^:nil title:nil
 #+ODT_EXTRA_STYLE: <style:style style:family="paragraph"></style:style>
 #+LATEX_CLASS: article
 #+LATEX_CLASS_OPTIONS: [a4paper, 12pt]
 #+LATEX_HEADER: \usepackage{setspace}
-#+LATEX_HEADER: \doublespacing
 #+LATEX_HEADER: \usepackage{fancyhdr}
 #+LATEX_HEADER: \pagestyle{fancy}
 #+LATEX_HEADER: \fancyhf{}
 #+LATEX_HEADER: \renewcommand{\headrulewidth}{0pt}
 #+LATEX_HEADER: \rhead{\thepage}%
-#+LATEX_HEADER: \usepackage{indentfirst}
-#+LATEX_HEADER: \hypersetup{colorlinks=true, linkcolor=red}
-#+LATEX_HEADER: \usepackage{times}
+#+LATEX_HEADER: \hypersetup{colorlinks=true, linkcolor=blue}
 #+LATEX_HEADER: \usepackage[margin=1in]{geometry}
 #+bibliography: local.bib
 
 #+begin_src latex
 \begin{titlepage}
-\begin{center}
-\textbf{ ${1:title} }
-\\\ ${2:author}
-\\\ ${3:Department}, ${4:CollegeName}
-\\\ ${5:CourseNumber}: ${6:CourseTitle}
-\\\ Class Number: ${7:ClassNumber}
-\\\ ${8:teacher}
-\\\ ${9:date}
-\end{center}
+  \vspace*{\fill}
+    \begin{center}
+      \textbf{ \huge ${1:title} }
+      \\\ \small ${2:author}
+      \\\ \small ${3:Department}, ${4:CollegeName}
+      \\\ \small ${5:CourseNumber}: ${6:CourseTitle}
+      \\\ \small Class Number: ${7:ClassNumber}
+      \\\ \small ${8:teacher}
+      \\\ \small ${9:date}
+    \end{center}
+  \vspace*{\fill}
 \end{titlepage}
 #+end_src
 
