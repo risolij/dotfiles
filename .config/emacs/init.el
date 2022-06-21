@@ -1,57 +1,31 @@
-;;; init.el -*- lexical-binding: t; -*-
-;;
-;; Author:  Henrik Lissner <contact@henrik.io>
-;; URL:     https://github.com/hlissner/doom-emacs
-;;
-;;   =================     ===============     ===============   ========  ========
-;;   \\ . . . . . . .\\   //. . . . . . .\\   //. . . . . . .\\  \\. . .\\// . . //
-;;   ||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\/ . . .||
-;;   || . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||
-;;   ||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||
-;;   || . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . ||
-;;   ||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\_ . .|. .||
-;;   || . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ `-_/| . ||
-;;   ||_-' ||  .|/    || ||    \|.  || `-_|| ||_-' ||  .|/    || ||   | \  / |-_.||
-;;   ||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \  / |  `||
-;;   ||    `'         || ||         `'    || ||    `'         || ||   | \  / |   ||
-;;   ||            .===' `===.         .==='.`===.         .===' /==. |  \/  |   ||
-;;   ||         .=='   \_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \/  |   ||
-;;   ||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \/  |   ||
-;;   ||   .=='    _-'          '-__\._-'         '-_./__-'         `' |. /|  |   ||
-;;   ||.=='    _-'                                                     `' |  /==.||
-;;   =='    _-'                                                            \/   `==
-;;   \   _-'                                                                `-_   /
-;;    `''                                                                      ``'
-;;
-;; These demons are not part of GNU Emacs.
-;;
-;;; License: MIT
+(setq gc-cons-threshold most-positive-fixnum)
 
-;; In the strange case that early-init.el wasn't loaded (e.g. you're using
-;; Chemacs 1? Or you're loading this file directly?), we do it explicitly:
-(unless (boundp 'doom-version)
-  (load (concat (file-name-directory load-file-name) "early-init")
-        nil t))
+(require 'package)
+(add-to-list 'package-archives '("gnu"   . "https://elpa.gnu.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
 
-;; Ensure Doom's core libraries are properly initialized, autoloads file is
-;; loaded, and hooks set up for an interactive session.
-(doom-initialize)
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
 
-;; Now we load all enabled modules in the order dictated by your `doom!' block
-;; in $DOOMDIR/init.el. `doom-initialize-modules' loads them (and hooks) in the
-;; given order:
-;;
-;;   $DOOMDIR/init.el
-;;   {$DOOMDIR,~/.emacs.d}/modules/*/*/init.el
-;;   `doom-before-init-modules-hook'
-;;   {$DOOMDIR,~/.emacs.d}/modules/*/*/config.el
-;;   `doom-init-modules-hook'
-;;   $DOOMDIR/config.el
-;;   `doom-after-init-modules-hook'
-;;   `after-init-hook'
-;;   `emacs-startup-hook'
-;;   `doom-init-ui-hook'
-;;   `window-setup-hook'
-;;
-;; And then we're good to go!
-(doom-initialize-modules)
+(require 'use-package)
+(require 'org)
+(org-babel-load-file
+  (expand-file-name "settings.org"
+                    user-emacs-directory))
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(helm-minibuffer-history-key "M-p")
+ '(package-selected-packages '(ox-ipynb org-bars direnv doom-themes use-package)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
