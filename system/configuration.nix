@@ -12,6 +12,7 @@
 
   hardware = {
     cpu.intel.updateMicrocode = true;
+
     opengl = {
       enable = true;
       driSupport = true;
@@ -22,12 +23,14 @@
         libvdpau-va-gl
       ];
     };
+
     pulseaudio = {
       enable = true;
       support32Bit = true;
       package = pkgs.pulseaudioFull;
     };
-    ledger.enable = true;
+
+    ## ledger.enable = true;
   };
 
   security.pam.services.sshd.showMotd = true;
@@ -42,9 +45,7 @@
       '';
   };
 
-  environment.systemPackages = with pkgs; [
-    libGL
-  ];
+  environment.systemPackages = with pkgs; [];
 
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
