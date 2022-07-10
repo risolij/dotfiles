@@ -104,9 +104,9 @@ in
           url.warn.fg = "${yellow}";
         };
 
-        ## webpage = {
-        ##   ## darkmode.enabled = true;
-        ## };
+        webpage = {
+          darkmode.enabled = true;
+        };
 
         downloads = {
           bar.bg = "${background}";

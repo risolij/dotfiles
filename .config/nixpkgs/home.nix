@@ -35,6 +35,8 @@
       unzip
       weechat
 
+      google-chrome
+
       ## Hardware Tools
       acpi
       dmidecode
@@ -42,6 +44,7 @@
       parted
       pciutils
       usbutils
+      lm_sensors
 
       ## Notification Tools
       dzen2
@@ -57,6 +60,11 @@
       emacs
       ghc
       nodejs
+
+      ## Plantuml
+      jdk11
+      graphviz
+      plantuml
 
       ## Image Tools
       feh

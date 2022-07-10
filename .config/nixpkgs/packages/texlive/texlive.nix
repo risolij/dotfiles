@@ -10,6 +10,7 @@
         capt-of
         paralist
         ## apacite
+        xurl
         hyperref
         biblatex
         scheme-medium;

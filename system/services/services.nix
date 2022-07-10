@@ -7,8 +7,8 @@
       ./actkbd.nix
       ./clamav.nix
       ./cron.nix
-      ## ./dnscrypt-proxy2.nix
       ./fail2ban.nix
+      ./journald.nix
     ];
 
   services.openssh.enable = true;
@@ -24,6 +24,6 @@
   ## ./postgres.nix
   ## ./fprintd.nix
   ## ./tlp.nix
+  ## ./dnscrypt-proxy2.nix
   ## services.trezord.enable = true;
-
 }
