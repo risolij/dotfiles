@@ -61,15 +61,15 @@
       ghc
       nodejs
 
-      ## Plantuml
-      jdk11
-      graphviz
-      plantuml
+      ## jdk11
+      ## graphviz
+      ## plantuml
 
       ## Image Tools
       feh
       imagemagick
       scrot
+      cava
 
       ## Fonts && Themes
       emacs-all-the-icons-fonts

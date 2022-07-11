@@ -31,20 +31,17 @@ in
     battery_line=$(acpi -bat | head -n1 | awk '{print $3,$4}' | tr -d ',' | tr '[:upper:]' '[:lower:]')
     status=$(echo "$battery_line" | awk '{print $1}')
     percentage=$(echo "$battery_line" | awk '{print $2}' | tr -d '%')
-    charging=" "
+    charging="<fc=#AAC0F0> </fc>"
 
     determine_charge() {
-      local empty=
-      local low=
-      local quarter=
-      local half=
-      local three_quart=
-      local full=
+      local empty="<fc=#FF7F7F></fc>"
+      local quarter="<fc=#FF7F7F></fc>"
+      local half="<fc=#FFF9A6></fc>"
+      local three_quart="<fc=#90ee90></fc>"
+      local full="<fc=#90ee90></fc>"
 
       if [ "$1" -le 5 ]; then
           echo "$empty"
-      elif [ "$1" -lt 25 ]; then
-          echo "$low"
       elif [ "$1" -lt 50 ]; then
           echo "$quarter"
       elif [ "$1" -lt 75 ]; then
@@ -62,6 +59,7 @@ in
         determine_charge "$percentage"
     fi
   '';
+
   home.file."${config.xdg.configHome}/xmobar/home.sh".source = writeBashScript "home.sh" ''
     #!/run/current-system/sw/bin/bash
     
@@ -69,12 +67,31 @@ in
     echo " $percentage"
   '';
 
+  home.file."${config.xdg.configHome}/xmobar/wifi.sh".source = writeBashScript "wifi.sh" ''
+    #!/run/current-system/sw/bin/bash
+    connected=""
+    down="";
+
+    is_connected() {
+        local connection_line=$(ifconfig wlp0s20f3 | head -n2)
+        local status=$(echo "$connection_line" | head -n1 | awk -F',' '{print $3}' | tr '[:upper:]' '[:lower:]')
+        local ip_address=$(echo "$connection_line" | tail -n1 | awk '{print $2}')
+    
+        case "$status" in
+            "running") echo "<fc=#90ee90>$connected</fc>"; ;;
+            *)         echo "$down"; ;;
+        esac
+    }
+
+    is_connected
+  '';
+
     
     programs.xmobar = {
       enable = true;
       extraConfig = ''
         Config
-          { font        = "xft:SFNS Display:size=10,FontAwesome:size=10"
+          { font        = "xft:SFNS Display:size=10,FontAwesome:size=14"
           , additionalFonts =
              [ "xft:FontAwesome 6 Free Solid:pixelsize=14"
              , "xft:FontAwesome 6 Free Solid"
@@ -86,20 +103,19 @@ in
           , borderWidth = 3
           , bgColor     = "#222"
           , fgColor     = "grey"
-          , position    = TopSize C 100 50
+          , position    = TopSize C 100 50 
           , commands    =
-              [ Run Com "${config.xdg.configHome}/xmobar/cpu_temp.sh" [] "cpu" 10
-              , Run Com "${config.xdg.configHome}/xmobar/home.sh" [] "home" 300
-              , Run Date "%a, %d %b  <fn=1></fn>  %H:%M:%S" "date" 10
+              [ Run Date "%a, %d %b  <fn=1></fn>  %H:%M:%S" "date" 10
+              , Run Com "${config.xdg.configHome}/xmobar/cpu_temp.sh" [] "cpu" 10
               , Run Memory ["-t"," <fc=#ff79c6><usedbar> <usedratio>%</fc>"] 10
-
-              , Run Network "wlp0s20f3" ["-S", "True", "-t", "wlp0s20f3: <fc=#ff79c6><rx></fc>/<fc=#ff79c6><tx></fc>"] 10
+              , Run Com "${config.xdg.configHome}/xmobar/home.sh" [] "home" 300
+              , Run Com "${config.xdg.configHome}/xmobar/wifi.sh" [] "network" 10
               , Run Com "${config.xdg.configHome}/xmobar/battery.sh" [] "battery" 10
               , Run StdinReader
               ]
           , sepChar     = "%"
           , alignSep    = "}{"
-          , template    = " %StdinReader% } %date% { %wlp0s20f3%    %cpu%    %memory%    %home%    %battery%    "
+          , template    = " %StdinReader% } %date% {    %cpu%    %memory%    %home%    %network%    %battery%    "
           }
       '';
     };

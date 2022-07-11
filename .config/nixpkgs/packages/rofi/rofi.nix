@@ -16,7 +16,7 @@ in
 
     theme="full_circle"
     dir="$HOME/.config/rofi/powermenu"
-    color="mask.rasi"
+    color="nightly.rasi"
     theme="full_square.rasi"
     
     sed -i -e "s/@import .*/@import \"$color\"/g" $dir/styles/colors.rasi
@@ -84,7 +84,7 @@ in
     #!/run/current-system/sw/bin/bash
     
     dir="$HOME/.config/rofi/powermenu"
-    color="mask.rasi"
+    color="nightly.rasi"
     theme="card_square.rasi"
     
     sed -i -e "s/@import .*/@import \"$color\"/g" $dir/styles/colors.rasi

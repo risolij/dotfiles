@@ -58,7 +58,7 @@ myModMask       = mod4Mask
 --
 -- myWorkspaces    = ["web", "irc", "code", "extra"] 
 -- myWorkspaces    = [0..9] 
-myWorkspaces    = ["term","fire","code","extr","5","6","7","8","9"]
+myWorkspaces    = [" \xf120 ", " \xf0ac ", " \xf126 ", " \xf188 "]
 -- Border colors for unfocused and focused windows, respectively.
 --
 myNormalBorderColor  = "#333333"
@@ -73,7 +73,6 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
-    -- , ((modm,               xK_d     ), spawn "rofi -combi-modi window,drun,ssh -theme android_notification -show-icons -show combi")
     , ((modm,               xK_d     ), spawn "rofi -combi-modi window,drun,ssh,filebrowser -show-icons -show drun")
 
     -- powermenu
@@ -269,7 +268,7 @@ main = do
   xmonad $ docks defaults {
         logHook = dynamicLogWithPP $ xmobarPP {
             ppOutput = hPutStrLn xmproc
-          , ppTitle = xmobarColor xmobarTitleColor "" . shorten 100
+          , ppTitle = xmobarColor xmobarTitleColor "" . shorten 10
           , ppCurrent = xmobarColor xmobarCurrentWorkspaceColor ""
       }
   }
