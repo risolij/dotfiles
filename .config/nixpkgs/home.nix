@@ -28,14 +28,12 @@
       name = "Vanilla-DMZ";
       size = 32;
     };
+
     packages = with pkgs; [
       ## Common Tools
       brightnessctl
       file
       unzip
-      weechat
-
-      google-chrome
 
       ## Hardware Tools
       acpi
@@ -59,11 +57,6 @@
       ## Development Tools
       emacs
       ghc
-      nodejs
-
-      ## jdk11
-      ## graphviz
-      ## plantuml
 
       ## Image Tools
       feh
@@ -75,11 +68,24 @@
       emacs-all-the-icons-fonts
       font-awesome
       inconsolata
-      papirus-icon-theme
+      arc-icon-theme
 
       ## Audio Tools
       pavucontrol
       pulsemixer
+
+      ############### node
+      ## nodejs
+
+      ############### java
+      ## jdk11
+      ## graphviz
+      ## plantuml
+
+      ############### extras
+      ## google-chrome
+      ## weechat
+      ## papirus-icon-theme
     ];
   };
 

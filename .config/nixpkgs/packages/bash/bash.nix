@@ -44,6 +44,7 @@ in
       battery = "echo Battery: $(acpi -bat | awk -F', ' '/%/ {print $2}')";
       clog = ''sudo echo "scale=2; $(cat /tmp/scan.log | wc -l) / $(find /home/req | wc -l) * 100" | bc -l | xargs -I {} echo "Percent Scanned: {}%"'';
       screenshot = ''scrot --select --line width=2,color=Gold,style=dash --freeze'';
+      nix-upgrade = ''nix-channel --update && sudo nix-channel --update && sudo nixos-rebuild switch --upgrade'';
     };
 
   };

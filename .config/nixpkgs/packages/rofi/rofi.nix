@@ -116,7 +116,7 @@ in
     extraConfig = {
       modi = "drun,ssh,filebrowser";
       show-icons = true;
-      icon-theme = "Papirus";
+      icon-theme = "Arc";
     };
 
     theme = 
