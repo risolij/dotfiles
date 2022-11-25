@@ -14,16 +14,17 @@
   services.openssh.enable = true;
   services.thermald.enable = true;
   services.upower.enable = true;
+  services.auto-cpufreq.enable = true;
+  services.tlp.enable = true;
 
   ## Extras 
-  ##########################################
+  ########################################## # 
   ## ./hydra.nix
   ## ./prometheus.nix
   ## ./node-exporter.nix
   ## ./grafana.nix
   ## ./postgres.nix
   ## ./fprintd.nix
-  ## ./tlp.nix
   ## ./dnscrypt-proxy2.nix
   ## services.trezord.enable = true;
 }

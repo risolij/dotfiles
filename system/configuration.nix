@@ -54,7 +54,6 @@
   };
 
   time.timeZone = "America/Phoenix";
-  programs.dconf.enable = true;
   nixpkgs.config.allowUnfree = true;
 
   system.autoUpgrade = {
@@ -77,7 +76,7 @@
     groups.plugsdev = {};
     users.req = {
       isNormalUser = true;
-      extraGroups = [ "audio" "wheel" "plugdev"]; 
+      extraGroups = [ "audio" "wheel" "plugdev"]; ## docker if needed
     };
   };
 

@@ -15,16 +15,13 @@
       interfaces = [ "wlp0s20f3" ];
       networks = {
         Impossible = {
+          hidden = true;
           pskRaw = "@PSK_HOME@";
           authProtocols = [ "WPA-PSK" ];
         };
       };
     };
+    #### enable postgres port
+    ## firewall.allowedTCPPorts = [ 5432 ];
   };
 }
-    ## resolvconf.useLocalResolver = true;
-    ## dhcpcd.extraConfig = "nohook resolv.conf";
-    ## extraHosts = ''
-    ##   @CONTROL@ control
-    ##   @NODE01@ node01
-    ##   @NODE02@ node02'';

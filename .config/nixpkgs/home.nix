@@ -6,7 +6,8 @@
 
 
   ## Enable manual manpages
-  manual.manpages.enable = true;
+  ## Disable until bugfix --> https://github.com/NixOS/nixpkgs/issues/196651
+  manual.manpages.enable = false;
 
   home = {
     stateVersion = "21.05";
@@ -34,6 +35,7 @@
       brightnessctl
       file
       unzip
+      appimage-run
 
       ## Hardware Tools
       acpi
@@ -53,10 +55,12 @@
       lsof
       nmap
       tcpdump
+      ## insomnia
+      ## postman
 
       ## Development Tools
       emacs
-      ghc
+      ## ghc
 
       ## Image Tools
       feh
@@ -75,7 +79,8 @@
       pulsemixer
 
       ############### node
-      ## nodejs
+      nodejs
+      dconf
 
       ############### java
       ## jdk11
@@ -84,6 +89,7 @@
 
       ############### extras
       ## google-chrome
+      ## libreoffice
       ## weechat
       ## papirus-icon-theme
     ];
@@ -123,5 +129,6 @@
     ./packages/xmonad/xmobar.nix
     ./packages/xmonad/xmonad.nix
     ./packages/betterlockscreen/betterlockscreen.nix
+    ## ./packages/herbstluftwm/herbstluftwm.nix
   ];
 }

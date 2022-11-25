@@ -28,7 +28,7 @@ in
 
   home.file."${config.xdg.configHome}/xmobar/battery.sh".source = writeBashScript "battery.sh" ''
     #!/run/current-system/sw/bin/bash
-    battery_line=$(acpi -bat | head -n1 | awk '{print $3,$4}' | tr -d ',' | tr '[:upper:]' '[:lower:]')
+    battery_line=$(acpi -bat | head -n2 | tail -n1 | awk '{print $3,$4}' | tr -d ',' | tr '[:upper:]' '[:lower:]')
     status=$(echo "$battery_line" | awk '{print $1}')
     percentage=$(echo "$battery_line" | awk '{print $2}' | tr -d '%')
     charging="<fc=#AAC0F0> </fc>"

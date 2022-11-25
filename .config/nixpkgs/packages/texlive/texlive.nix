@@ -6,14 +6,22 @@
     extraPackages = tpkgs: {
       inherit (tpkgs)
         ## apa7
-        wrapfig
-        capt-of
-        paralist
         ## apacite
-        xurl
-        hyperref
         biblatex
-        scheme-medium;
+        capt-of
+        enumitem
+        environ
+        hyperref
+        ifmtarg
+        paralist
+        scheme-medium
+        sourcesanspro
+        tcolorbox
+        wrapfig
+        xifthen
+        heuristica
+        fourier
+        xurl;
     };
   };
 }
