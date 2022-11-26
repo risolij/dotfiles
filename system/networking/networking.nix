@@ -21,7 +21,4 @@
         };
       };
     };
-    #### enable postgres port
-    ## firewall.allowedTCPPorts = [ 5432 ];
-  };
 }
