@@ -39,9 +39,9 @@ in
     '';
 
     shellAliases = {
-      cat = "bat";
+      cat = "bat --style=plain";
       info = "info --vi-keys";
-      battery = "echo Battery: $(acpi -bat | awk -F', ' '/%/ {print $2}')";
+      battery = "acpi -bat | grep 'Battery 1' | awk '{print $4}' | tr -d ','";
       clog = ''sudo echo "scale=2; $(cat /tmp/scan.log | wc -l) / $(find /home/req | wc -l) * 100" | bc -l | xargs -I {} echo "Percent Scanned: {}%"'';
       screenshot = ''scrot --select --line width=2,color=Gold,style=dash --freeze'';
       nix-upgrade = ''nix-channel --update && sudo nix-channel --update && sudo nixos-rebuild switch --upgrade'';

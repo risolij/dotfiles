@@ -9,13 +9,12 @@
       ./cron.nix
       ./fail2ban.nix
       ./journald.nix
+      ./thermald.nix
     ];
 
   services.openssh.enable = true;
-  services.thermald.enable = true;
   services.upower.enable = true;
   services.auto-cpufreq.enable = true;
-  services.tlp.enable = true;
 
   ## Extras 
   ########################################## # 

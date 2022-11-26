@@ -34,5 +34,4 @@
 
 
   nix.settings.max-jobs = lib.mkDefault 8;
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 }

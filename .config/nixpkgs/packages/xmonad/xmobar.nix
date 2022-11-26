@@ -99,7 +99,7 @@ in
              , "xft:FontAwesome 6 Free Solid:pixelsize=16"
              ]
           , borderColor = "#222"
-          , border      = FullB
+          , border      = NoBorder
           , borderWidth = 3
           , bgColor     = "#222"
           , fgColor     = "grey"
