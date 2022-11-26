@@ -3,13 +3,13 @@
 {
   imports =
     [ 
-      ./xserver.nix
       ./actkbd.nix
       ./clamav.nix
       ./cron.nix
       ./fail2ban.nix
       ./journald.nix
       ./thermald.nix
+      ./xserver.nix
     ];
 
   services.openssh.enable = true;

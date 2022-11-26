@@ -8,6 +8,13 @@
   networking = {
     hostName = "nixos";
     useDHCP = false;
+    dhcpcd = {
+      extraConfig = ''
+      noarp
+      nodelay
+      noipv6
+      '';
+    };
     interfaces.wlp0s20f3.useDHCP = true;
     wireless = {
       environmentFile = /home/req/keys/wireless.env;
