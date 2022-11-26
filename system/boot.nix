@@ -1,6 +1,12 @@
 { config, lib, pkgs, ... }:
 {
   boot = {
+    initrd = {
+      kernelModules = [ ];
+      availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
+    };
+    extraModulePackages = [ ];
+    kernelModules = [ "acpi_call" "kvm-intel" ];
     kernelParams = [
       "intel_iommu=off" 
       "fastboot=1"

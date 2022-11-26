@@ -30,6 +30,8 @@
       package = pkgs.pulseaudioFull;
     };
 
+    sensor.iio.enable = true;
+
     ## ledger.enable = true;
   };
 

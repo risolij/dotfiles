@@ -125,10 +125,10 @@
     ./packages/picom/picom.nix
     ./packages/qutebrowser/qutebrowser.nix
     ./packages/rofi/rofi.nix
-    ./packages/texlive/texlive.nix
     ./packages/xmonad/xmobar.nix
     ./packages/xmonad/xmonad.nix
     ./packages/betterlockscreen/betterlockscreen.nix
     ## ./packages/herbstluftwm/herbstluftwm.nix
+    ## ./packages/texlive/texlive.nix
   ];
 }

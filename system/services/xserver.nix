@@ -7,16 +7,23 @@
   services.xserver = {
     enable = true;
     layout = "us";
+
     wacom = {
       enable = true;
     };
+
+    exportConfiguration = true;
+
     libinput = {
       enable = true;
       touchpad = {
         accelProfile = "adaptive";
         naturalScrolling = true;
         tapping = true;
-        additionalOptions = "Option \"Tapping\" \"on\"\n";
+        additionalOptions = ''
+          Option "Tapping" "on"
+        '';
+        scrollMethod = "twofinger";
       };
     };
 
