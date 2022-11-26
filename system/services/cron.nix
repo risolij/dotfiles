@@ -4,8 +4,8 @@
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "0 0 * * *    req curl -X GET https://download.dnscrypt.info/blacklists/domains/mybase.txt > /tmp/blacklist.txt"
-      "0 */4 * * *  req clamdscan -m /home/req --fdpass > /home/req/logs/lastscan.txt"
+      "0 0 * * SUN  req clamdscan -m /home/req --fdpass > /home/req/scans/clamdscan.txt"
+      "0 0 * * SUN  req vulnix --system > /home/req/scans/vulnix.txt"
     ];
   };
 }

@@ -4,10 +4,8 @@
   ## Enable Home Manager
   programs.home-manager.enable = true;
 
-
   ## Enable manual manpages
-  ## Disable until bugfix --> https://github.com/NixOS/nixpkgs/issues/196651
-  manual.manpages.enable = false;
+  manual.manpages.enable = true;
 
   home = {
     stateVersion = "21.05";
@@ -17,7 +15,6 @@
       EDITOR = "nvim";
       TERMINAL = "alacritty";
       BROWSER = "firefox";
-      ANSIBLE_CONFIG = "/home/req/dev/ansible/ansible.cfg";
     };
     pointerCursor = {
       x11 = {
@@ -41,7 +38,6 @@
       acpi
       dmidecode
       inxi
-      parted
       pciutils
       usbutils
       lm_sensors
@@ -56,11 +52,12 @@
       nmap
       tcpdump
       ## insomnia
-      ## postman
+
+      ## Security Tools
+      vulnix
 
       ## Development Tools
       emacs
-      ## ghc
 
       ## Image Tools
       feh
