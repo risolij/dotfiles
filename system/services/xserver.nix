@@ -1,9 +1,6 @@
 { pkgs, lib, config, ... }:
 
 {
-  ## Docker configuration
-  ## virtualisation.docker.enable = true;
-
   services.xserver = {
     enable = true;
     layout = "us";

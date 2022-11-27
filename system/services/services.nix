@@ -16,6 +16,11 @@
   services.upower.enable = true;
   services.auto-cpufreq.enable = true;
 
+  #### TLP Won't work
+  ## services.tlp.enable = true;
+  ## systemd.services.network-addresses-wlp0s20f3.requires = [ "tlp.service" ];
+  ## systemd.services.network-addresses-wlp0s20f3.after = [ "tlp.service" ];
+
   ## Extras 
   ########################################## # 
   ## ./hydra.nix

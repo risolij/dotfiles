@@ -6,7 +6,7 @@
       availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
     };
     extraModulePackages = [ ];
-    kernelModules = [ "acpi_call" "kvm-intel" ];
+    kernelModules = [ "kvm-intel" ]; ## acpi_call
     kernelParams = [
       "intel_iommu=off" 
       "fastboot=1"
