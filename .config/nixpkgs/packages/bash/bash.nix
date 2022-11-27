@@ -39,6 +39,7 @@ in
     '';
 
     shellAliases = {
+      jctl = "journalctl -p3 -xb";
       cat = "bat --style=plain";
       info = "info --vi-keys";
       battery = "acpi -bat | grep 'Battery 1' | awk '{print $4}' | tr -d ','";
