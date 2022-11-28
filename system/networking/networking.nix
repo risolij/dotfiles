@@ -9,26 +9,9 @@
   ## nmcli device wifi list
   ## nmcli device wifi connect "wifi-name" password "password"
 
-  ## networking = {
-  ##   hostName = "nixos";
-  ##   useDHCP = false;
-  ##   dhcpcd = {
-  ##     extraConfig = ''
-  ##     noarp
-  ##     '';
-  ##   };
-  ##   interfaces.wlp0s20f3.useDHCP = true;
-  ##   wireless = {
-  ##     environmentFile = /home/req/keys/wireless.env;
-  ##     enable = true;
-  ##     interfaces = [ "wlp0s20f3" ];
-  ##     networks = {
-  ##       Impossible = {
-  ##         hidden = true;
-  ##         pskRaw = "@PSK_HOME@";
-  ##         authProtocols = [ "WPA-PSK" ];
-  ##       };
-  ##     };
-  ##   };
-  ## };
+  ## ethtool -K eth0 tso off
+  ## ethtool -K eth0 gso off
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="net", NAME=="wlp0s20f3", RUN+="${pkgs.ethtool}/bin/ethtool -K wlp0s20f3 tso off"
+  '';
 }

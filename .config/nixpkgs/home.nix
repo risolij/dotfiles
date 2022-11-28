@@ -42,6 +42,7 @@
       pciutils
       usbutils
       lm_sensors
+      ethtool
 
       ## Notification Tools
       dzen2
