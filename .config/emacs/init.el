@@ -23,7 +23,7 @@
  ;; If there is more than one, they won't work right.
  '(helm-minibuffer-history-key "M-p")
  '(package-selected-packages
-   '(latex-preview-pane plantuml-mode ox-ipynb org-bars direnv doom-themes use-package))
+   '(latex-preview-pane ox-ipynb org-bars direnv doom-themes use-package))
  '(warning-suppress-types '(((unlock-file)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

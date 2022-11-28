@@ -28,6 +28,16 @@ in
 
     bashrcExtra = ''
       PS1='${MAGENTA}[\u@\H \$]${PS_CLEAR}${GREEN} ❯ ${PS_CLEAR}'
+
+      last_charge() {
+        FILE="/var/lib/upower/history-charge-BASE-BAT-60-698.dat"
+        DISCHARGE=$(tail -n1 $FILE | awk '{print $1}')
+        CHARGE=$(grep 'full' $FILE | tail -n1 | awk '{print $1}')
+        SECONDS=$(( $DISCHARGE - $CHARGE ))
+
+        echo -ne "Hours last full charge: "
+        echo "scale=2; $SECONDS / 3600" | bc
+      }
     '';
 
     initExtra = ''

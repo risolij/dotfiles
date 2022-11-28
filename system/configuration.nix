@@ -53,9 +53,8 @@
     groups.plugsdev = {};
     users.req = {
       isNormalUser = true;
-      extraGroups = [ "audio" "wheel" "plugdev"]; ## docker if needed
+      extraGroups = [ "audio" "wheel" "networkmanager" ]; ## [docker plugdev] 
     };
-    ## extraGroups.vboxusers.members = [ "req" ];
   };
 
   system.stateVersion = "20.09";

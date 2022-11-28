@@ -17,9 +17,6 @@
         accelProfile = "adaptive";
         naturalScrolling = true;
         tapping = true;
-        additionalOptions = ''
-          Option "Tapping" "on"
-        '';
         scrollMethod = "twofinger";
       };
     };

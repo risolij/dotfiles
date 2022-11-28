@@ -5,6 +5,9 @@
       kernelModules = [ ];
       availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" ];
     };
+    extraModprobeConfig = ''
+      options iwlwifi power_save=0
+    '';
     extraModulePackages = [ ];
     kernelModules = [ "kvm-intel" ]; ## acpi_call
     kernelParams = [

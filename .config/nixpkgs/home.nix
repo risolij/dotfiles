@@ -32,6 +32,7 @@
       brightnessctl
       file
       unzip
+      bc
       appimage-run
 
       ## Hardware Tools
