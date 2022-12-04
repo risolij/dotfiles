@@ -26,7 +26,4 @@
   swapDevices =
     [ { device = "/dev/disk/by-uuid/064eca58-dfcf-4f28-aee1-d4d4175f59c3"; }
     ];
-
-
-  nix.settings.max-jobs = lib.mkDefault 8;
 }
