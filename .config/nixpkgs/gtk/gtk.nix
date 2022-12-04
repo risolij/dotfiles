@@ -3,6 +3,7 @@
 {
   gtk = {
     enable = true;
+    font.name = "Terminus SemiBold 16";
     theme = {
       name = "Dracula";
       package = pkgs.dracula-theme;

@@ -60,6 +60,7 @@
 
       ## Development Tools
       emacs
+      virt-manager
 
       ## Image Tools
       feh
@@ -72,6 +73,7 @@
       font-awesome
       inconsolata
       arc-icon-theme
+      ## papirus-icon-theme
 
       ## Audio Tools
       pavucontrol
@@ -90,7 +92,6 @@
       ## google-chrome
       ## libreoffice
       ## weechat
-      ## papirus-icon-theme
     ];
   };
 
@@ -108,26 +109,26 @@
 
   ## Custom Configuration Packages
   imports = [
-    ./packages/alacritty/alacritty.nix 
-    ./packages/bash/bash.nix
-    ./packages/bat/bat.nix
-    ./packages/broot/broot.nix
-    ./packages/direnv/direnv.nix
-    ./packages/exa/exa.nix
-    ./packages/firefox/firefox.nix
-    ./packages/git/git.nix
-    ./packages/gtk/gtk.nix
-    ./packages/mpd/mpd.nix
-    ./packages/ncmpcpp/ncmpcpp.nix
-    ./packages/neovim/neovim.nix
-    ./packages/notify-osd/notify-osd.nix
-    ./packages/picom/picom.nix
-    ./packages/qutebrowser/qutebrowser.nix
-    ./packages/rofi/rofi.nix
-    ./packages/xmonad/xmobar.nix
-    ./packages/xmonad/xmonad.nix
-    ./packages/betterlockscreen/betterlockscreen.nix
-    ## ./packages/herbstluftwm/herbstluftwm.nix
-    ## ./packages/texlive/texlive.nix
+    ./alacritty/alacritty.nix
+    ./bash/bash.nix
+    ./bat/bat.nix
+    ./broot/broot.nix
+    ./direnv/direnv.nix
+    ./exa/exa.nix
+    ./firefox/firefox.nix
+    ./git/git.nix
+    ./gtk/gtk.nix
+    ./mpd/mpd.nix
+    ./ncmpcpp/ncmpcpp.nix
+    ./neovim/neovim.nix
+    ./notify-osd/notify-osd.nix
+    ./picom/picom.nix
+    ./qutebrowser/qutebrowser.nix
+    ./rofi/rofi.nix
+    ./xmonad/xmobar.nix
+    ./xmonad/xmonad.nix
+    ./betterlockscreen/betterlockscreen.nix
+    ## ./herbstluftwm/herbstluftwm.nix
+    ## ./texlive/texlive.nix
   ];
 }

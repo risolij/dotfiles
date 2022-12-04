@@ -53,9 +53,11 @@
     groups.plugsdev = {};
     users.req = {
       isNormalUser = true;
-      extraGroups = [ "audio" "wheel" "networkmanager" ]; ## [docker plugdev] 
+      extraGroups = [ "audio" "wheel" "networkmanager" "kvm" "libvirtd"]; ## [docker plugdev] 
     };
   };
+
+  virtualisation.libvirtd.enable = true;
 
   system.stateVersion = "20.09";
 }

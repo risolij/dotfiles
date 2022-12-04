@@ -18,16 +18,7 @@
 
   #### TLP Won't work
   services.tlp.enable = true;
-  ## system.activationScripts = {
-  ##   rfkillUnblockWlan = {
-  ##     text = ''
-  ##     rfkill unblock wlan
-  ##     '';
-  ##     deps = [];
-  ##   };
-  ## };
-  ## systemd.services.network-addresses-wlp0s20f3.requires = [ "tlp.service" ];
-  ## systemd.services.network-addresses-wlp0s20f3.after = [ "tlp.service" ];
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   ## Extras 
   ########################################## # 
