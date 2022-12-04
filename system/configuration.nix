@@ -6,9 +6,9 @@
       ./boot.nix
       ./filesystem.nix
       ./hardware.nix
-      ./networking/networking.nix
+      ./networking.nix
       ./nix.nix
-      ./services/services.nix
+      ./services.nix
     ];
 
   security.pam.services.sshd.showMotd = true;
