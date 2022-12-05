@@ -13,16 +13,6 @@
 
   security.pam.services.sshd.showMotd = true;
 
-  environment.etc."X11/xorg.conf.d/20-intel.conf" = {
-    text = ''
-      Section "Device"
-        Identifier "Intel Graphics"
-        Driver "intel"
-        Option "TearFree" "true"
-      EndSection
-      '';
-  };
-
   environment.systemPackages = with pkgs; [];
 
   i18n.defaultLocale = "en_US.UTF-8";

@@ -5,7 +5,15 @@
     initrd = {
       kernelModules = [ ];
       includeDefaultModules = false;
-      availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "ext4" "i8042" "vfat" ];
+      availableKernelModules = [
+        "xhci_pci"
+        "nvme"
+        "usb_storage"
+        "sd_mod"
+        "ext4"
+        "i8042"
+        "vfat"
+      ];
     };
     blacklistedKernelModules = [ "iTCO_wdt" ];
     extraModprobeConfig = ''
@@ -14,7 +22,16 @@
     '';
     extraModulePackages = [ ];
     kernelModules = [ "kvm-intel" ]; 
-    kernelParams = [ "nowatchdog" "fastboot=1" "nmi_watchdog=0" "mmio_stale_data=full,nosmt" "i8042.nopnp" "intel_iommu=off" ];
+    kernelParams = [
+      "nowatchdog"
+      "nmi_watchdog=0"
+      "mmio_stale_data=full"
+      "i8042.nopnp"
+      "i915.fastboot=1"
+      "i915.enable_psr=0"
+      ## "i915.enable_guc"
+      ## "intel_iommu=off"
+    ];
     cleanTmpDir = true;
     kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
     loader.grub = {

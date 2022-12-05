@@ -112,7 +112,7 @@
     ./alacritty/alacritty.nix
     ./bash/bash.nix
     ./bat/bat.nix
-    ./broot/broot.nix
+    ./betterlockscreen/betterlockscreen.nix
     ./direnv/direnv.nix
     ./exa/exa.nix
     ./firefox/firefox.nix
@@ -123,12 +123,13 @@
     ./neovim/neovim.nix
     ./notify-osd/notify-osd.nix
     ./picom/picom.nix
-    ./qutebrowser/qutebrowser.nix
     ./rofi/rofi.nix
     ./xmonad/xmobar.nix
     ./xmonad/xmonad.nix
-    ./betterlockscreen/betterlockscreen.nix
+    ## ./broot/broot.nix
     ## ./herbstluftwm/herbstluftwm.nix
+    ## ./python/python.nix
+    ## ./qutebrowser/qutebrowser.nix
     ## ./texlive/texlive.nix
   ];
 }

@@ -5,10 +5,8 @@
     enable = true;
     layout = "us";
 
-    wacom = {
-      enable = true;
-    };
-
+    wacom.enable = true;
+    videoDrivers = [ "modesetting" "i915" ];
     exportConfiguration = true;
 
     libinput = {
@@ -26,10 +24,11 @@
       enableContribAndExtras = true;
     };
 
-    displayManager.lightdm = {
-      enable = true;
-      greeters.pantheon = {
+    displayManager = {
+      defaultSession = "none+xmonad";
+      lightdm = {
         enable = true;
+        greeters.pantheon.enable = true;
       };
     };
   };

@@ -9,8 +9,8 @@
       tags = [ "term" "web" "extr" ];
       settings = {
         gapless_grid = false;
-        frame_gap = 30;
-        window_border_width = 0;
+        frame_gap = 10;
+        window_border_width = 2;
         window_border_active_color = "#FF0000";
         frame_bg_transparent = 0;
         frame_border_width = 0;

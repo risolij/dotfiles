@@ -64,6 +64,16 @@
             name = "firefox options";
             url = "https://gitlab.com/rycee/configurations/-/blob/master/user/firefox.nix";
           };
+
+          i915 = {
+            name = "i915";
+            url = "https://wiki.archlinux.org/title/Intel_graphics#Screen_flickering";
+          };
+
+          i915nix = {
+            name = "i915nix";
+            url = "https://nixos.org/manual/nixos/stable/index.html#sec-x11--graphics-cards-intel";
+          };
         };
       };
     };
