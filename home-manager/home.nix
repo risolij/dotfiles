@@ -59,7 +59,7 @@
       vulnix
 
       ## Development Tools
-      emacs
+      ## emacs
       virt-manager
 
       ## Image Tools
@@ -69,10 +69,10 @@
       cava
 
       ## Fonts && Themes
-      emacs-all-the-icons-fonts
       font-awesome
       inconsolata
-      arc-icon-theme
+      ## arc-icon-theme
+      ## emacs-all-the-icons-fonts
       ## papirus-icon-theme
 
       ## Audio Tools
@@ -105,7 +105,6 @@
       };
     };
   };
-
 
   ## Custom Configuration Packages
   imports = [

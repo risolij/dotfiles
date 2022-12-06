@@ -16,7 +16,6 @@
   services.upower.enable = true;
   services.auto-cpufreq.enable = true;
   services.tlp.enable = true;
-  ## services.trezord.enable = true;
   systemd.services.NetworkManager-wait-online.enable = false;
 
   ## Extras 
@@ -28,4 +27,5 @@
   ## ./services/postgres.nix
   ## ./services/fprintd.nix
   ## ./services/dnscrypt-proxy2.nix
+  ## services.trezord.enable = true;
 }

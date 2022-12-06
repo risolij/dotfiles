@@ -5,6 +5,7 @@ with lib;
 let
   inherit (pkgs) alsa-utils;
   inherit (pkgs) brightnessctl;
+  inherit (pkgs) betterlockscreen;
 in
 {
     services.actkbd = {
@@ -24,6 +25,11 @@ in
             keys = [ 115 ];
             events = [ "key" "rep" ];
             command = "${alsa-utils}/bin/amixer -c0 -q set Master 2+";
+          }
+          {
+            keys = [ 125 ];
+            events = [ "key" ];
+            command = "${betterlockscreen}/bin/betterlockscreen --lock";
           }
           {
             keys = [ 190 ];

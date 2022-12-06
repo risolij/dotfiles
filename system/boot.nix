@@ -3,7 +3,6 @@
 {
   boot = {
     initrd = {
-      kernelModules = [ ];
       includeDefaultModules = false;
       availableKernelModules = [
         "xhci_pci"
@@ -29,8 +28,8 @@
       "i8042.nopnp"
       "i915.fastboot=1"
       "i915.enable_psr=0"
-      ## "i915.enable_guc"
-      ## "intel_iommu=off"
+      "quiet"
+      "splash"
     ];
     cleanTmpDir = true;
     kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
