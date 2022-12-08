@@ -15,6 +15,14 @@
       EDITOR = "nvim";
       TERMINAL = "alacritty";
       BROWSER = "firefox";
+
+      ## Testing environment variables
+      XDG_SESSION_TYPE = "wayland";
+      XDG_SESSION_DESKTOP = "Hyprland";
+      XDG_CURRENT_DESKTOP = "Hyprland";
+      MOZ_ENABLE_WAYLAND = "1";
+      GDK_BACKEND = "wayland";
+      GTK_USE_PORTAL = 0;
     };
     pointerCursor = {
       x11 = {
@@ -59,21 +67,14 @@
       vulnix
 
       ## Development Tools
-      ## emacs
-      virt-manager
-
-      ## Image Tools
-      feh
+      virt-manager ## Image Tools
       imagemagick
-      scrot
+      grim
       cava
 
       ## Fonts && Themes
       font-awesome
       inconsolata
-      ## arc-icon-theme
-      ## emacs-all-the-icons-fonts
-      ## papirus-icon-theme
 
       ## Audio Tools
       pavucontrol
@@ -82,16 +83,6 @@
       ############### node
       nodejs
       dconf
-
-      ############### java
-      ## jdk11
-      ## graphviz
-      ## plantuml
-
-      ############### extras
-      ## google-chrome
-      ## libreoffice
-      ## weechat
     ];
   };
 
@@ -121,14 +112,7 @@
     ./ncmpcpp/ncmpcpp.nix
     ./neovim/neovim.nix
     ./notify-osd/notify-osd.nix
-    ./picom/picom.nix
     ./rofi/rofi.nix
-    ./xmonad/xmobar.nix
-    ./xmonad/xmonad.nix
-    ## ./broot/broot.nix
-    ## ./herbstluftwm/herbstluftwm.nix
-    ## ./python/python.nix
-    ## ./qutebrowser/qutebrowser.nix
-    ## ./texlive/texlive.nix
+    ./waybar/waybar.nix
   ];
 }

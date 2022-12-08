@@ -13,23 +13,18 @@
       enable = true;
       touchpad = {
         accelProfile = "adaptive";
-        naturalScrolling = true;
+        naturalScrolling = false;
         tapping = true;
         scrollMethod = "twofinger";
       };
     };
 
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-    };
+    displayManager.gdm.enable = true;
 
-    displayManager = {
-      defaultSession = "none+xmonad";
-      lightdm = {
-        enable = true;
-        greeters.pantheon.enable = true;
-      };
-    };
+    ## windowManager.xmonad = {
+    ##   enable = true;
+    ##   enableContribAndExtras = true;
+    ## };
+
   };
 }

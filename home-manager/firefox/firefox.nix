@@ -74,6 +74,11 @@
             name = "i915nix";
             url = "https://nixos.org/manual/nixos/stable/index.html#sec-x11--graphics-cards-intel";
           };
+
+          waybar = {
+            name = "waybar";
+            url = "https://github.com/Ruixi-rebirth/nixos-config/blob/main/modules/programs/waybar/hyprland_waybar.nix";
+          };
         };
       };
     };

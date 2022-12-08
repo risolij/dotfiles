@@ -44,9 +44,9 @@ in
       set -o vi
     '';
 
-    profileExtra = ''
-      . "./.fehbg"
-    '';
+    ## profileExtra = ''
+    ##   . "./.fehbg"
+    ## '';
 
     shellAliases = {
       jctl = "journalctl -p3 -xb";
