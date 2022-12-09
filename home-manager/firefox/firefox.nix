@@ -14,19 +14,21 @@
         isDefault = true;
         settings = { 
           "beacon.enabled" = false;
-          "browser.urlbar.placeholderName" = "DuckDuckGo";
           "browser.contentblock.category" = "strict";
           "browser.preferences.defaultPerformanceSettings.enabled" = false;
           "browser.privatebrowsing.autostart" = true;
+          "browser.security.https_only_mode" = true;
           "browser.startup.homepage" = "https://nixos.org";
           "browser.startup.page" = 3;
-          "browser.security.https_only_mode" = true;
           "browser.uidensity" = 3;
+          "browser.urlbar.placeholderName" = "DuckDuckGo";
           "dom.battery.enabled" = false;
           "geo.enabled" = false;
+          "mousewheel.default.delta_multiplier_y" = -15;
           "places.history.enabled" = false;
           "privacy.donottrackheader.enabled" = true;
           "privacy.donottrackheader.value" = 1;
+          "browser.display.os-zoom-behavior" = 0;
         };
         bookmarks = {
           wikipedia = {
