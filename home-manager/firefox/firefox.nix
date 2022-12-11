@@ -24,7 +24,8 @@
           "browser.urlbar.placeholderName" = "DuckDuckGo";
           "dom.battery.enabled" = false;
           "geo.enabled" = false;
-          "mousewheel.default.delta_multiplier_y" = -15;
+          "mousewheel.default.delta_multiplier_y" = 15;
+          "mousewheel.default.delta_multiplier_x" = 15;
           "places.history.enabled" = false;
           "privacy.donottrackheader.enabled" = true;
           "privacy.donottrackheader.value" = 1;

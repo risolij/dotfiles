@@ -44,10 +44,6 @@ in
       set -o vi
     '';
 
-    ## profileExtra = ''
-    ##   . "./.fehbg"
-    ## '';
-
     shellAliases = {
       jctl = "journalctl -p3 -xb";
       cat = "bat --style=plain";

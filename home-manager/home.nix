@@ -24,15 +24,18 @@
       GDK_BACKEND = "wayland";
       GTK_USE_PORTAL = 0;
     };
+
     pointerCursor = {
       x11 = {
         enable = true;
         defaultCursor = "left_ptr";
       };
 
+      gtk.enable = true;
+
       package = pkgs.vanilla-dmz;
       name = "Vanilla-DMZ";
-      size = 32;
+      size = 48;
     };
 
     packages = with pkgs; [
@@ -42,6 +45,8 @@
       unzip
       bc
       appimage-run
+      dconf
+      nodejs
 
       ## Hardware Tools
       acpi
@@ -55,22 +60,25 @@
       ## Notification Tools
       dzen2
       libnotify
+      wlogout
 
       ## Networking Tools
       dig
       lsof
       nmap
       tcpdump
-      ## insomnia
 
       ## Security Tools
       vulnix
 
       ## Development Tools
-      virt-manager ## Image Tools
+      virt-manager 
+
+      ## Image Tools
       imagemagick
       grim
       cava
+      hyprpaper
 
       ## Fonts && Themes
       font-awesome
@@ -79,10 +87,6 @@
       ## Audio Tools
       pavucontrol
       pulsemixer
-
-      ############### node
-      nodejs
-      dconf
     ];
   };
 
@@ -102,7 +106,6 @@
     ./alacritty/alacritty.nix
     ./bash/bash.nix
     ./bat/bat.nix
-    ./betterlockscreen/betterlockscreen.nix
     ./direnv/direnv.nix
     ./exa/exa.nix
     ./firefox/firefox.nix
@@ -114,5 +117,6 @@
     ./notify-osd/notify-osd.nix
     ./rofi/rofi.nix
     ./waybar/waybar.nix
+    ## ./betterlockscreen/betterlockscreen.nix
   ];
 }

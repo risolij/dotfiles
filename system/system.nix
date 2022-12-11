@@ -3,8 +3,8 @@
 {
   system = {
     stateVersion = "20.09";
-    autoUpgrade.enable = true;
-    autoUpgrade.allowReboot = true;
+    ## autoUpgrade.enable = true;
+    ## autoUpgrade.allowReboot = true;
   };
 }
 
