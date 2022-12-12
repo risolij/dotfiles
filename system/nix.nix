@@ -2,10 +2,13 @@
 {
   nix = {
     package = pkgs.nixUnstable;
-    settings.max-jobs = lib.mkDefault 8;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
+    extraOptions = ''experimental-features = nix-command flakes'';
+
+    settings = {
+      max-jobs = lib.mkDefault 8;
+      auto-optimise-store = true;
+    };
+
     gc = {
       automatic = true;
       dates = "weekly";
