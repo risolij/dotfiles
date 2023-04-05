@@ -5,7 +5,7 @@
     enable = true;
     extensions = with pkgs.nur.repos.rycee.firefox-addons; [ 
       vimium 
-      https-everywhere
+      ## https-everywhere
       privacy-badger
     ];
 
