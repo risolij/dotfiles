@@ -3,14 +3,14 @@
 {
   programs.firefox = {
     enable = true;
-    extensions = with pkgs.nur.repos.rycee.firefox-addons; [ 
-      vimium 
-      ## https-everywhere
-      privacy-badger
-    ];
 
     profiles = {
       default = {
+        extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+          vimium
+          ## https-everywhere
+          privacy-badger
+        ];
         isDefault = true;
         settings = { 
           "beacon.enabled" = false;

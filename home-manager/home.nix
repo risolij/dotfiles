@@ -76,6 +76,7 @@
       ## Image Tools
       imagemagick
       grim
+      slurp
       cava
       hyprpaper
 
@@ -116,6 +117,8 @@
     ./notify-osd/notify-osd.nix
     ./rofi/rofi.nix
     ./waybar/waybar.nix
+    ./hyprland/hypr.nix
+    ./eww/eww.nix
     ## ./betterlockscreen/betterlockscreen.nix
   ];
 }
