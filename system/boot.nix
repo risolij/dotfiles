@@ -31,7 +31,8 @@
       "quiet"
       "splash"
     ];
-    cleanTmpDir = true;
+    tmp.cleanOnBoot = true;
+    ## cleanTmpDir = true;
     kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
     loader.grub = {
       enable = true;
