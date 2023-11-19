@@ -5,12 +5,16 @@
     enable = true;
     package = pkgs.postgresql_11;
     enableTCPIP = true;
-    ensureDatabases = [ "rocket" ];
+    settings = {
+      enable_seqscan = "off";
+    };
+    ensureDatabases = [ "dvd" ];
     ensureUsers = [
       {
-        name = "rocket";
-        ensurePermissions."DATABASE rocket" = "ALL PRIVILEGES";
+        name = "req";
+        ensurePermissions."DATABASE dvd" = "ALL PRIVILEGES";
       }
     ];
+    initialScript = /home/req/environments/school/dvd.sql;
   };
 }

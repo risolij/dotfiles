@@ -7,6 +7,9 @@
   ## Enable manual manpages
   manual.manpages.enable = true;
 
+  ## enable fontconfig
+  fonts.fontconfig.enable = true;
+
   home = {
     stateVersion = "21.05";
     username = "req";
@@ -23,18 +26,6 @@
       MOZ_ENABLE_WAYLAND = "1";
       GDK_BACKEND = "wayland";
       GTK_USE_PORTAL = 0;
-    };
-
-    pointerCursor = {
-      x11 = {
-        enable = true;
-        defaultCursor = "left_ptr";
-      };
-
-      gtk.enable = true;
-      package = pkgs.vanilla-dmz;
-      name = "Vanilla-DMZ";
-      size = 48;
     };
 
     packages = with pkgs; [
@@ -82,11 +73,19 @@
 
       ## Fonts && Themes
       font-awesome
-      inconsolata
+      ubuntu_font_family
 
       ## Audio Tools
       pavucontrol
       pulsemixer
+
+
+      ## Temp tools
+      ## libreoffice-fresh
+      ## texlive.combined.scheme-full
+
+      ## runelite
+      runelite
     ];
   };
 
@@ -107,7 +106,7 @@
     ./bash/bash.nix
     ./bat/bat.nix
     ./direnv/direnv.nix
-    ./exa/exa.nix
+    ./eza/eza.nix
     ./firefox/firefox.nix
     ./git/git.nix
     ./gtk/gtk.nix

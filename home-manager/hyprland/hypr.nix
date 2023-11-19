@@ -3,6 +3,9 @@
 {
   home.file."${config.xdg.configHome}/hypr/hyprland.conf".text = ''
     ## Monitor
+    monitor=eDP-1,1920x1080@60,0x0,1
+    monitor=DP-2,2560x1080@60,1920x0,1
+    ## monitor=DP-2,3440x1440@60,1920x0,1
     monitor=,preferred,auto,1
     
     
@@ -172,5 +175,6 @@
     preload = /home/req/Pictures/wallpapers/wolf.png
 
     wallpaper = eDP-1,/home/req/Pictures/wallpapers/wolf.png
+    wallpaper = DP-2,/home/req/Pictures/wallpapers/wolf.png
   '';
 }

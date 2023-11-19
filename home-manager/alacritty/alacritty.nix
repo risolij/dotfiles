@@ -6,7 +6,7 @@
     settings = {
       window.padding.x = 15;
       window.padding.y = 15;
-      font.size = 16;
+      font.size = 18;
 
       colors.primary = {
         background = "0x2E3440";

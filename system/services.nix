@@ -10,9 +10,11 @@
       ./services/journald.nix
       ./services/thermald.nix
       ./services/xserver.nix
+      ./services/postgres.nix
     ];
 
   services.openssh.enable = true;
+  services.fwupd.enable = true;
   services.upower.enable = true;
   services.auto-cpufreq.enable = true;
   services.tlp.enable = true;
