@@ -36,15 +36,6 @@
     };
 
     packages = with pkgs; [
-      ## Common Tools
-      brightnessctl
-      file
-      unzip
-      bc
-      appimage-run
-      dconf
-      nodejs
-
       ## Hardware Tools
       acpi
       dmidecode
@@ -85,11 +76,6 @@
       ## Audio Tools
       pavucontrol
       pulsemixer
-
-
-      ## Temp tools
-      ## libreoffice-fresh
-      ## texlive.combined.scheme-full
 
       ## runelite
       runelite
