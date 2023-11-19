@@ -11,7 +11,8 @@
   fonts.fontconfig.enable = true;
 
   home = {
-    stateVersion = "21.05";
+    ##stateVersion = "21.05";
+    stateVersion = "23.05";
     username = "req";
     homeDirectory = "/home/req";
     sessionVariables = {
@@ -26,6 +27,12 @@
       MOZ_ENABLE_WAYLAND = "1";
       GDK_BACKEND = "wayland";
       GTK_USE_PORTAL = 0;
+    };
+    pointerCursor = {
+      gtk.enable = true;
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Amber";
+      size = 32;
     };
 
     packages = with pkgs; [
