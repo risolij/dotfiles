@@ -3,7 +3,7 @@
 {
   services.postgresql = {
     enable = true;
-    package = pkgs.postgresql_11;
+    package = pkgs.postgresql_16;
     enableTCPIP = true;
     settings = {
       enable_seqscan = "off";
