@@ -9,7 +9,7 @@
       ./networking.nix
       ./nix.nix
       ./users.nix
-      ./services.nix
+      ./services
       ./system.nix
     ];
 

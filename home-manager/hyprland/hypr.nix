@@ -48,10 +48,6 @@
     decoration {
         rounding = 5
         inactive_opacity = 1.0
-        blur = true
-        blur_size = 40
-        blur_passes = 1
-        blur_new_optimizations = true
     
         drop_shadow = true
         shadow_range = 4
@@ -59,6 +55,13 @@
         col.shadow = rgba(1a1a1aee)
         dim_inactive = false
         dim_strength = .1
+
+        blur {
+            enabled = true
+            passes = 1
+            new_optimizations = true
+            size = 8
+        }
     }
     
     

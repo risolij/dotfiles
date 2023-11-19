@@ -26,7 +26,7 @@ in
       position = "top";
       margin = "10 20 0 20";
       height = 50;
-      modules-left = [ "custom/nixos" "wlr/workspaces" ];
+      modules-left = [ "custom/nixos" "hyprland/workspaces" ];
       modules-center = [ "clock" ];
       modules-right = [ "custom/cava" "network" "battery" "custom/power" ];
 
@@ -47,7 +47,7 @@ in
         on-click = "wlogout";
       };
 
-      "wlr/workspaces" = {
+      "hyprland/workspaces" = {
         format = "{icon}";
         on-click = "activate";
         format-icons = {

@@ -1,25 +1,24 @@
-{ config, pkgs, ... }:
-
-{
-  imports =
-    [ 
-      ./services/actkbd.nix
-      ./services/clamav.nix
-      ./services/cron.nix
-      ./services/fail2ban.nix
-      ./services/journald.nix
-      ./services/thermald.nix
-      ./services/xserver.nix
-      ./services/postgres.nix
-    ];
+{ config, pkgs, ... }: {
+  imports = [
+      ./actkbd.nix
+      ./clamav.nix
+      ./cron.nix
+      ./fail2ban.nix
+      ./journald.nix
+      ./thermald.nix
+      ./xserver.nix
+      ./postgres.nix
+  ];
 
   services.openssh.enable = true;
   services.fwupd.enable = true;
   services.upower.enable = true;
   services.auto-cpufreq.enable = true;
   services.tlp.enable = true;
-  systemd.services.NetworkManager-wait-online.enable = false;
-
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="net", NAME=="wlp0s20f3", RUN+="${pkgs.ethtool}/bin/ethtool -K wlp0s20f3 tso off"
+  '';
+  
   ## Extras 
   ########################################## # 
   ## ./services/hydra.nix

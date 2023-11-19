@@ -1,6 +1,10 @@
 {
   description = "System Configuration";
 
+  nixConfig = {
+    experimental-features = ["nix-command" "flakes" ];
+  };
+
   inputs = { 
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
@@ -21,9 +25,12 @@
       system = "x86_64-linux";
 
       modules = [
-        ./system/configuration.nix
+        ./hosts/home
+
         hyprland.nixosModules.default
-        { programs.hyprland.enable = true; }
+        { 
+          programs.hyprland.enable = true; 
+        }
       ];
     };
   };
