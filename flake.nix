@@ -19,18 +19,24 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, ... }: 
+  outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs: 
+  let
+    username = "req";
+    system = "x86_64-linux";
+  in
   {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      specialArgs = { inherit inputs username system; };
+      modules = [ ./hosts/home ];
+    };
 
-      modules = [
-        ./hosts/home
-
-        hyprland.nixosModules.default
-        { 
-          programs.hyprland.enable = true; 
-        }
+    homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
+      pkgs = nixpkgs.legacyPackages.x86_4-linux;
+      extraSpecialArgs = { inherit inputs username; };
+      modules = [ 
+        hyprland.homeManageModules.default
+        {wayland.windowManager.hyprland.enable = true;}
+        ./home-manager/home.nix 
       ];
     };
   };

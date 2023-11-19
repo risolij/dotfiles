@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports = [ 
@@ -14,7 +14,11 @@
     pam.services.sshd.showMotd = true;
     polkit.enable = true;
   };
-  xdg.portal.enable = true;
+
+  xdg.portal = { 
+    enable = true; 
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; 
+  };
 
   users = {
     users.req = {
@@ -34,7 +38,7 @@
 
 
     '';
-  }
+  };
 
   hardware = {
     cpu.intel.updateMicrocode = true;
@@ -99,6 +103,8 @@
       devices = [ "nodev" ];
     };
   };
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   system.stateVersion = "20.09";
 }

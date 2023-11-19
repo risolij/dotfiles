@@ -11,7 +11,6 @@
   fonts.fontconfig.enable = true;
 
   home = {
-    ##stateVersion = "21.05";
     stateVersion = "23.05";
     username = "req";
     homeDirectory = "/home/req";
@@ -28,6 +27,7 @@
       GDK_BACKEND = "wayland";
       GTK_USE_PORTAL = 0;
     };
+
     pointerCursor = {
       gtk.enable = true;
       package = pkgs.bibata-cursors;
@@ -109,22 +109,21 @@
 
   ## Custom Configuration Packages
   imports = [
-    ./alacritty/alacritty.nix
-    ./bash/bash.nix
-    ./bat/bat.nix
-    ./direnv/direnv.nix
-    ./eza/eza.nix
-    ./firefox/firefox.nix
-    ./git/git.nix
-    ./gtk/gtk.nix
-    ./mpd/mpd.nix
-    ./ncmpcpp/ncmpcpp.nix
-    ./neovim/neovim.nix
-    ./notify-osd/notify-osd.nix
-    ./rofi/rofi.nix
-    ./waybar/waybar.nix
-    ./hyprland/hypr.nix
-    ./eww/eww.nix
-    ## ./betterlockscreen/betterlockscreen.nix
+    ./alacritty
+    ./bash
+    ./bat
+    ./direnv
+    ./eww
+    ./eza
+    ./firefox
+    ./git
+    ./gtk
+    ./hyprland
+    ./mpd
+    ./ncmpcpp
+    ./neovim
+    ./notify-osd
+    ./rofi
+    ./waybar
   ];
 }
