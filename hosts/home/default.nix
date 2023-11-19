@@ -3,13 +3,13 @@
 {
   imports =
     [ 
+      ../../services
       ./boot.nix
       ./filesystem.nix
       ./hardware.nix
       ./networking.nix
       ./nix.nix
       ./users.nix
-      ./services
       ./system.nix
     ];
 
