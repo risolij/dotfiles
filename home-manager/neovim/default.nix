@@ -40,9 +40,9 @@
     '';
     plugins = with pkgs.vimPlugins; [ 
       vim-nix 
-      rust-vim 
-      coc-nvim
-      coc-rust-analyzer 
+      # rust-vim 
+      # coc-nvim
+      # coc-rust-analyzer 
     ];
 
 

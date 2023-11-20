@@ -79,6 +79,9 @@
 
       ## runelite
       runelite
+
+      ## eww
+      eww-wayland
     ];
   };
 
@@ -99,7 +102,7 @@
     ./bash
     ./bat
     ./direnv
-    ./eww
+    ## ./eww
     ./eza
     ./firefox
     ./git
