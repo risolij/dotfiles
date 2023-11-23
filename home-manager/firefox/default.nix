@@ -6,6 +6,8 @@
 
     profiles = {
       default = {
+        extensions = [
+        ];
         isDefault = true;
         settings = { 
           "beacon.enabled" = false;

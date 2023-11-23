@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   ## Enable Home Manager
@@ -77,6 +77,7 @@
       pavucontrol
       pulsemixer
 
+      ## runelite
       runelite
 
       ## eww
@@ -84,15 +85,12 @@
     ];
   };
 
-
-
   ## Custom Configuration Packages
   imports = [
     ./alacritty
     ./bash
     ./bat
     ./direnv
-    ## ./eww
     ./eza
     ./firefox
     ./git
@@ -105,13 +103,3 @@
     ./waybar
   ];
 }
-
-  ## Allow unfree packages && nix community packages
-  #### nixpkgs.config = {
-  ####   allowUnfree = true;
-  ####   packageOverrides = pkgs: {
-  ####     nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-  ####       inherit pkgs;
-  ####     };
-  ####   };
-  #### };
