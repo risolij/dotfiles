@@ -28,16 +28,6 @@ in
 
     bashrcExtra = ''
       PS1='${MAGENTA}[\u@\H \$]${PS_CLEAR}${GREEN} ❯ ${PS_CLEAR}'
-
-      last_charge() {
-        FILE="/var/lib/upower/history-charge-BASE-BAT-60-698.dat"
-        DISCHARGE=$(tail -n1 $FILE | awk '{print $1}')
-        CHARGE=$(grep 'full' $FILE | tail -n1 | awk '{print $1}')
-        SECONDS=$(( $DISCHARGE - $CHARGE ))
-
-        echo -ne "Hours last full charge: "
-        echo "scale=2; $SECONDS / 3600" | bc
-      }
     '';
 
     initExtra = ''
@@ -51,7 +41,7 @@ in
       battery = "acpi -bat | grep 'Battery 1' | awk '{print $4}' | tr -d ','";
       clog = ''sudo echo "scale=2; $(cat /tmp/scan.log | wc -l) / $(find /home/req | wc -l) * 100" | bc -l | xargs -I {} echo "Percent Scanned: {}%"'';
       screenshot = ''grim -g "$(slurp)"''; ## ''scrot --select --line width=2,color=Gold,style=dash --freeze'';
-      nix-upgrade = ''nix-channel --update && sudo nix-channel --update && sudo nixos-rebuild switch --upgrade'';
+      nix-upgrade = ''sudo nixos-rebuild switch --flake .'';
     };
 
   };

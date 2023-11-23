@@ -3,6 +3,6 @@
 {
   services.mpd = {
     enable = true;
-    musicDirectory = ~/music;
+    musicDirectory = /home/req/music;
   };
 }

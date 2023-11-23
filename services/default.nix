@@ -5,9 +5,9 @@
       ./cron.nix
       ./fail2ban.nix
       ./journald.nix
+      ./postgres.nix
       ./thermald.nix
       ./xserver.nix
-      ./postgres.nix
   ];
 
   services.openssh.enable = true;

@@ -10,7 +10,7 @@
       ];
 
       exec-once = [
-        "waybar"
+        "hyprpaper"
       ];
 
       general = {
@@ -127,4 +127,10 @@
       ];
     };
   };
+
+  home.file."${config.xdg.configHome}/hypr/hyprpaper.conf".text = ''
+      preload = /home/req/Pictures/wallpapers/wolf.png
+      wallpaper = eDP-1,/home/req/Pictures/wallpapers/wolf.png
+      wallpaper = DP-2,/home/req/Pictures/wallpapers/wolf.png
+  '';
 }
