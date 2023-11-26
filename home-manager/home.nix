@@ -82,6 +82,9 @@
 
       ## eww
       eww-wayland
+
+      ## emacs
+      emacs
     ];
   };
 
@@ -100,6 +103,7 @@
     ./ncmpcpp
     ./neovim
     ./rofi
+    ./texlive
     ./waybar
   ];
 }
