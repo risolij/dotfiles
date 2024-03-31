@@ -5,6 +5,7 @@
       ./cron.nix
       ./fail2ban.nix
       ./journald.nix
+      ./pipewire.nix
       ./thermald.nix
       ./xserver.nix
   ];

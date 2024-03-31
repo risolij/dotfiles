@@ -28,12 +28,12 @@ in
       height = 50;
       modules-left = [ "custom/nixos" "hyprland/workspaces" ];
       modules-center = [ "clock" ];
-      modules-right = [ "custom/cava" "network" "battery" "custom/power" ];
+      modules-right = [ "network" "battery" "custom/power" ]; ## "custom/cava"
 
-      "custom/cava" = {
-        exec = "cava -p ~/.config/cava/config";
-        tooltip = false;
-      };
+      ## "custom/cava" = {
+      ##   exec = "cava -p ~/.config/cava/config";
+      ##   tooltip = false;
+      ## };
 
       "custom/nixos" = {
         format = "   ";
