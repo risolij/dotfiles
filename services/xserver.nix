@@ -19,12 +19,11 @@
       };
     };
 
-    ## displayManager = {
-    ##   sddm = {
-    ##     enable = true;
-    ##     wayland.enable = true;
-    ##   };
-    ##   defaultSession = "plasmawayland";
-    ## };
+    displayManager = {
+      gdm = {
+        enable = true;
+        wayland.enable = true;
+      };
+    };
   };
 }
