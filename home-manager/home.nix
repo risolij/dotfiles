@@ -30,7 +30,8 @@
       XDG_CURRENT_DESKTOP = "Hyprland";
       MOZ_ENABLE_WAYLAND = "1";
       GDK_BACKEND = "wayland";
-      GTK_USE_PORTAL = 0;
+      GTK_USE_PORTAL = "1";
+      NIXOS_XDG_OPEN_USE_PORTAL = "1";
     };
 
     pointerCursor = {
