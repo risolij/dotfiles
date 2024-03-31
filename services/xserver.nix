@@ -21,6 +21,7 @@
 
     displayManager.sddm = {
       enable = true;
+      defaultSession = "hyprland.desktop";
       wayland.enable = true;
     };
   };
