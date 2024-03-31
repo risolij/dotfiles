@@ -19,10 +19,12 @@
       };
     };
 
-    displayManager.sddm = {
-      enable = true;
-      defaultSession = "hyprland.desktop";
-      wayland.enable = true;
-    };
+    ## displayManager = {
+    ##   sddm = {
+    ##     enable = true;
+    ##     wayland.enable = true;
+    ##   };
+    ##   defaultSession = "plasmawayland";
+    ## };
   };
 }
