@@ -63,11 +63,11 @@
       ];
     };
 
-    pulseaudio = {
-      enable = true;
-      support32Bit = true;
-      package = pkgs.pulseaudioFull;
-    };
+    ## pulseaudio = {
+    ##   enable = true;
+    ##   support32Bit = true;
+    ##   package = pkgs.pulseaudioFull;
+    ## };
 
     sensor.iio.enable = true;
   };
