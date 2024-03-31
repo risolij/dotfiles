@@ -10,6 +10,11 @@
   ## enable fontconfig
   fonts.fontconfig.enable = true;
 
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
+
+
   home = {
     stateVersion = "23.05";
     username = "req";
