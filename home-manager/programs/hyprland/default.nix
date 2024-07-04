@@ -77,6 +77,8 @@
 
       bind = [
         "$mod, RETURN, exec, alacritty"
+        "$mod SHIFT, P, exec, [fullscreen] /home/req/.config/rofi/powermenu.sh"
+        "$mod SHIFT, S, exec, [fullscreen] /home/req/.config/rofi/screenie.sh"
         "$mod SHIFT, Q, killactive"
         "$mod SHIFT, C, exit"
         "$mod, V, togglefloating"
