@@ -8,10 +8,10 @@
   manual.manpages.enable = true;
 
   ## enable fontconfig
+  ## nixpkgs.config = {
+  ##   allowUnfree = true;
+  ## };
   fonts.fontconfig.enable = true;
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
 
 
   home = {
@@ -79,24 +79,8 @@
     ];
   };
 
-  ## Custom Configuration Packages
   imports = [
-    ./alacritty
-    ./bash
-    ./bat
-    ./direnv
-    ./eza
-    ./firefox
-    ./git
-    ./gtk
-    ./hyprland
-    ./mpd
-    ./ncmpcpp
-    ./neovim
-    ./waybar
-    ./rofi
-    ./eww
-    ## ./mako
-    ## ./texlive
+    ./programs
+    ./services
   ];
 }
