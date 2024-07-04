@@ -77,6 +77,17 @@
         ];
       };
 
+      workspace = [
+        "1, monitor:DP-2,persistent:true"
+        "2, monitor:DP-2,persistent:true"
+        "3, monitor:DP-2,persistent:true"
+        "4, monitor:DP-2,persistent:true"
+        "5, monitor-eDP-1,persistent:true"
+        "6, monitor-eDP-1,persistent:true"
+        "7, monitor-eDP-1,persistent:true"
+        "8, monitor-eDP-1,persistent:true"
+      ];
+
       "$mod" = "SUPER";
 
       bind = [
@@ -114,8 +125,6 @@
         "$mod, 6, workspace, 6"
         "$mod, 7, workspace, 7"
         "$mod, 8, workspace, 8"
-        "$mod, 9, workspace, 9"
-        "$mod, 0, workspace, 10"
 
         #### Move active window
         "$mod SHIFT, 1, movetoworkspace, 1"
@@ -126,8 +135,6 @@
         "$mod SHIFT, 6, movetoworkspace, 6"
         "$mod SHIFT, 7, movetoworkspace, 7"
         "$mod SHIFT, 8, movetoworkspace, 8"
-        "$mod SHIFT, 9, movetoworkspace, 9"
-        "$mod SHIFT, 0, movetoworkspace, 10"
         "$mod SHIFT, j, layoutmsg, swapnext"
         "$mod SHIFT, k, layoutmsg, swapprev"
         "$mod, SPACE, layoutmsg, swapwithmaster"

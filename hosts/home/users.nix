@@ -3,7 +3,7 @@
   users = {
     users.req = {
       isNormalUser = true;
-      extraGroups = ["audio" "wheel" "networkmanager" "kvm" "libvirtd"]; ## [ docker plugdev ]
+      extraGroups = ["audio" "input" "wheel" "networkmanager" "kvm" "libvirtd"]; ## [ docker plugdev ]
     };
 
     groups.plugsdev = {};

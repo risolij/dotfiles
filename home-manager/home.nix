@@ -73,6 +73,9 @@
       ## Audio Tools
       pavucontrol
       pulsemixer
+
+      ## Programming
+      python3
     ];
   };
 

@@ -1,89 +1,103 @@
 { config, pkgs, lib, ...}:
 
-let
-  inherit (pkgs.lib) optionals optional;
-in
 {
-  nixpkgs.overlays = [
-    (final: prev: {
-      waybar =
-        let
-          hyprctl = "${pkgs.hyprland}/bin/hyprctl";
-          waybarPatchFile = import ./workspace-patch.nix { inherit pkgs hyprctl; };
-        in
-        prev.waybar.overrideAttrs (oldAttrs: {
-          mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-          patches = (oldAttrs.patches or [ ]) ++ [ waybarPatchFile ];
-        });
-    })
-  ];
-
   programs.waybar = {
     enable = true;
     systemd.enable = true;
     settings = [{
       layer = "top";
       position = "top";
-      margin = "10 20 0 20";
-      height = 50;
-      modules-left = [ "custom/nixos" "hyprland/workspaces" ];
-      modules-center = [ "clock" ];
-      modules-right = [ "network" "battery" "custom/power" ]; ## "custom/cava"
-
-      ## "custom/cava" = {
-      ##   exec = "cava -p ~/.config/cava/config";
-      ##   tooltip = false;
-      ## };
-
-      "custom/nixos" = {
-        format = "   ";
-        tooltip = false;
-        on-click = "rofi -combi-modi window,drun,ssh,filebrowser --show-icons -show drun";
-      };
-
-      "custom/power" = {
-        format = "";
-        tooltip = false;
-        on-click = "wlogout";
-      };
+      margin = "9 13 -10 18";
+      modules-left = [ "hyprland/workspaces" "hyprland/language" "keyboard-state" ];
+      modules-center = [ "clock" "custom/weather" ];
+      modules-right = [ "pulseaudio" "custom/mem" "cpu" "network" "battery" ]; 
 
       "hyprland/workspaces" = {
         format = "{icon}";
+        all-outputs = true;
         on-click = "activate";
         format-icons = {
-          "1" = "";
-          "2" = "";
-          "3" = "";
-          "4" = "";
+          "1" = "  ";
+          "2" = "  ";
+          "3" = "  ";
+          "4" = "  ";
+          "5" = "  ";
+          "6" = "  ";
+          "7" = "  ";
+          "8" = "  ";
+          active = "  ";
         };
       };
 
-      "wlr/scratchpad" = {
-        format = "{icon} {count}";
-        show-empty = false;
-        format-icons = ["" ""];
-        tooltip = true;
-        tooltip-format = "{app}: {title}";
+      "hyprland/language" = {
+        format-en = "US";
+        min-length = 5;
+        tooltip = false;
+      };
+
+      keyboard-state = {
+        capslock = true;
+        format = "{icon} ";
+        format-icons = {
+          locked = " ";
+          unlocked = "";
+        };
       };
 
       clock = {
         timezone = "America/Phoenix";
         tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-        format-alt = "{:%Y-%m-%d}";
+        format = "{:%a, %d %b, %I:%M %p}";
       };
 
-      battery = {
-        bat = "BAT1";
-        interval = 60;
-        states = {
-          good = 95;
-          warning = 30;
-          critical = 15;
-        };
-        format = "{icon}";
-        format-charging = "";
-        format-plugged = "";
-        format-icons = ["" "" "" "" ""];
+      
+      pulseaudio = {
+          reverse-scrolling = 1;
+          format = "{volume}% {icon} {format_source}";
+          format-bluetooth = "{volume}% {icon} {format_source}";
+          format-bluetooth-muted = " {icon} {format_source}";
+          format-muted = " {format_source}";
+          format-source = "{volume}% ";
+          format-source-muted = "";
+          format-icons = {
+              headphone = "";
+              hands-free = "";
+              headset = "";
+              phone = "";
+              portable = "";
+              car = "";
+              default = ["" "" ""];
+          };
+          on-click = "pavucontrol";
+          min-length = 13;
+      };
+      
+      ## "custom/weather" = {
+      ##     format = "{}";
+      ##     tooltip = true;
+      ##     interval = 1800;
+      ##     exec = "$HOME/.config/waybar/scripts/wttr.py";
+      ##     return-type = "json";
+      ## };
+
+      "custom/mem" = {
+        format = "{} ";
+        interval = 3;
+        exec = "free -h -t | tail -n1 | awk '{print $3}'";
+        tooltip = false;
+      };
+
+      cpu = {
+        interval = 2;
+        format = "{usage}% ";
+        min-length = 6;
+      };
+
+      temperature = {
+        critical-threshold = 80;
+        format = "{temperatureC}°C {icon}";
+        format-icons = ["" "" "" "" ""];
+        tooltip = false;
       };
 
       network = {
@@ -92,74 +106,249 @@ in
         format-disconnected = "";
         tooltip = false;
       };
+
+      battery = {
+        interval = 60;
+        states = {
+          warning = 30;
+          critical = 15;
+        };
+        format = "{capacity}% {icon}";
+        format-charging = "{capacity}% ";
+        format-plugged = "{capacity}% ";
+        format-icons = ["" "" "" "" "" "" "" "" "" ""];
+      };
+
     }];
     style = ''
-      * {
-        font-size: 16px;
-      }
-
-      window#waybar {
-        background: rgba(0, 0, 0, .5);
-        color: #AAB2BF;
-        border-radius: 5px;
-        transition-duration: 0.5s;
-      }
-
-      #workspaces button {
-        background: #9a9a9a;
+    * {
+        border: none;
+        border-radius: 0;
+        /* `otf-font-awesome` is required to be installed for icons */
+        font-family: FontAwesome, JetBrains Mono Bold, sans-serif;
+        min-height: 20px;
+    }
+    
+    window#waybar {
+        background: transparent;
+    }
+    
+    window#waybar.hidden {
+        opacity: 0.2;
+    }
+    
+    #workspaces {
+        margin-right: 8px;
+        border-radius: 10px;
+        transition: none;
+        background: #383c4a;
+    }
+    
+    #workspaces button {
+        transition: none;
+        color: #7c818c;
+        background: transparent;
+        padding: 5px;
+        font-size: 18px;
+    }
+    
+    #workspaces button.persistent {
+        color: #7c818c;
+        font-size: 12px;
+    }
+    
+    /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+    #workspaces button:hover {
+        transition: none;
+        box-shadow: inherit;
+        text-shadow: inherit;
+        border-radius: inherit;
+        color: #383c4a;
+        background: #7c818c;
+    }
+    
+    #workspaces button.active {
+        background: #4e5263;
         color: white;
-        text-shadow: 1px 1px 1px #333;
-        margin: 10px 5px;
-        padding: 0px 10px;
-        opacity: .3;
-      }
+        border-radius: inherit;
+    }
+    
+    #language {
+        padding-left: 16px;
+        padding-right: 8px;
+        border-radius: 10px 0px 0px 10px;
+        transition: none;
+        color: #ffffff;
+        background: #383c4a;
+    }
+    
+    #keyboard-state {
+        margin-right: 8px;
+        padding-right: 16px;
+        border-radius: 0px 10px 10px 0px;
+        transition: none;
+        color: #ffffff;
+        background: #383c4a;
+    }
+    
+    #custom-pacman {
+        padding-left: 16px;
+        padding-right: 8px;
+        border-radius: 10px 0px 0px 10px;
+        transition: none;
+        color: #ffffff;
+        background: #383c4a;
+    }
+    
+    #custom-mail {
+        margin-right: 8px;
+        padding-right: 16px;
+        border-radius: 0px 10px 10px 0px;
+        transition: none;
+        color: #ffffff;
+        background: #383c4a;
+    }
+    
+    #submap {
+        padding-left: 16px;
+        padding-right: 16px;
+        border-radius: 10px;
+        transition: none;
+        color: #ffffff;
+        background: #383c4a;
+    }
+    
+    #clock {
+        padding-left: 16px;
+        padding-right: 16px;
+        border-radius: 10px;
+        transition: none;
+        color: #ffffff;
+        background: #383c4a;
+    }
+    
+    #custom-weather {
+        padding-right: 16px;
+        border-radius: 0px 10px 10px 0px;
+        transition: none;
+        color: #ffffff;
+        background: #383c4a;
+    }
+    
+    #pulseaudio {
+        margin-right: 8px;
+        padding-left: 16px;
+        padding-right: 16px;
+        border-radius: 10px;
+        transition: none;
+        color: #ffffff;
+        background: #383c4a;
+    }
+    
+    #pulseaudio.muted {
+        background-color: #90b1b1;
+        color: #2a5c45;
+    }
+    
+    #network {
+        margin-right: 8px;
+        padding-left: 16px;
+        padding-right: 16px;
+        border-radius: 10px;
+        transition: none;
+        color: #ffffff;
+        background: #383c4a;
+    }
 
-      #workspaces button.active {
-        background: #0096FF;
-        box-shadow: 0 0 4px 1px #0096FF;
-        opacity: 1;
-      }
-
-      #battery, 
-      #battery-plugged, 
-      #battery-charging, 
-      #network, 
-      #network-disconnected {
-        margin: 10px 5px;
-      }
-
-      #battery-plugged, #battery.charging, #battery.good {
-        color: #0096FF;
-      }
-
-      #network {
-        color: #0096FF;
-      }
-
-      #network-disconnected {
-        color: red;
-      }
-
-      #custom-power {
-        color: white;
-        text-shadow: 1px 1px 1px #333;
-        padding: 0px 10px;
-        border-radius: 5px;
-        background: red;
-        margin: 10px 25px 10px 25px;
-      }
-
-      #custom-nixos {
-        background-image: url("/home/req/Pictures/logos/nixos.png");
-        background-size: cover;
-        text-shadow: 1px 1px 1px #333;
-        padding: 0px 10px;
-        margin: 10px 20px;
-      }
-
-      #battery {
-        color: #0096FF;
-      }
+    #custom-mem {
+        margin-right: 8px;
+        padding-left: 16px;
+        padding-right: 16px;
+        border-radius: 10px;
+        transition: none;
+        color: #ffffff;
+        background: #383c4a;
+    }
+    
+    #cpu {
+        margin-right: 8px;
+        padding-left: 16px;
+        padding-right: 16px;
+        border-radius: 10px;
+        transition: none;
+        color: #ffffff;
+        background: #383c4a;
+    }
+    
+    #temperature {
+        margin-right: 8px;
+        padding-left: 16px;
+        padding-right: 16px;
+        border-radius: 10px;
+        transition: none;
+        color: #ffffff;
+        background: #383c4a;
+    }
+    
+    #temperature.critical {
+        background-color: #eb4d4b;
+    }
+    
+    #backlight {
+        margin-right: 8px;
+        padding-left: 16px;
+        padding-right: 16px;
+        border-radius: 10px;
+        transition: none;
+        color: #ffffff;
+        background: #383c4a;
+    }
+    
+    #battery {
+        margin-right: 8px;
+        padding-left: 16px;
+        padding-right: 16px;
+        border-radius: 10px;
+        transition: none;
+        color: #ffffff;
+        background: #383c4a;
+    }
+    
+    #battery.charging {
+        color: #ffffff;
+        background-color: #26A65B;
+    }
+    
+    #battery.warning:not(.charging) {
+        background-color: #ffbe61;
+        color: black;
+    }
+    
+    #battery.critical:not(.charging) {
+        background-color: #f53c3c;
+        color: #ffffff;
+        animation-name: blink;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+    }
+    
+    #tray {
+        padding-left: 16px;
+        padding-right: 16px;
+        border-radius: 10px;
+        transition: none;
+        color: #ffffff;
+        background: #383c4a;
+    }
+    
+    @keyframes blink {
+        to {
+            background-color: #ffffff;
+            color: #000000;
+        }
+    }
     '';
   };
 }
