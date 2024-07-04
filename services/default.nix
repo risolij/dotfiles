@@ -9,5 +9,6 @@
       ./pipewire.nix
       ./greetd.nix
       ./udev.nix
+      ./cockpit.nix
   ];
 }

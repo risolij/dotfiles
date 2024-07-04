@@ -23,6 +23,10 @@
         "col.inactive_border" = "rgba(595959aa)";
       };
 
+      master = {
+        orientation = "center";
+      };
+
       input = {
           kb_layout = "us";
           follow_mouse = 1;
@@ -76,6 +80,7 @@
       "$mod" = "SUPER";
 
       bind = [
+        "CTRL, Space, fakefullscreen"
         "$mod, RETURN, exec, alacritty"
         "$mod SHIFT, P, exec, [fullscreen] /home/req/.config/rofi/powermenu.sh"
         "$mod SHIFT, S, exec, [fullscreen] /home/req/.config/rofi/screenie.sh"
