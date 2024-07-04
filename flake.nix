@@ -1,10 +1,6 @@
 {
   description = "System Configuration";
 
-  nixConfig = {
-    experimental-features = ["nix-command" "flakes" ];
-  };
-
   inputs = { 
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
@@ -22,33 +18,28 @@
   outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs: 
   let
     username = "req";
-    name = "nixos"; 
+    hostname = "nixos"; 
     system = "x86_64-linux";
   in
   {
-    nixosConfigurations.${name} = nixpkgs.lib.nixosSystem {
-      specialArgs = { 
-        inherit inputs;
-        inherit name;
-        inherit username;
-        inherit system; 
+    nixosConfigurations = {
+      ${hostname} = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs hostname username system;  };
+        modules = [
+            ./hosts/home 
+        ];
       };
-      modules = [
-        ./hosts/home 
-      ];
     };
 
-    homeConfigurations."${username}" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      modules = [
-        ./home-manager/home.nix
-      ];
-      extraSpecialArgs = {
-        inherit inputs;
-        inherit name;
-        inherit system;
-        inherit username;
+    homeConfigurations = {
+      ${username} = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${system};
+        modules = [
+          ./home-manager/home.nix
+        ];
+        extraSpecialArgs = { inherit inputs hostname system username; };
       };
     };
+
   };
 }

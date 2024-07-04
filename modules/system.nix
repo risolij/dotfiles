@@ -3,19 +3,14 @@
 {
   i18n.defaultLocale = "en_US.UTF-8";
   time.timeZone = "America/Phoenix";
-  nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [];
+  nixpkgs = {
+    hostPlatform = lib.mkDefault "x86_64-linux";
+    config.allowUnfree = true;
+  };
 
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
   };
-
-  system.userActivationScripts.linktosharedfolder.text = ''
-  if [[ ! -h "$HOME/.config/nixpkgs" ]]; then
-    ln -s "$HOME/environments/git/dotfiles/home-manager" "$HOME/.config/nixpkgs"
-  fi
-'';
-
 }

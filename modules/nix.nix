@@ -1,12 +1,12 @@
 { config, lib, pkgs, ... }:
 {
   nix = {
-    package = pkgs.nixUnstable;
-    extraOptions = ''experimental-features = nix-command flakes'';
+    package = pkgs.nixVersions.latest;
 
     settings = {
       max-jobs = lib.mkDefault 8;
       auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];
     };
 
     gc = {
@@ -14,6 +14,7 @@
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
+
   };
 }
 

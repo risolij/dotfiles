@@ -1,0 +1,1 @@
+/nix/store/178l0lzx1z20li8937gpnzsj43xr9si7-desktops/share/wayland-sessions/

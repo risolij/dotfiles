@@ -9,7 +9,6 @@
 
   ## enable fontconfig
   fonts.fontconfig.enable = true;
-
   nixpkgs.config = {
     allowUnfree = true;
   };
@@ -51,11 +50,6 @@
       lm_sensors
       ethtool
 
-      ## Notification Tools
-      dzen2
-      libnotify
-      wlogout
-
       ## Networking Tools
       dig
       lsof
@@ -65,8 +59,8 @@
       ## Security Tools
       vulnix
 
-      ## Development Tools
-      virt-manager 
+      ## Notifications
+      libnotify
 
       ## Image Tools
       imagemagick
@@ -82,15 +76,6 @@
       ## Audio Tools
       pavucontrol
       pulsemixer
-
-      ## runelite
-      runelite
-
-      ## eww
-      eww-wayland
-
-      ## emacs
-      emacs
     ];
   };
 
@@ -108,8 +93,10 @@
     ./mpd
     ./ncmpcpp
     ./neovim
-    ./rofi
-    ./texlive
     ./waybar
+    ./rofi
+    ./eww
+    ## ./mako
+    ## ./texlive
   ];
 }

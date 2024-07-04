@@ -1,4 +1,5 @@
 { config, pkgs, lib, ... }: {
+
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
@@ -31,8 +32,10 @@
               disable_while_typing = true;
               clickfinger_behavior = 1;
           };
+
       
-          sensitivity = 0;
+          sensitivity = 1.0;
+          scroll_factor = 10.0;
       };
 
       gestures = {
@@ -63,7 +66,7 @@
         bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
         animation = [
           "windows, 1, 7, myBezier"
-          "windowsOut, 1, 7, default, popin 80%"
+          "windowsOut, 1, 7, default, slidefade 20%"
           "border, 1, 10, default"
           "fade, 1, 7, default"
           "workspaces, 1, 6, default"

@@ -4,10 +4,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  ## imports =
-  ##   [ <nixpkgs/nixos/modules/installer/scan/not-detected.nix>
-  ##   ];
-
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/bc3398ef-284f-4407-be19-47510ed1f706";
       fsType = "ext4";

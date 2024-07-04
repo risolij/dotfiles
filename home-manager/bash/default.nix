@@ -42,6 +42,7 @@ in
       clog = ''sudo echo "scale=2; $(cat /tmp/scan.log | wc -l) / $(find /home/req | wc -l) * 100" | bc -l | xargs -I {} echo "Percent Scanned: {}%"'';
       screenshot = ''grim -g "$(slurp)"''; ## ''scrot --select --line width=2,color=Gold,style=dash --freeze'';
       nix-upgrade = ''sudo nixos-rebuild switch --flake .'';
+      osrs = ''flatpak run com.adamcake.Bolt'';
     };
 
   };

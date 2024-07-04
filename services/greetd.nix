@@ -3,14 +3,17 @@
 {
   services.greetd = {
     enable = true;
-    settings = rec {
-      initial_session = {
-        user = "req";
-        command = "${pkgs.hyprland}"/bin/Hyprland;
+    settings = {
+      default_session = {
+        command = ''
+          ${pkgs.greetd.tuigreet}/bin/tuigreet \
+            --time \
+            --asterisks \
+            --user-menu \
+            --cmd Hyprland
+        '';
       };
     };
-
-    default_session = initial_session;
   };
 }
 
