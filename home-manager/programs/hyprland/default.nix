@@ -80,7 +80,7 @@
         "$mod SHIFT, Q, killactive"
         "$mod SHIFT, C, exit"
         "$mod, V, togglefloating"
-        "$mod, D, exec, rofi -combi-modi window,drun,ssh,filebrowser --show-icons -show drun"
+        "$mod, D, exec, [float; size 1000 500; center] rofi -combi-modi window,drun,ssh,filebrowser --show-icons -show drun"
         "$mod, P, pseudo"
         "$mod, S, togglesplit"
 
