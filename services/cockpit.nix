@@ -5,8 +5,8 @@
     enable = true;
     port = 9090;
     settings = {
-      WebService = {
-        AllowUnencrypted = true;
+      Session = {
+        IdleTimeout=15;
       };
     };
   };
