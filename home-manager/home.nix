@@ -8,9 +8,6 @@
   manual.manpages.enable = true;
 
   ## enable fontconfig
-  ## nixpkgs.config = {
-  ##   allowUnfree = true;
-  ## };
   fonts.fontconfig.enable = true;
 
 
