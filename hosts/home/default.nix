@@ -11,6 +11,7 @@
       ./networking.nix
       ./security.nix
       ./xdg.nix
+      ./programs
   ];
 
   system.stateVersion = "20.09";

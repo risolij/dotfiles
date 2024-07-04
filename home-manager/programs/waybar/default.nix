@@ -8,7 +8,7 @@
       layer = "top";
       position = "top";
       margin = "9 13 -10 18";
-      modules-left = [ "hyprland/workspaces" "hyprland/language" "keyboard-state" ];
+      modules-left = [ "hyprland/workspaces" "hyprland/language" "keyboard-state" "hyprland/window" ];
       modules-center = [ "clock" "custom/weather" ];
       modules-right = [ "pulseaudio" "custom/mem" "cpu" "network" "battery" ]; 
 
@@ -72,14 +72,6 @@
           min-length = 13;
       };
       
-      ## "custom/weather" = {
-      ##     format = "{}";
-      ##     tooltip = true;
-      ##     interval = 1800;
-      ##     exec = "$HOME/.config/waybar/scripts/wttr.py";
-      ##     return-type = "json";
-      ## };
-
       "custom/mem" = {
         format = "{} ";
         interval = 3;

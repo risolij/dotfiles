@@ -39,7 +39,7 @@
 
       
           sensitivity = 1.0;
-          scroll_factor = 10.0;
+          scroll_factor = 3.0;
       };
 
       gestures = {
@@ -146,9 +146,9 @@
     };
   };
 
-  home.file."${config.xdg.configHome}/hypr/hyprpaper.conf".text = ''
-      preload = /home/req/Pictures/wallpapers/wolf.png
-      wallpaper = eDP-1,/home/req/Pictures/wallpapers/wolf.png
-      wallpaper = DP-2,/home/req/Pictures/wallpapers/wolf.png
-  '';
+  ## home.file."${config.xdg.configHome}/hypr/hyprpaper.conf".text = ''
+  ##     preload = /home/req/Pictures/wallpapers/wolf.png
+  ##     wallpaper = eDP-1,/home/req/Pictures/wallpapers/wolf.png
+  ##     wallpaper = DP-2,/home/req/Pictures/wallpapers/wolf.png
+  ## '';
 }

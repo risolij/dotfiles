@@ -10,6 +10,9 @@
   ## enable fontconfig
   fonts.fontconfig.enable = true;
 
+  ## enable dconf
+  dconf.enable = true;
+
 
   home = {
     stateVersion = "23.05";
@@ -55,6 +58,7 @@
 
       ## Security Tools
       vulnix
+      lynis
 
       ## Notifications
       libnotify
@@ -64,7 +68,6 @@
       grim
       slurp
       cava
-      hyprpaper
 
       ## Fonts && Themes
       font-awesome
