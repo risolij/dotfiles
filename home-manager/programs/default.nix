@@ -15,6 +15,7 @@
     ./waybar
     ./rofi
     ./eww
+    ./librewolf
   ];
 }
 
