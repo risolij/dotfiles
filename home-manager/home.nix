@@ -67,7 +67,6 @@
       imagemagick
       grim
       slurp
-      cava
 
       ## Fonts && Themes
       font-awesome

@@ -16,6 +16,7 @@
     ./rofi
     ./eww
     ./librewolf
+    ./cava
   ];
 }
 
