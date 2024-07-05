@@ -3,9 +3,12 @@
 {
   programs.cava = {
     enable = true;
-    color = {
-      background = "'#000000'";
-      foreground = "'#FFFFFF'";
-
+    settings = {
+      general.framerate = 60;
+      smoothing.noise_reduction = 88;
+      color = {
+        foreground = "'#FF0000'";
+      };
+    };
   };
 }
