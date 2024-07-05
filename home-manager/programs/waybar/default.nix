@@ -115,7 +115,7 @@
         };
         format = "{capacity}% {icon}";
         format-charging = "{capacity}% ";
-        format-plugged = "{capacity}% ";
+        format-full = "{capacity}% ";
         format-icons = [ " " " " " " " " " " ];
       };
 
@@ -156,7 +156,6 @@
         font-size: 12px;
     }
     
-    /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
     #workspaces button:hover {
         transition: none;
         box-shadow: inherit;
@@ -308,9 +307,6 @@
         padding-left: 16px;
         padding-right: 16px;
         border-radius: 10px;
-        /* transition: none; */
-        /* color: #ffffff; */
-        /* background: #383c4a; */
     }
 
     #battery.good {
@@ -331,6 +327,11 @@
     #battery.charging {
         color: white;
         background: gold;
+    }
+
+    #battery.full {
+        color: white;
+        background: lightblue;
     }
     
     #battery.warning:not(.charging) {
