@@ -3,9 +3,15 @@
 {
   services.hyprpaper = {
     enable = true;
-    wallpapers = [
-      "eDP-1,~/Pictures/wallpapers/wolf.png"
-      "DP-2,~/Pictures/wallpapers/wolf.png"
-    ];
+    settings = {
+      preload = [
+        "/home/req/Pictures/wallpapers/wolf.png"
+      ];
+      wallpaper = [
+        "eDP-1,/home/req/Pictures/wallpapers/wolf.png"
+        "DP-2,/home/req/Pictures/wallpapers/wolf.png"
+      ];
+    };
+  };
 }
 

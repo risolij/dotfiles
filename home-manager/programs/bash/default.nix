@@ -43,6 +43,7 @@ in
       screenshot = ''grim -g "$(slurp)"''; ## ''scrot --select --line width=2,color=Gold,style=dash --freeze'';
       nix-upgrade = ''sudo nixos-rebuild switch --flake .'';
       osrs = ''flatpak run com.adamcake.Bolt'';
+      logout = ''loginctl terminate-user $USER'';
     };
 
   };

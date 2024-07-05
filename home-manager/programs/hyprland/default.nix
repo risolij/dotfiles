@@ -10,10 +10,6 @@
         "DP-2,  2560x1080, 1920x0, 1"
       ];
 
-      exec-once = [
-        "hyprpaper"
-      ];
-
       general = {
         layout = "master";
         gaps_in = 10;
@@ -145,10 +141,4 @@
       ];
     };
   };
-
-  ## home.file."${config.xdg.configHome}/hypr/hyprpaper.conf".text = ''
-  ##     preload = /home/req/Pictures/wallpapers/wolf.png
-  ##     wallpaper = eDP-1,/home/req/Pictures/wallpapers/wolf.png
-  ##     wallpaper = DP-2,/home/req/Pictures/wallpapers/wolf.png
-  ## '';
 }
