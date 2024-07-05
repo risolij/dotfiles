@@ -148,7 +148,9 @@
       bindle=, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
       bindle=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
       bindl=, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-      bindl=, XF86AudioMicMute, exec, wpctl set-mute 49 toggle && wpctl set-mute 50 toggle
+      bindl=, XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+      bindle=XF86MonBrightnessDown, exec, brightnessctl set 2%-
+      bindle=XF86MonBrightnessUp, exec, brightnessctl set 2%+
     '';
   };
 }
