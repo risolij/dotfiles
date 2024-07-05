@@ -10,7 +10,7 @@
       margin = "9 13 -10 18";
       modules-left = [ "hyprland/workspaces" "hyprland/language" "keyboard-state" "hyprland/window" ];
       modules-center = [ "clock" "custom/weather" ];
-      modules-right = [ "pulseaudio" "custom/mem" "cpu" "network" "battery" ]; 
+      modules-right = [ "pulseaudio" "temperature" "custom/mem" "cpu" "network" "battery" ]; 
 
       "hyprland/workspaces" = {
         format = "{icon}";
@@ -50,6 +50,13 @@
         format = "{:%a, %d %b, %I:%M %p}";
       };
 
+      "custom/weather" = {
+        format = "{}°";
+        tooltip = true;
+        interval = 3600;
+        exec = "wttrbar --fahrenheit";
+        return-type = "json";
+      };
       
       pulseaudio = {
           reverse-scrolling = 1;
@@ -102,13 +109,14 @@
       battery = {
         interval = 60;
         states = {
+          good = 80;
           warning = 30;
           critical = 15;
         };
         format = "{capacity}% {icon}";
-        format-charging = "{capacity}% ";
+        format-charging = "{capacity}% ";
         format-plugged = "{capacity}% ";
-        format-icons = ["" "" "" "" "" "" "" "" "" ""];
+        format-icons = [ " " " " " " " " " " ];
       };
 
     }];
@@ -138,7 +146,6 @@
     
     #workspaces button {
         transition: none;
-        color: #7c818c;
         background: transparent;
         padding: 5px;
         font-size: 18px;
@@ -213,7 +220,7 @@
     #clock {
         padding-left: 16px;
         padding-right: 16px;
-        border-radius: 10px;
+        border-radius: 10px 0px 0px 10px;
         transition: none;
         color: #ffffff;
         background: #383c4a;
@@ -301,14 +308,29 @@
         padding-left: 16px;
         padding-right: 16px;
         border-radius: 10px;
-        transition: none;
-        color: #ffffff;
-        background: #383c4a;
+        /* transition: none; */
+        /* color: #ffffff; */
+        /* background: #383c4a; */
+    }
+
+    #battery.good {
+        background: green;
+        color: white;
+    }
+
+    #battery.warning {
+        background: orange;
+        color: white;
+    }
+
+    #battery.critical {
+        background: red;
+        color: white;
     }
     
     #battery.charging {
-        color: #ffffff;
-        background-color: #26A65B;
+        color: white;
+        background: gold;
     }
     
     #battery.warning:not(.charging) {

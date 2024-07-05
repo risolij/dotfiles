@@ -1,7 +1,6 @@
 { config, pkgs, ... }: {
   imports = [
       ./basic.nix
-      ./actkbd.nix
       ./cron.nix
       ./fail2ban.nix
       ./journald.nix
@@ -10,5 +9,6 @@
       ./greetd.nix
       ./udev.nix
       ./cockpit.nix
+      ## ./actkbd.nix
   ];
 }

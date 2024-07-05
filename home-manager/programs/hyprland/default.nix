@@ -45,6 +45,8 @@
 
       misc = {
         disable_hyprland_logo = true;
+        mouse_move_enables_dpms = true;
+        key_press_enables_dpms = true;
       };
 
       decoration = {
@@ -140,5 +142,13 @@
         "$mod, mouse_up, workspace, e-1"
       ];
     };
+
+    ## bindl=, XF86TouchpadOff, exec, hyprctl dispatch dpms toggle
+    extraConfig = ''
+      bindle=, XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
+      bindle=, XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+      bindl=, XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+      bindl=, XF86AudioMicMute, exec, wpctl set-mute 49 toggle && wpctl set-mute 50 toggle
+    '';
   };
 }
