@@ -2,7 +2,8 @@
 
 {
   security = {
-    pam.services.sshd.showMotd = true;
+    rtkit.enable = true;
     polkit.enable = true;
+    pam.services.sshd.showMotd = true;
   };
 }
