@@ -68,7 +68,7 @@
       slurp
 
       ## Fonts && Themes
-      fira-code
+      fira-code-nerdfont
 
       ## Audio Tools
       pavucontrol

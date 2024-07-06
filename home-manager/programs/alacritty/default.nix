@@ -6,10 +6,11 @@
     settings = {
       window.padding.x = 15;
       window.padding.y = 15;
+      window.opacity = 0.9;
       font.size = 18;
-      font.normal.family = "FiraCode";
-      font.bold.family = "FiraCode";
-      font.italic.family = "Fira Code";
+      font.normal.family = "FiraCode Nerd Font";
+      font.bold.family = "FiraCode Nerd Font";
+      font.italic.family = "FiraCode Nerd Font";
 
       colors.primary = {
         background = "0x2E3440";
