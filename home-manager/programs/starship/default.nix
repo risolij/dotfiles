@@ -33,6 +33,17 @@
       nix_shell.symbol = " ";
       nodejs.symbol = " ";
       ocaml.symbol = " ";
+      package.symbol = "󰏗 ";
+      perl.symbol = " ";
+      php.symbol = " ";
+      pijul_channel.symbol = " ";
+      python.symbol = " ";
+      rlang.symbol = "󰟔 ";
+      ruby.symbol = " ";
+      rust.symbol = " ";
+      scala.symbol = " ";
+      swift.symbol = " ";
+      zig.symbol = " ";
       os = {
         disabled = false;
         format = "$symbol ";
