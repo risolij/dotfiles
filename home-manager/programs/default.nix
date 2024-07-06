@@ -17,6 +17,7 @@
     ./eww
     ./librewolf
     ./cava
+    ./starship
   ];
 }
 
