@@ -8,6 +8,7 @@
         pkgs.wttrbar 
         pkgs.brightnessctl
         pkgs.hyprpicker
+        pkgs.discord
       ];
     };
 

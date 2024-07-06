@@ -307,6 +307,8 @@
         padding-left: 16px;
         padding-right: 16px;
         border-radius: 10px;
+        color: white;
+        background: lightblue;
     }
 
     #battery.good {

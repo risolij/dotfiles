@@ -2,7 +2,8 @@
 
 {
   imports = [ 
-      ../../services
+      ../../nixos/services
+      ../../nixos/programs
       ../../modules
       ./filesystem.nix
       ./boot.nix
@@ -11,7 +12,6 @@
       ./networking.nix
       ./security.nix
       ./xdg.nix
-      ./programs
   ];
 
   system.stateVersion = "20.09";
