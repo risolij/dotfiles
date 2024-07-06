@@ -166,7 +166,7 @@
     }
     
     #workspaces button.active {
-        background: #4e5263;
+        background: #F8814C;
         color: white;
         border-radius: inherit;
     }

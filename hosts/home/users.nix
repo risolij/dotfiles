@@ -7,6 +7,7 @@
       packages = [ 
         pkgs.wttrbar 
         pkgs.brightnessctl
+        pkgs.hyprpicker
       ];
     };
 

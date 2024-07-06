@@ -22,8 +22,8 @@
       EDITOR = "nvim";
       TERMINAL = "alacritty";
       BROWSER = "firefox";
-
-      ## Testing environment variables
+      GRIM_DEFAULT_DIR = "/home/req/Pictures/screenshots";
+      XDG_PICTURES_DIR = "/home/req/Pictures";
       XDG_SESSION_TYPE = "wayland";
       XDG_SESSION_DESKTOP = "Hyprland";
       XDG_CURRENT_DESKTOP = "Hyprland";
