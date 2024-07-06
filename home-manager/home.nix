@@ -13,7 +13,6 @@
   ## enable dconf
   dconf.enable = true;
 
-
   home = {
     stateVersion = "23.05";
     username = "req";
