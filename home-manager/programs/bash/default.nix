@@ -26,9 +26,9 @@ in
       "erasedups"
     ];
 
-    bashrcExtra = ''
-      PS1='${MAGENTA}[\u@\H \$]${PS_CLEAR}${GREEN} ❯ ${PS_CLEAR}'
-    '';
+    ## bashrcExtra = ''
+    ##   PS1='${MAGENTA}[\u@\H \$]${PS_CLEAR}${GREEN} ❯ ${PS_CLEAR}'
+    ## '';
 
     initExtra = ''
       set -o vi
