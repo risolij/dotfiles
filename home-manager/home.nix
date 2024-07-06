@@ -68,8 +68,7 @@
       slurp
 
       ## Fonts && Themes
-      font-awesome
-      ubuntu_font_family
+      fira-code
 
       ## Audio Tools
       pavucontrol

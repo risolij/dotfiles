@@ -7,6 +7,9 @@
       window.padding.x = 15;
       window.padding.y = 15;
       font.size = 18;
+      font.normal.family = "FiraCode";
+      font.bold.family = "FiraCode";
+      font.italic.family = "Fira Code";
 
       colors.primary = {
         background = "0x2E3440";
