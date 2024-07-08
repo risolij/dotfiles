@@ -13,9 +13,11 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    inputs.nixos-hardware.url = "github:NixOs/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, hyprland, nixos-hardware, ... }@inputs: 
   let
     username = "req";
     hostname = "nixos"; 
@@ -27,6 +29,13 @@
         specialArgs = { inherit inputs hostname username system;  };
         modules = [
             ./hosts/home 
+        ];
+      };
+
+      pi-kube = nixpkgs.lib.nixosSystem {
+        modules = [
+          nixos-hardware.nixosModules.raspberry-pi.3
+          ./hosts/rpi/configuration.nix
         ];
       };
     };
