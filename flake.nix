@@ -35,7 +35,7 @@
       pi-kube = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         modules = [
-          nixos-hardware.nixosModules.raspberry-pi.3
+          nixos-hardware.nixosModules.raspberry-pi-3
           ./hosts/rpi/configuration.nix
         ];
       };
