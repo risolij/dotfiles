@@ -6,7 +6,7 @@
   nixpkgs.config.allowUnfree = true;
 
   boot = {
-    tmp.cleanTmpDir = true;
+    tmp.cleanOnBoot = true;
     kernelParams = ["cma=256M"];
     kernel.sysctl = { "vm.swappiness" = 0; };
   };
