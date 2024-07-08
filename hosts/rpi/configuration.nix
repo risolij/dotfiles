@@ -6,19 +6,9 @@
   nixpkgs.config.allowUnfree = true;
 
   boot = {
-    cleanTmpDir = true;
+    tmp.cleanTmpDir = true;
     kernelParams = ["cma=256M"];
     kernel.sysctl = { "vm.swappiness" = 0; };
-    loader.raspberryPi = {
-      enable = true;
-      version = 3;
-      uboot.enable = true;
-      firmwareConfig = ''
-        gpu_mem=256
-        boot_delay=10
-        hdmi_drive=2
-      '';
-    };
   };
 
   environment.systemPackages = with pkgs; [
@@ -62,6 +52,6 @@
 
   services.openssh = {
     enable = true;
-    permitRootLogin = "yes";
+    settings.permitRootLogin = "yes";
   };
 }
