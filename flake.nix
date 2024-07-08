@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    inputs.nixos-hardware.url = "github:NixOs/nixos-hardware/master";
+    nixos-hardware.url = "github:NixOs/nixos-hardware/master";
   };
 
   outputs = { self, nixpkgs, home-manager, hyprland, nixos-hardware, ... }@inputs: 
