@@ -26,10 +26,6 @@ in
       "erasedups"
     ];
 
-    ## bashrcExtra = ''
-    ##   PS1='${MAGENTA}[\u@\H \$]${PS_CLEAR}${GREEN} ❯ ${PS_CLEAR}'
-    ## '';
-
     initExtra = ''
       set -o vi
     '';
@@ -44,6 +40,7 @@ in
       nix-upgrade = ''sudo nixos-rebuild switch --flake .'';
       osrs = ''flatpak run com.adamcake.Bolt'';
       logout = ''loginctl terminate-user $USER'';
+      makepi = ''nix run nixpkgs#nixos-generators -- -f sd-aarch64 --flake .#pi-kube --system aarch64-linux -o ./pi.sd'';
     };
 
   };

@@ -39,6 +39,8 @@
       efiSupport = true;
       devices = [ "nodev" ];
     };
+
+    binfmt.emulatedSystems = [ "aarch64-linux" ];
   };
 }
 
