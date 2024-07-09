@@ -4,6 +4,11 @@
   inputs = { 
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
+    auto-cpufreq = {
+      url = "github:AdnanHodzic/auto-cpufreq";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,7 +22,7 @@
     nixos-hardware.url = "github:NixOs/nixos-hardware/master";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland, nixos-hardware, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, hyprland, nixos-hardware, auto-cpufreq, ... }@inputs:
   let
     username = "req";
     hostname = "nixos"; 
@@ -26,9 +31,10 @@
   {
     nixosConfigurations = {
       ${hostname} = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs hostname username system;  };
+        specialArgs = { inherit inputs hostname username system auto-cpufreq;  };
         modules = [
             ./hosts/home 
+            auto-cpufreq.nixosModules.default
         ];
       };
 

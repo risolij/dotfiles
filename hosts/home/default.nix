@@ -11,6 +11,7 @@
       ./users.nix
       ./networking.nix
       ./security.nix
+      ./battery.nix
       ./xdg.nix
   ];
 

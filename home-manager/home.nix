@@ -69,6 +69,7 @@
 
       ## Fonts && Themes
       fira-code-nerdfont
+      font-awesome
 
       ## Audio Tools
       pavucontrol
