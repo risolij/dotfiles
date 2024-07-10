@@ -84,6 +84,11 @@
             name = "firefox options";
             url = "https://gitlab.com/rycee/configurations/-/blob/master/user/firefox.nix";
           };
+
+          nixos-flakes-book = {
+            name = "NixOS & Flakes Book";
+            url = "https://nixos-and-flakes.thiscute.world/";
+          };
         };
       };
     };
