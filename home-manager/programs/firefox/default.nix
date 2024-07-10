@@ -89,6 +89,11 @@
             name = "NixOS & Flakes Book";
             url = "https://nixos-and-flakes.thiscute.world/";
           };
+
+          noogle = {
+            name = "Noogle";
+            url = "https://nixos-and-flakes.thiscute.world/";
+          };
         };
       };
     };
