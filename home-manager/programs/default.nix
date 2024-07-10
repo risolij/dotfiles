@@ -15,9 +15,9 @@
     ./waybar
     ./rofi
     ./eww
-    ./librewolf
     ./cava
     ./starship
+    ## ./librewolf
   ];
 }
 
