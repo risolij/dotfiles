@@ -100,7 +100,7 @@
       };
 
       network = {
-        format-wifi = "";
+        format-wifi = " ";
         format-ethernet = "";
         format-disconnected = "";
         tooltip = false;
