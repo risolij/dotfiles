@@ -35,7 +35,7 @@
 
       
           sensitivity = 1.0;
-          scroll_factor = 3.0;
+          scroll_factor = 2.0;
       };
 
       gestures = {
