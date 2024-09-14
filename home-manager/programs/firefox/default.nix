@@ -26,7 +26,6 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/privacy-badger17/latest.xpi";
           installation_mode = "force_installed";
         };
-
       };
     };
 
@@ -36,9 +35,9 @@
         isDefault = true;
         settings = { 
           "beacon.enabled" = false;
-          "browser.contentblock.category" = "strict";
+          "browser.contentblocking.category" = "strict";
           "browser.preferences.defaultPerformanceSettings.enabled" = false;
-          "browser.privatebrowsing.autostart" = true;
+          "browser.privatebrowsing.autostart" = false;
           "browser.security.https_only_mode" = true;
           "browser.startup.homepage" = "https://nixos.org";
           "browser.startup.page" = 3;
@@ -48,7 +47,7 @@
           "geo.enabled" = false;
           "mousewheel.default.delta_multiplier_y" = 15;
           "mousewheel.default.delta_multiplier_x" = 15;
-          "places.history.enabled" = false;
+          "places.history.enabled" = true;
           "privacy.donottrackheader.enabled" = true;
           "privacy.donottrackheader.value" = 1;
           "browser.display.os-zoom-behavior" = 0;

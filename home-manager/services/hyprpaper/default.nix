@@ -11,6 +11,7 @@
       wallpaper = [
         "eDP-1,/home/req/Pictures/wallpapers/spaceman.png"
         "DP-2,/home/req/Pictures/wallpapers/spaceman.png"
+        "DP-3,/home/req/Pictures/wallpapers/spaceman.png"
       ];
     };
   };
