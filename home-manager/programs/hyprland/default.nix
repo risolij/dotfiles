@@ -20,7 +20,7 @@
       };
 
       master = {
-        orientation = "center";
+        orientation = "right";
       };
 
       input = {
@@ -79,10 +79,10 @@
         "2, monitor:DP-2,persistent:true"
         "3, monitor:DP-2,persistent:true"
         "4, monitor:DP-2,persistent:true"
-        "5, monitor-eDP-1,persistent:true"
-        "6, monitor-eDP-1,persistent:true"
-        "7, monitor-eDP-1,persistent:true"
-        "8, monitor-eDP-1,persistent:true"
+        "5, monitor:eDP-1,persistent:true"
+        "6, monitor:eDP-1,persistent:true"
+        "7, monitor:eDP-1,persistent:true"
+        "8, monitor:eDP-1,persistent:true"
       ];
 
       "$mod" = "SUPER";
