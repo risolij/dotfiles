@@ -8,9 +8,9 @@
       window.padding.y = 15;
       window.opacity = 0.9;
       font.size = 18;
-      font.normal.family = "FiraCode Nerd Font";
-      font.bold.family = "FiraCode Nerd Font";
-      font.italic.family = "FiraCode Nerd Font";
+      font.normal.family = "JetBrainsMono Nerd Font";
+      font.bold.family = "JetBrainsMono Nerd Font";
+      font.italic.family = "JetBrainsMono Nerd Font";
 
       colors.primary = {
         background = "0x2E3440";

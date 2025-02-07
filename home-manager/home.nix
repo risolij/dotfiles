@@ -68,7 +68,9 @@
       slurp
 
       ## Fonts && Themes
-      fira-code-nerdfont
+      nerd-fonts.fira-code
+      nerd-fonts.jetbrains-mono
+      inconsolata
       font-awesome
 
       ## Audio Tools

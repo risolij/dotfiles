@@ -26,7 +26,10 @@
       input = {
           kb_layout = "us";
           follow_mouse = 1;
-          accel_profile = "flat";
+          force_no_accel = true;
+          sensitivity = 1.0;
+          scroll_factor = 2.0;
+          ##accel_profile = "flat";
       
           touchpad = {
               natural_scroll = "yes";
@@ -34,10 +37,6 @@
               clickfinger_behavior = 1;
               scroll_factor = 2.0;
           };
-
-      
-          sensitivity = 1.0;
-          scroll_factor = 2.0;
       };
 
       gestures = {
@@ -54,8 +53,6 @@
       decoration = {
         rounding = 5;
         inactive_opacity = 1.0;
-        drop_shadow = true;
-        "col.shadow" = "rgba(1a1a1aee)";
 
         blur = {
           enabled = true;
@@ -91,7 +88,6 @@
       "$mod" = "SUPER";
 
       bind = [
-        "CTRL, Space, fakefullscreen"
         "$mod, RETURN, exec, alacritty"
         "$mod SHIFT, P, exec, [fullscreen] /home/req/.config/rofi/powermenu.sh"
         "$mod SHIFT, S, exec, [fullscreen] /home/req/.config/rofi/screenie.sh"
