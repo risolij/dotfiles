@@ -1,25 +1,6 @@
 { config, pkgs, ... }:
-let 
-  BBLACK = ''\[\033[01;40m\]'';
-  BRED = ''\[\033[01;41m\]'';
-  BGREEN  = ''\[\033[01;42m\]'';
-  BYELLOW = ''\[\033[01;43m\]'';
-  BBLUE = ''\[\033[01;44m\]'';
-  BMAGENTA = ''\[\033[01;45m\]'';
-  BCYAN = ''\[\033[01;46m\]'';
-  BWHITE = ''\[\033[01;47m\]'';
-  BLACK = ''\[\033[01;30m\]'';
-  RED = ''\[\033[01;31m\]'';
-  GREEN = ''\[\033[01;32m\]'';
-  YELLOW = ''\[\033[01;33m\]'';
-  BLUE = ''\[\033[01;34m\]'';
-  MAGENTA = ''\[\033[01;35m\]'';
-  CYAN = ''\[\033[01;36m\]'';
-  WHITE = ''\[\033[01;37m\]'';
-  PS_CLEAR = ''\[\033[0m\]'';
-in
 {
-  programs.bash = {
+  programs.nushell = {
     enable = true;
 
     historyControl = [

@@ -39,7 +39,7 @@
         capslock = true;
         format = "{icon} ";
         format-icons = {
-          locked = " ";
+          locked = "";
           unlocked = "";
         };
       };

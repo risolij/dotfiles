@@ -2,7 +2,7 @@
 {
   imports = [
     ./alacritty
-    ./bash
+    ./nushell
     ./bat
     ./direnv
     ./eza
@@ -17,6 +17,7 @@
     ./eww
     ./cava
     ./starship
+    ##./bash
     ## ./librewolf
   ];
 }

@@ -75,10 +75,10 @@
       };
 
       workspace = [
-        "1, monitor:DP-2,persistent:true"
-        "2, monitor:DP-2,persistent:true"
-        "3, monitor:DP-2,persistent:true"
-        "4, monitor:DP-2,persistent:true"
+        "1, monitor:DP-3,persistent:true"
+        "2, monitor:DP-3,persistent:true"
+        "3, monitor:DP-3,persistent:true"
+        "4, monitor:DP-3,persistent:true"
         "5, monitor:eDP-1,persistent:true"
         "6, monitor:eDP-1,persistent:true"
         "7, monitor:eDP-1,persistent:true"
