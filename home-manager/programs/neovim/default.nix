@@ -40,6 +40,7 @@
     '';
     plugins = with pkgs.vimPlugins; [ 
       vim-nix 
+      yuck-vim
       # rust-vim 
       # coc-nvim
       # coc-rust-analyzer 

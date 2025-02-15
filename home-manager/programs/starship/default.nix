@@ -2,7 +2,7 @@
 {
   programs.starship = {
     enable = true;
-    enableBashIntegration = true;
+    enableNushellIntegration = true;
     settings = {
       aws.symbol = "  ";
       buf.symbol = " ";
@@ -14,8 +14,7 @@
       docker_context.symbol = " ";
       elixir.symbol = " ";
       elm.symbol = " ";
-      fennel.symbol = " ";
-      fossil_branch.symbol = " ";
+      fennel.symbol = " "; fossil_branch.symbol = " ";
       git_branch.symbol = " ";
       golang.symbol = " ";
       guix_shell.symbol = " ";

@@ -154,6 +154,7 @@
 
     #workspaces button.empty {
         color: lightgrey;
+        background: transparent;
     }
 
     #workspaces button:hover {

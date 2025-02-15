@@ -1,0 +1,23 @@
+;; Variables
+;; widgets
+
+(defpoll volume :interval "5ms" "volume.nu get_vol")
+
+(defwindow bar 
+  :monitor 1
+  :geometry (geometry 
+    :x "20px"
+    :y "100px"
+    :anchor "center"
+    :width "270px"
+    :height "60px"
+  )(scale-test)
+)
+
+(defwidget scale-test []
+  (box :orientation "v"
+    (scale :onchange "volume.nu set_vol {}"
+           :min 0
+           :max 101
+           :value volume
+           :active true)))

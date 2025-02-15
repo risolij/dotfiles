@@ -6,8 +6,8 @@
     xwayland.enable = true;
     settings = {
       monitor = [
-        "eDP-1, 1920x1080, 0x0, 1"
-        "DP-2,  2560x1080, 1920x0, 1"
+        "DP-2,  2560x1080, 0x0, 1"
+        "eDP-1, 1920x1080, 2560x0, 1"
       ];
 
       general = {
@@ -75,10 +75,10 @@
       };
 
       workspace = [
-        "1, monitor:DP-3,persistent:true"
-        "2, monitor:DP-3,persistent:true"
-        "3, monitor:DP-3,persistent:true"
-        "4, monitor:DP-3,persistent:true"
+        "1, monitor:DP-2,persistent:true"
+        "2, monitor:DP-2,persistent:true"
+        "3, monitor:DP-2,persistent:true"
+        "4, monitor:DP-2,persistent:true"
         "5, monitor:eDP-1,persistent:true"
         "6, monitor:eDP-1,persistent:true"
         "7, monitor:eDP-1,persistent:true"
