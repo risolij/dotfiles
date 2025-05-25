@@ -5,7 +5,6 @@
     ./nushell
     ./bat
     ./direnv
-    ./eza
     ./firefox
     ./git
     ./gtk
@@ -17,6 +16,7 @@
     ./eww
     ./cava
     ./starship
+    ## ./eza
     ##./bash
     ## ./librewolf
   ];
