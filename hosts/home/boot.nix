@@ -27,6 +27,7 @@
       "wacom"
       "intel-lpss"
       "i915"
+      "dm_mod"
     ];
     kernelParams = [
       "nowatchdog"
