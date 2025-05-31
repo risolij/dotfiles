@@ -1,6 +1,5 @@
 { config, pkgs, lib, ... }:
 
-
 {
   programs.firefox = {
     enable = true;
@@ -53,46 +52,42 @@
           "browser.display.os-zoom-behavior" = 0;
         };
         bookmarks = {
-          wikipedia = {
-            name = "wiki";
-            keyword = "wiki";
-            url = "https://en.wikipedia.org/wiki/Special:Search?search=%s&go=Go";
-          };
-
-          kernel = {
-            name = "kernel";
-            url = "https://www.kernel.org";
-          };
-
-          nix-versions = {
-            name = "nix versions";
-            url = "https://lazamar.co.uk/nix-versions/";
-          };
-
-          pihole-dns = {
-            name = "pi-hole configurations";
-            url = "https://discourse.pi-hole.net/t/how-do-i-configure-my-devices-to-use-pi-hole-as-their-dns-server/245";
-          };
-
-          wolfram = {
-            name = "wolfram";
-            url = "https://www.wolframalpha.com/";
-          };
-
-          firefox-options = {
-            name = "firefox options";
-            url = "https://gitlab.com/rycee/configurations/-/blob/master/user/firefox.nix";
-          };
-
-          nixos-flakes-book = {
-            name = "NixOS & Flakes Book";
-            url = "https://nixos-and-flakes.thiscute.world/";
-          };
-
-          noogle = {
-            name = "Noogle";
-            url = "https://nixos-and-flakes.thiscute.world/";
-          };
+          force = true;
+          settings = [
+            {
+              name = "wiki";
+              keyword = "wiki";
+              url = "https://en.wikipedia.org/wiki/Special:Search?search=%s&go=Go";
+            }
+            {
+              name = "kernel";
+              url = "https://www.kernel.org";
+            }
+            {
+              name = "nix versions";
+              url = "https://lazamar.co.uk/nix-versions/";
+            }
+            {
+              name = "pi-hole configurations";
+              url = "https://discourse.pi-hole.net/t/how-do-i-configure-my-devices-to-use-pi-hole-as-their-dns-server/245";
+            }
+            {
+              name = "wolfram";
+              url = "https://www.wolframalpha.com/";
+            }
+            {
+              name = "firefox options";
+              url = "https://gitlab.com/rycee/configurations/-/blob/master/user/firefox.nix";
+            }
+            {
+              name = "NixOS & Flakes Book";
+              url = "https://nixos-and-flakes.thiscute.world/";
+            }
+            {
+              name = "Noogle";
+              url = "https://nixos-and-flakes.thiscute.world/";
+            }
+          ];
         };
       };
     };
