@@ -15,5 +15,6 @@
     };
 
     sensor.iio.enable = true;
+    bluetooth.enable = true;
   };
 }

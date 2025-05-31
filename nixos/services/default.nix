@@ -7,6 +7,7 @@
       ./pipewire.nix
       ./greetd.nix
       ./udev.nix
+      ./libinput.nix
       ## ./cockpit.nix
       ##./thermald.nix
       ## ./actkbd.nix

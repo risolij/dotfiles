@@ -31,13 +31,11 @@
     ];
     kernelParams = [
       "nowatchdog"
-      "nmi_watchdog=0"
       "mmio_stale_data=full"
       "i8042.nopnp"
-      "i915.fastboot=1"
       "i915.enable_psr=0"
+      "nmi_watchdog=0"
       "quiet"
-      "splash"
     ];
     tmp.cleanOnBoot = true;
     kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
