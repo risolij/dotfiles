@@ -1,5 +1,4 @@
 { inputs, config, pkgs, lib, system, ... }: {
-  imports = [ ./general.nix ];
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -11,35 +10,28 @@
         "eDP-1, 1920x1080, 2560x0, 1"
       ];
 
-      general = ./general.nix;
-      ## general = {
-      ##   layout = "master";
-      ##   gaps_in = 10;
-      ##   gaps_out = 20;
-      ##   border_size = 0;
-      ##   "col.active_border" = "rgba(F8814CAA)";
-      ##   "col.inactive_border" = "rgba(595959aa)";
-      ## };
-
+      general = import ./general.nix;
       master = {
         orientation = "right";
       };
 
-      input = {
-          kb_layout = "us";
-          follow_mouse = 1;
-          force_no_accel = true;
-          sensitivity = 1.0;
-          scroll_factor = 2.0;
-          ##accel_profile = "flat";
-      
-          touchpad = {
-              natural_scroll = "yes";
-              disable_while_typing = true;
-              clickfinger_behavior = 1;
-              scroll_factor = 2.0;
-          };
-      };
+      input = import ./input.nix;
+
+      ## input = {
+      ##     kb_layout = "us";
+      ##     follow_mouse = 1;
+      ##     force_no_accel = true;
+      ##     sensitivity = 1.0;
+      ##     scroll_factor = 2.0;
+      ##     ##accel_profile = "flat";
+      ## 
+      ##     touchpad = {
+      ##         natural_scroll = "yes";
+      ##         disable_while_typing = true;
+      ##         clickfinger_behavior = 1;
+      ##         scroll_factor = 2.0;
+      ##     };
+      ## };
 
       gestures = {
         workspace_swipe = "on";
