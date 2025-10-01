@@ -1,4 +1,4 @@
-{
+{ inputs, config, pkgs, lib, system, ... }: {
   layout = "master";
   gaps_in = 10;
   gaps_out = 20;

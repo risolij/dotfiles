@@ -11,15 +11,15 @@
         "eDP-1, 1920x1080, 2560x0, 1"
       ];
 
-      ## general = ./general.nix;
-      general = {
-        layout = "master";
-        gaps_in = 10;
-        gaps_out = 20;
-        border_size = 0;
-        "col.active_border" = "rgba(F8814CAA)";
-        "col.inactive_border" = "rgba(595959aa)";
-      };
+      general = ./general.nix;
+      ## general = {
+      ##   layout = "master";
+      ##   gaps_in = 10;
+      ##   gaps_out = 20;
+      ##   border_size = 0;
+      ##   "col.active_border" = "rgba(F8814CAA)";
+      ##   "col.inactive_border" = "rgba(595959aa)";
+      ## };
 
       master = {
         orientation = "right";
