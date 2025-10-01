@@ -11,7 +11,7 @@
 
   programs.rofi = {
     enable = true;
-    package = pkgs.rofi-wayland;
+    package = pkgs.rofi;
     cycle = true;
     configPath = "${config.xdg.configHome}/rofi/config.rasi";
     extraConfig = {
