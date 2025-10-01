@@ -32,6 +32,7 @@
       makepi = ''nix run nixpkgs#nixos-generators -- -f sd-aarch64 --flake .#pi-kube --system aarch64-linux -o ./pi.sd'';
       dots = ''cd ~/Development/git/dotfiles'';
       ll = ''ls -al'';
+      fg = ''job unfreeze'';
     };
   };
 }

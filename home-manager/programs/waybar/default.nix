@@ -7,7 +7,7 @@
     settings = [{
       layer = "top";
       position = "top";
-      margin = "9 13 -10 18";
+      margin = "9 13 10 18";
       modules-left = [ "hyprland/workspaces" "hyprland/language" "keyboard-state" "hyprland/window" ];
       modules-center = [ "clock" "custom/weather" ];
       modules-right = [ "pulseaudio" "temperature" "custom/mem" "cpu" "network" "battery" ]; 

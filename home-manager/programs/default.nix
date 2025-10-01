@@ -16,9 +16,6 @@
     ./eww
     ./cava
     ./starship
-    ## ./eza
-    ##./bash
-    ## ./librewolf
   ];
 }
 
