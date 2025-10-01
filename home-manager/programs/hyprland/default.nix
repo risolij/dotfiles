@@ -16,25 +16,7 @@
       };
 
       input = import ./input.nix;
-
-      ## input = {
-      ##     kb_layout = "us";
-      ##     follow_mouse = 1;
-      ##     force_no_accel = true;
-      ##     sensitivity = 1.0;
-      ##     scroll_factor = 2.0;
-      ##     ##accel_profile = "flat";
-      ## 
-      ##     touchpad = {
-      ##         natural_scroll = "yes";
-      ##         disable_while_typing = true;
-      ##         clickfinger_behavior = 1;
-      ##         scroll_factor = 2.0;
-      ##     };
-      ## };
-
       gestures = {
-        workspace_swipe = "on";
         workspace_swipe_forever = true;
       };
 
@@ -45,10 +27,11 @@
       };
 
       decoration = {
-        rounding = 5;
+        rounding = 18;
         inactive_opacity = 1.0;
 
         blur = {
+          xray = true;
           enabled = true;
           passes = 1;
           new_optimizations = true;
@@ -68,6 +51,10 @@
         ];
       };
 
+      gesture = [
+        "3, horizontal, workspace"
+      ];
+
       workspace = [
         "1, monitor:DP-2,persistent:true"
         "2, monitor:DP-2,persistent:true"
@@ -77,6 +64,7 @@
         "6, monitor:eDP-1,persistent:true"
         "7, monitor:eDP-1,persistent:true"
         "8, monitor:eDP-1,persistent:true"
+        "9, monitor:eDP-1,persistent:true"
       ];
 
       "$mod" = "SUPER";
@@ -115,6 +103,7 @@
         "$mod, 6, workspace, 6"
         "$mod, 7, workspace, 7"
         "$mod, 8, workspace, 8"
+        "$mod, 9, workspace, 9"
 
         #### Move active window
         "$mod SHIFT, 1, movetoworkspace, 1"
@@ -125,6 +114,7 @@
         "$mod SHIFT, 6, movetoworkspace, 6"
         "$mod SHIFT, 7, movetoworkspace, 7"
         "$mod SHIFT, 8, movetoworkspace, 8"
+        "$mod SHIFT, 9, movetoworkspace, 9"
         "$mod SHIFT, j, layoutmsg, swapnext"
         "$mod SHIFT, k, layoutmsg, swapprev"
         "$mod, SPACE, layoutmsg, swapwithmaster"
