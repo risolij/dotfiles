@@ -8,6 +8,7 @@
       ./greetd.nix
       ./udev.nix
       ./libinput.nix
+      ./ledger.nix
       ## ./cockpit.nix
       ##./thermald.nix
       ## ./actkbd.nix
