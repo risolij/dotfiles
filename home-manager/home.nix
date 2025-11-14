@@ -13,6 +13,8 @@
   ## enable dconf
   dconf.enable = true;
 
+  nixpkgs.config.allowUnfree = true;
+
   home = {
     stateVersion = "23.05";
     username = "req";
@@ -76,6 +78,11 @@
       ## Audio Tools
       pavucontrol
       pulsemixer
+
+      ## Ledger
+      google-chrome
+      ledger-live-desktop
+      trezor-suite
     ];
   };
 

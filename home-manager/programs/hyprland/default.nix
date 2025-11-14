@@ -70,6 +70,7 @@
       "$mod" = "SUPER";
 
       bind = [
+        "$mod SHIFT, W, exec, systemctl restart --user waybar"
         "$mod, RETURN, exec, alacritty"
         "$mod SHIFT, P, exec, [fullscreen] /home/req/.config/rofi/powermenu.sh"
         "$mod SHIFT, S, exec, [fullscreen] /home/req/.config/rofi/screenie.sh"
