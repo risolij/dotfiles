@@ -83,6 +83,9 @@
       google-chrome
       ledger-live-desktop
       trezor-suite
+
+      ## Other
+      mpv
     ];
   };
 

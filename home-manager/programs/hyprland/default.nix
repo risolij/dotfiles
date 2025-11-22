@@ -70,6 +70,8 @@
       "$mod" = "SUPER";
 
       bind = [
+        "$mod, C, movetoworkspace, special"
+        "$mod, F, exec, [workspace 1 silent; float; move 0 0] firefox"
         "$mod SHIFT, W, exec, systemctl restart --user waybar"
         "$mod, RETURN, exec, alacritty"
         "$mod SHIFT, P, exec, [fullscreen] /home/req/.config/rofi/powermenu.sh"
