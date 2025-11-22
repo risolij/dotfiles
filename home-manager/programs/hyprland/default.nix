@@ -70,8 +70,9 @@
       "$mod" = "SUPER";
 
       bind = [
-        "$mod, C, movetoworkspace, special"
-        "$mod, F, exec, [workspace 1 silent; float; move 0 0] firefox"
+        "$mod, C, movetoworkspace, special:firefox"
+        "$mod, F, exec, [workspace special:firefox silent; float; move 0 0] firefox"
+        "$mod, R, togglespecialworkspace, firefox"
         "$mod SHIFT, W, exec, systemctl restart --user waybar"
         "$mod, RETURN, exec, alacritty"
         "$mod SHIFT, P, exec, [fullscreen] /home/req/.config/rofi/powermenu.sh"
@@ -137,6 +138,7 @@
       bindle=, XF86MonBrightnessDown, exec, brightnessctl set 5%-
       bindle=, XF86MonBrightnessUp, exec, brightnessctl set 5%+
       bindl=, Print, exec, grim -g "$(slurp)"
+      workspace=special:firefox,gapsout:100
     '';
   };
 }
