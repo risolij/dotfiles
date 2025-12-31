@@ -29,6 +29,7 @@
       decoration = {
         rounding = 18;
         inactive_opacity = 1.0;
+        dim_special = 0.6;
 
         blur = {
           xray = true;
