@@ -8,12 +8,12 @@
     ./firefox
     ./git
     ./gtk
-    ./hyprland
+    ## ./hyprland
+    ##./eww
     ./ncmpcpp
     ./neovim
     ./waybar
     ./rofi
-    ./eww
     ./cava
     ./starship
   ];

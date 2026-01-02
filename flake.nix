@@ -10,6 +10,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,17 +24,6 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    Hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-
   };
 
   outputs = inputs@{ 
@@ -39,7 +33,7 @@
     nixos-hardware,
     auto-cpufreq,
     hyprland,
-    Hyprspace,
+    niri
     ... 
   }: let
     username = "req";
@@ -50,7 +44,7 @@
     nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
       system = system;
       specialArgs = { 
-        inherit inputs hostname username system auto-cpufreq Hyprspace;
+        inherit inputs hostname username system auto-cpufreq;
       };
       modules = [
           ./hosts/home 
@@ -71,7 +65,7 @@
       modules = [
         ./home-manager/home.nix
       ];
-      extraSpecialArgs = { inherit inputs hostname system username Hyprspace; };
+      extraSpecialArgs = { inherit inputs hostname system username; };
     };
   };
 }

@@ -4,6 +4,9 @@
   ## Enable Home Manager
   programs.home-manager.enable = true;
 
+  ## Niri
+  programs.niri.enable = true;
+
   ## Enable manual manpages
   manual.manpages.enable = true;
 
