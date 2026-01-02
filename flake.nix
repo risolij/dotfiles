@@ -62,11 +62,11 @@
 
     homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
+      extraSpecialArgs = { inherit inputs; };
       modules = [
         ./home-manager/home.nix
-        niri.homeModules.niri
+        niri.homeModules.config
       ];
-      extraSpecialArgs = { inherit inputs; };
     };
   };
 }
