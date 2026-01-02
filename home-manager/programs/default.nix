@@ -8,6 +8,7 @@
     ./firefox
     ./git
     ./gtk
+    ./niri
     ## ./hyprland
     ##./eww
     ./ncmpcpp

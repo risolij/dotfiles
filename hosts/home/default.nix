@@ -12,7 +12,7 @@
       ./networking.nix
       ./security.nix
       ./battery.nix
-      ./niri.nix
+      ## ./niri.nix
       ./xdg.nix
   ];
 

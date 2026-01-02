@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   ## Enable Home Manager
@@ -90,6 +90,7 @@
   };
 
   imports = [
+    inputs.niri.homeModules.config 
     ./programs
     ./services
   ];

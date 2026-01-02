@@ -1,5 +1,5 @@
-{ config, lib, pkgs, inputs, ... }: {
-
+{ config, pkgs, ... }:
+{
   programs.niri = {
     enable = true;
     settings = {
@@ -20,3 +20,4 @@
     };
   };
 }
+
