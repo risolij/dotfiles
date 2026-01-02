@@ -1,8 +1,9 @@
 { pkgs, lib, config, ... }:
 
 {
+  services.displayManager.sddm.enable = true;
   services.displayManager = {
-    sessionPackages = [ pkgs.hyprland ];
+    sessionPackages = [ pkgs.niri ];
   };
 
   services.xserver = {
