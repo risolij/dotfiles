@@ -33,7 +33,7 @@
     nixos-hardware,
     auto-cpufreq,
     hyprland,
-    niri
+    niri,
     ... 
   }: let
     username = "req";
