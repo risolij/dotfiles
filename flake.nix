@@ -65,7 +65,7 @@
       modules = [
         ./home-manager/home.nix
       ];
-      extraSpecialArgs = { inherit inputs hostname system username; };
+      extraSpecialArgs = { inherit inputs; };
     };
   };
 }
