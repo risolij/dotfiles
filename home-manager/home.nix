@@ -90,7 +90,6 @@
   };
 
   imports = [
-    inputs.niri.homeModules.config 
     ./programs
     ./services
   ];
