@@ -15,6 +15,12 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  imports = [
+    inputs.niri.homeModules.config
+    ./programs
+    ./services
+  ];
+
   home = {
     stateVersion = "23.05";
     username = "req";
@@ -89,8 +95,7 @@
     ];
   };
 
-  imports = [
-    ./programs
-    ./services
-  ];
+  programs.niri = {
+    enable = true;
+  };
 }

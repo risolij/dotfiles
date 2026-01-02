@@ -8,9 +8,9 @@
     ./firefox
     ./git
     ./gtk
-    ./niri
+    ## ./niri
     ## ./hyprland
-    ##./eww
+    ## ./eww
     ./ncmpcpp
     ./neovim
     ./waybar

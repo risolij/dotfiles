@@ -64,6 +64,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
       modules = [
         ./home-manager/home.nix
+        niri.homeModules.niri
       ];
       extraSpecialArgs = { inherit inputs; };
     };
