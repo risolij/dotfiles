@@ -2,9 +2,8 @@
 
 {
   imports = [ 
-    ./system.nix
-    ./nix.nix
     ./nixos
+    ./home
   ];
 }
 
