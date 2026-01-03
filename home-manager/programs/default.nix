@@ -15,6 +15,7 @@
     ./cava
     ./starship
     ./noctalia
+    ./discord
   ];
 }
 
