@@ -50,14 +50,6 @@
       ];
     };
 
-    nixosConfigurations.pi-kube = nixpkgs.lib.nixosSystem {
-      system = "aarch64-linux";
-      modules = [
-        nixos-hardware.nixosModules.raspberry-pi-3
-        ./hosts/rpi/configuration.nix
-      ];
-    };
-
     homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       extraSpecialArgs = { inherit inputs; };
@@ -67,5 +59,14 @@
         ./modules/home
       ];
     };
+
+    nixosConfigurations.pi-kube = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      modules = [
+        nixos-hardware.nixosModules.raspberry-pi-3
+        ./hosts/rpi/configuration.nix
+      ];
+    };
+
   };
 }

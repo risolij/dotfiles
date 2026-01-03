@@ -9,6 +9,7 @@
       ./libinput.nix
       ./ledger.nix
       ./niri.nix
+      ./speechd.nix
       ./xserver.nix
   ];
 }

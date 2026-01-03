@@ -15,8 +15,5 @@
         theme = "${pkgs.sddm-astronaut}/share/sddm/themes/sddm-astronaut-theme";
       };
     };
-
-    power-profiles-daemon.enable = false;
-
   };
 }

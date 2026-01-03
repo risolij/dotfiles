@@ -1,10 +1,12 @@
 { pkgs, lib, config, ... }:
 
 {
-  ## services.logind.lidSwitch = "suspend";
-  services.logind.settings.Login.HandleLidSwitch = "suspend";
-  services.flatpak.enable = true;
-  services.openssh.enable = true;
-  services.fwupd.enable = true;
-  services.upower.enable = true;
+  services = {
+    logind.settings.Login.HandleLidSwitch = "suspend";
+    flatpak.enable = true;
+    openssh.enable = true;
+    fwupd.enable = true;
+    upower.enable = true;
+    power-profiles-daemon.enable = false;
+  };
 }
