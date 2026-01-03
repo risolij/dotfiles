@@ -10,9 +10,5 @@
       ./ledger.nix
       ./niri.nix
       ./xserver.nix
-      ## ./greetd.nix
-      ## ./cockpit.nix
-      ##./thermald.nix
-      ## ./actkbd.nix
   ];
 }

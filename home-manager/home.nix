@@ -87,6 +87,9 @@
 
       ## Other
       mpv
+
+      ## Wayland Package for Niri
+      xwayland-satellite
     ];
   };
 

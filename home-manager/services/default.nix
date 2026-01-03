@@ -3,6 +3,6 @@
   imports = [
     ./mpd
     ./mako
-    ./hyprpaper
+    ## ./hyprpaper
   ];
 }

@@ -5,10 +5,11 @@
     settings = {
       input = {
         mod-key = "Super";
+        focus-follows-mouse.enable = true;
 
         mouse = {
           accel-profile = "flat";
-          accel-speed = 1;
+          scroll-factor = 5.0;
         };
       };
 
@@ -45,6 +46,7 @@
         "Mod+D".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "toggle" ];
         "Mod+Return".action.spawn = "alacritty";
 
+        "Mod+O".action.toggle-overview = [];
         "Mod+Shift+Q".action.close-window = [];
         "Mod+Shift+E".action.quit = [];
         "Mod+BracketLeft".action.consume-or-expel-window-left = [];
