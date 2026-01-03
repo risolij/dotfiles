@@ -43,9 +43,7 @@
   in {
     nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
       system = system;
-      specialArgs = { 
-        inherit inputs hostname username system auto-cpufreq;
-      };
+      specialArgs = {  inherit inputs; };
       modules = [
           ./hosts/home 
           auto-cpufreq.nixosModules.default
@@ -66,7 +64,7 @@
       modules = [
         niri.homeModules.niri
         noctalia.homeModules.default
-        ./home-manager/home.nix
+        ./modules/home
       ];
     };
   };

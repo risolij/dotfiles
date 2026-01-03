@@ -13,4 +13,3 @@
     groups.plugsdev = {};
   };
 }
-
