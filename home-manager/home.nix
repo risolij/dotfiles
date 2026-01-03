@@ -15,11 +15,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  imports = [
-    inputs.niri.homeModules.config
-    ./programs
-    ./services
-  ];
 
   home = {
     stateVersion = "23.05";
@@ -32,8 +27,8 @@
       GRIM_DEFAULT_DIR = "/home/req/Pictures/screenshots";
       XDG_PICTURES_DIR = "/home/req/Pictures";
       XDG_SESSION_TYPE = "wayland";
-      XDG_SESSION_DESKTOP = "Hyprland";
-      XDG_CURRENT_DESKTOP = "Hyprland";
+      XDG_SESSION_DESKTOP = "Niri";
+      XDG_CURRENT_DESKTOP = "Niri";
       MOZ_ENABLE_WAYLAND = "1";
       GDK_BACKEND = "wayland";
       GTK_USE_PORTAL = "1";
@@ -74,6 +69,7 @@
       imagemagick
       grim
       slurp
+      swaybg
 
       ## Fonts && Themes
       nerd-fonts.fira-code
@@ -86,7 +82,6 @@
       pulsemixer
 
       ## Ledger
-      google-chrome
       ledger-live-desktop
       trezor-suite
 
@@ -95,7 +90,9 @@
     ];
   };
 
-  programs.niri = {
-    enable = true;
-  };
+  imports = [
+    ./programs
+    ./services
+  ];
+
 }

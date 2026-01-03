@@ -24,6 +24,11 @@
       url = "github:hyprwm/Hyprland";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ 
@@ -34,13 +39,14 @@
     auto-cpufreq,
     hyprland,
     niri,
+    noctalia,
     ... 
   }: let
+    pkgs = import nixpkgs { inherit system; };
     username = "req";
     hostname = "nixos"; 
     system = "x86_64-linux";
-  in
-  {
+  in {
     nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
       system = system;
       specialArgs = { 
@@ -61,11 +67,12 @@
     };
 
     homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
+      inherit pkgs;
       extraSpecialArgs = { inherit inputs; };
       modules = [
+        niri.homeModules.niri
+        noctalia.homeModules.default
         ./home-manager/home.nix
-        niri.homeModules.config
       ];
     };
   };

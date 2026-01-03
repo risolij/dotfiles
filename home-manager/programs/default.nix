@@ -8,15 +8,14 @@
     ./firefox
     ./git
     ./gtk
-    ## ./niri
-    ## ./hyprland
-    ## ./eww
+    ./niri
     ./ncmpcpp
     ./neovim
     ./waybar
     ./rofi
     ./cava
     ./starship
+    ./noctalia
   ];
 }
 
