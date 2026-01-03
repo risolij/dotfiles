@@ -1,16 +1,17 @@
 { pkgs, lib, config, ... }:
 
 {
-  services.displayManager.sddm.enable = true;
   services.displayManager = {
     sessionPackages = [ pkgs.niri ];
+    sddm = {
+      package = pkgs.kdePackages.sddm;
+      extraPackages = with pkgs; [
+        kdePackages.qtsvg
+        kdePackages.qtmultimedia
+      ];
+      enable = true;
+      wayland.enable = true;
+      theme = "${pkgs.sddm-astronaut}/share/sddm/themes/sddm-astronaut-theme";
+    };
   };
-
-  ## services.xserver = {
-  ##   enable = true;
-  ##   desktopManager.gnome.enable = true;
-  ## };
-
-  ## services.power-profiles-daemon.enable = false;
-  ## hardware.pulseaudio.enable = false;
 }

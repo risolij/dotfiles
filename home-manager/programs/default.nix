@@ -11,7 +11,6 @@
     ./niri
     ./ncmpcpp
     ./neovim
-    ./waybar
     ./rofi
     ./cava
     ./starship

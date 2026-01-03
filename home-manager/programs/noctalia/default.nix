@@ -7,7 +7,7 @@
       bar = {
         position = "top";
         monitors = [ ];
-        density = "default";
+        density = "spacious";
         showOutline = false;
         showCapsule = true;
         capsuleOpacity = 1;
@@ -23,7 +23,7 @@
             {
               icon = "rocket";
               id = "CustomButton";
-              leftClickExec = "qs -c noctalia-shell ipc call launcher toggle";
+              leftClickExec = "noctalia-shell ipc call launcher toggle";
             }
             {
               id = "Clock";

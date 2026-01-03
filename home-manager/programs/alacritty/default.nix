@@ -6,7 +6,7 @@
     settings = {
       window.padding.x = 15;
       window.padding.y = 15;
-      window.opacity = 0.9;
+      window.opacity = 1;
       font.size = 18;
       font.normal.family = "JetBrainsMono Nerd Font";
       font.bold.family = "JetBrainsMono Nerd Font";
