@@ -19,7 +19,7 @@
       prefer-no-csd = true;
 
       spawn-at-startup = [
-        { argv = ["swaybg" "--image" "/home/req/Pictures/wallpapers/resized.png"]; }
+        { argv = ["noctalia-shell"]; }
       ];
 
       binds = {

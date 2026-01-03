@@ -27,8 +27,8 @@
       GRIM_DEFAULT_DIR = "/home/req/Pictures/screenshots";
       XDG_PICTURES_DIR = "/home/req/Pictures";
       XDG_SESSION_TYPE = "wayland";
-      XDG_SESSION_DESKTOP = "Niri";
-      XDG_CURRENT_DESKTOP = "Niri";
+      XDG_SESSION_DESKTOP = "niri";
+      XDG_CURRENT_DESKTOP = "niri";
       MOZ_ENABLE_WAYLAND = "1";
       GDK_BACKEND = "wayland";
       GTK_USE_PORTAL = "1";
