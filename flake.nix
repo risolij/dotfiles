@@ -20,11 +20,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    auto-cpufreq = {
-      url = "github:AdnanHodzic/auto-cpufreq";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -49,7 +44,6 @@
     nixpkgs,
     home-manager,
     nixos-hardware,
-    auto-cpufreq,
     niri,
     noctalia,
     disko,
@@ -67,7 +61,6 @@
       specialArgs = {  inherit inputs; };
       modules = [
           ./hosts/home 
-          auto-cpufreq.nixosModules.default
           impermanence.nixosModules.impermanence
           disko.nixosModules.disko
           distro-grub-themes.nixosModules.${system}.default
