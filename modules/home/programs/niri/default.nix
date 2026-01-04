@@ -53,13 +53,13 @@
         "Mod+BracketRight".action.consume-or-expel-window-right = [];
         "Mod+H".action.focus-column-left = [];
         "Mod+L".action.focus-column-right = [];
-        "Mod+K".action.focus-window-up = [];
-        "Mod+J".action.focus-window-down = [];
+        "Mod+K".action.focus-window-or-workspace-up = [];
+        "Mod+J".action.focus-window-or-workspace-down = [];
 
         "Mod+Shift+H".action.move-column-left = [];
         "Mod+Shift+L".action.move-column-right = [];
-        "Mod+Shift+K".action.move-window-up= [];
-        "Mod+Shift+J".action.move-window-down = [];
+        "Mod+Shift+K".action.move-window-up-or-to-workspace-up = [];
+        "Mod+Shift+J".action.move-window-down-or-to-workspace-down = [];
 
         "Mod+1".action.focus-workspace = 1;
         "Mod+2".action.focus-workspace = 2;

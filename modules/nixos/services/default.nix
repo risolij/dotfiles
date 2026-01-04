@@ -11,5 +11,6 @@
       ./niri.nix
       ./speechd.nix
       ./xserver.nix
+      ./thermald.nix
   ];
 }
