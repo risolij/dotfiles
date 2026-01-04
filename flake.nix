@@ -38,6 +38,10 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    distro-grub-themes = {
+      url = "github:AdisonCavani/distro-grub-themes";
+    };
   };
 
   outputs = inputs@{ 
@@ -50,6 +54,7 @@
     noctalia,
     disko,
     impermanence,
+    distro-grub-themes,
     ... 
   }: let
     pkgs = import nixpkgs { inherit system; };
@@ -65,6 +70,7 @@
           auto-cpufreq.nixosModules.default
           impermanence.nixosModules.impermanence
           disko.nixosModules.disko
+          distro-grub-themes.nixosModules.${system}.default
       ];
     };
 

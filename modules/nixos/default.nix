@@ -9,6 +9,7 @@
     ./security.nix
     ./xdg.nix
     ./virtualization.nix
+    ./distro-grub-themes.nix
   ];
 }
 
