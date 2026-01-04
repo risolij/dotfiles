@@ -2,8 +2,13 @@
   description = "System Configuration";
 
   inputs = { 
-    nixpkgs.url = "nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:NixOs/nixos-hardware/master";
+    nixpkgs = {
+      url = "nixpkgs/nixos-unstable";
+    };
+
+    nixos-hardware = {
+      url = "github:NixOs/nixos-hardware/master";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -28,6 +33,11 @@
     impermanence = {
       url = "github:nix-community/impermanence";
     };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ 
@@ -38,6 +48,7 @@
     auto-cpufreq,
     niri,
     noctalia,
+    disko,
     impermanence,
     ... 
   }: let
@@ -53,6 +64,7 @@
           ./hosts/home 
           auto-cpufreq.nixosModules.default
           impermanence.nixosModules.impermanence
+          disko.nixosModules.disko
       ];
     };
 

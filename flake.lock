@@ -20,6 +20,26 @@
         "type": "github"
       }
     },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1766150702,
+        "narHash": "sha256-P0kM+5o+DKnB6raXgFEk3azw8Wqg5FL6wyl9jD+G5a4=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "916506443ecd0d0b4a0f4cf9d40a3c22ce39b378",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -167,11 +187,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1767479556,
-        "narHash": "sha256-Z9TU0P8RcQl4OdtCGBmQ8dyfqmsnQi5Q2Yh/RQ9/NPQ=",
+        "lastModified": 1767499294,
+        "narHash": "sha256-C63xBo4H9jKJbv5HsAVztJpJ9xfg7U7A8RdhjiogbZo=",
         "owner": "noctalia-dev",
         "repo": "noctalia-shell",
-        "rev": "c015e8445b3147abdc1b917c16c3275c93697f99",
+        "rev": "c0dff46afb3c6e9fde0e2fea193f69af94b422ff",
         "type": "github"
       },
       "original": {
@@ -183,6 +203,7 @@
     "root": {
       "inputs": {
         "auto-cpufreq": "auto-cpufreq",
+        "disko": "disko",
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "niri": "niri",
