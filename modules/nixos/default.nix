@@ -8,6 +8,7 @@
     ./networking.nix
     ./security.nix
     ./xdg.nix
+    ./virtualization.nix
   ];
 }
 

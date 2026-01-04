@@ -1,5 +1,4 @@
 { config, pkgs, lib, inputs, ... }:
-
 {
   ## Enable Home Manager
   programs.home-manager.enable = true;
@@ -14,7 +13,6 @@
   dconf.enable = true;
 
   nixpkgs.config.allowUnfree = true;
-
 
   home = {
     stateVersion = "23.05";
@@ -90,6 +88,9 @@
 
       ## Wayland Package for Niri
       xwayland-satellite
+
+      ## Lighting Controls
+      brightnessctl
     ];
   };
 

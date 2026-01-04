@@ -24,6 +24,10 @@
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    impermanence = {
+      url = "github:nix-community/impermanence";
+    };
   };
 
   outputs = inputs@{ 
@@ -34,6 +38,7 @@
     auto-cpufreq,
     niri,
     noctalia,
+    impermanence,
     ... 
   }: let
     pkgs = import nixpkgs { inherit system; };
@@ -47,6 +52,7 @@
       modules = [
           ./hosts/home 
           auto-cpufreq.nixosModules.default
+          impermanence.nixosModules.impermanence
       ];
     };
 
