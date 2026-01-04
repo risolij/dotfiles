@@ -16,7 +16,6 @@
     ./starship
     ./noctalia
     ./discord
-    ./virt-manager
   ];
 }
 
