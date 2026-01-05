@@ -2,7 +2,7 @@
 {
   boot = {
     initrd = {
-      includeDefaultModules = false;
+      includeDefaultModules = true;
       availableKernelModules = [
         "xhci_pci"
         "nvme"
@@ -33,7 +33,7 @@
       "nowatchdog"
       "mmio_stale_data=full"
       "i8042.nopnp"
-      "i915.enable_psr=0"
+      ## Turning off while on wayland "i915.enable_psr=0"
       "nmi_watchdog=0"
       "quiet"
     ];

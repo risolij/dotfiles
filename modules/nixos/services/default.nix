@@ -12,5 +12,6 @@
       ./speechd.nix
       ./xserver.nix
       ./thermald.nix
+      ./keyd.nix
   ];
 }
