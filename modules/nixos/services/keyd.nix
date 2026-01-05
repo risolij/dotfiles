@@ -5,15 +5,9 @@
     enable = true;
 
     keyboards.default = {
-      ids = [ "*" ];
-
       settings = {
         main = {
-          leftmeta = "layer(meta)";
-        };
-
-        meta = {
-          l = "XF86Display";
+          "leftmeta+l" = "coffee";
         };
       };
     };
