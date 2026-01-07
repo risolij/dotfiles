@@ -10,13 +10,13 @@
     };
 
     theme = {
-      name = "Arc-Darker";
-      package = pkgs.arc-theme;
+      name = "Tokyonight-Dark";
+      package = pkgs.tokyonight-gtk-theme;
     };
 
     iconTheme = {
-      name = "breeze-dark";
-      package = pkgs.libsForQt5.breeze-icons;
+      name = "Pop";
+      package = pkgs.pop-icon-theme;
     };
 
     cursorTheme = {
