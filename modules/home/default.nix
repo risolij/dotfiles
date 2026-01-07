@@ -1,46 +1,40 @@
 { config, pkgs, lib, inputs, ... }:
+let
+  username = "req";
+in
 {
-  ## Enable Home Manager
-  programs.home-manager.enable = true;
+  imports = [
+    inputs.noctalia.homeModules.default
+    inputs.niri.homeModules.niri
+    ./programs
+    ./services
+  ];
 
-  ## Enable manual manpages
-  manual.manpages.enable = true;
+  home.stateVersion = "23.05";
 
-  ## enable fontconfig
-  fonts.fontconfig.enable = true;
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    TERMINAL = "alacritty";
+    BROWSER = "firefox";
+    XDG_PICTURES_DIR = "/home/${username}/Pictures";
+    XDG_SESSION_TYPE = "wayland";
+    XDG_SESSION_DESKTOP = "niri";
+    XDG_CURRENT_DESKTOP = "niri";
+    MOZ_ENABLE_WAYLAND = "1";
+    GDK_BACKEND = "wayland";
+    GTK_USE_PORTAL = "1";
+    NIXOS_XDG_OPEN_USE_PORTAL = "1";
+  };
 
-  ## enable dconf
-  dconf.enable = true;
+  home.username = username;
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Amber";
+    size = 32;
+  };
 
-  nixpkgs.config.allowUnfree = true;
-
-  home = {
-    stateVersion = "23.05";
-    username = "req";
-    homeDirectory = "/home/req";
-    sessionVariables = {
-      EDITOR = "nvim";
-      TERMINAL = "alacritty";
-      BROWSER = "firefox";
-      GRIM_DEFAULT_DIR = "/home/req/Pictures/screenshots";
-      XDG_PICTURES_DIR = "/home/req/Pictures";
-      XDG_SESSION_TYPE = "wayland";
-      XDG_SESSION_DESKTOP = "niri";
-      XDG_CURRENT_DESKTOP = "niri";
-      MOZ_ENABLE_WAYLAND = "1";
-      GDK_BACKEND = "wayland";
-      GTK_USE_PORTAL = "1";
-      NIXOS_XDG_OPEN_USE_PORTAL = "1";
-    };
-
-    pointerCursor = {
-      gtk.enable = true;
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Amber";
-      size = 32;
-    };
-
-    packages = with pkgs; [
+  home.packages = with pkgs; [
       ## Hardware Tools
       acpi
       dmidecode
@@ -65,9 +59,6 @@
 
       ## Image Tools
       imagemagick
-      grim
-      slurp
-      swaybg
 
       ## Fonts && Themes
       nerd-fonts.fira-code
@@ -88,15 +79,16 @@
 
       ## Wayland Package for Niri
       xwayland-satellite
-
-      ## Lighting Controls
-      brightnessctl
-    ];
-  };
-
-  imports = [
-    ./programs
-    ./services
   ];
 
+  ## Enable manual manpages
+  manual.manpages.enable = true;
+
+  ## enable fontconfig
+  fonts.fontconfig.enable = true;
+
+  ## enable dconf
+  dconf.enable = true;
+
+  nixpkgs.config.allowUnfree = true;
 }

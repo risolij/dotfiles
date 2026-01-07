@@ -39,51 +39,37 @@
     };
   };
 
-  outputs = inputs@{ 
-    self,
-    nixpkgs,
+  outputs = { 
     home-manager,
-    nixos-hardware,
     niri,
-    noctalia,
-    disko,
     impermanence,
+    disko,
     distro-grub-themes,
-    ... 
-  }: let
-    pkgs = import nixpkgs { inherit system; };
-    username = "req";
-    hostname = "nixos"; 
-    system = "x86_64-linux";
-  in {
-    nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
-      system = system;
+    noctalia,
+    ...
+  }@inputs: {
+    nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
       specialArgs = {  inherit inputs; };
       modules = [
           ./hosts/home 
           impermanence.nixosModules.impermanence
           disko.nixosModules.disko
-          distro-grub-themes.nixosModules.${system}.default
+          distro-grub-themes.nixosModules."x86_64-linux".default
+          home-manager.nixosModules.home-manager {
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.users.req = import ./modules/home;
+          }
       ];
     };
 
-    homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      extraSpecialArgs = { inherit inputs; };
-      modules = [
-        niri.homeModules.niri
-        noctalia.homeModules.default
-        ./modules/home
-      ];
-    };
-
-    nixosConfigurations.pi-kube = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.pi-kube = inputs.nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
-        nixos-hardware.nixosModules.raspberry-pi-3
+        inputs.nixos-hardware.nixosModules.raspberry-pi-3
         ./hosts/rpi/configuration.nix
       ];
     };
-
   };
 }
