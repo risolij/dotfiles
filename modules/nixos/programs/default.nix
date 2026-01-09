@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
-    ## ./dconf
+    ./dconf
     ./virt-manager
   ];
 }

@@ -44,7 +44,7 @@
       swift.symbol = " ";
       zig.symbol = " ";
       os = {
-        disabled = false;
+        disabled = true;
         format = "$symbol ";
         symbols = {
           NixOS = " ";

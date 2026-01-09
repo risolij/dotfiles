@@ -15,9 +15,6 @@
     ./noctalia
     ./discord
     ./stylix
-    ## ./gtk
-    ## ./rofi
-    ## ./qt
   ];
 }
 

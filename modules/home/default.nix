@@ -24,21 +24,15 @@ in
     XDG_SESSION_DESKTOP = "niri-session";
     XDG_CURRENT_DESKTOP = "niri-session";
     MOZ_ENABLE_WAYLAND = "1";
+    NIXOS_XDG_OPEN_USE_PORTAL = "1";
     GDK_BACKEND = "wayland";
     GTK_USE_PORTAL = "1";
-    NIXOS_XDG_OPEN_USE_PORTAL = "1";
-    ## GTK_THEME = "Tokyonight-Dark";
-    ## QS_ICON_THEME="Numix-Square";
-    ## XDG_ICON_THEME = "Numix";
+    QS_ICON_THEME="Numix-Square";
+    GTK_THEME = "Tokyonight-Dark";
+    XDG_ICON_THEME = "Numix Square";
   };
 
   home.username = username;
-  ## home.pointerCursor = {
-  ##   gtk.enable = true;
-  ##   package = pkgs.bibata-cursors;
-  ##   name = "Bibata-Modern-Amber";
-  ##   size = 32;
-  ## };
 
   home.packages = with pkgs; [
       ## Hardware Tools
@@ -95,7 +89,7 @@ in
   fonts.fontconfig.enable = true;
 
   ## enable dconf
-  ## dconf.enable = true;
+  dconf.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 }
