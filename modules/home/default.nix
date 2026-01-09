@@ -2,9 +2,11 @@
 let
   noctalia = inputs.noctalia.homeModules.default;
   niri = inputs.niri.homeModules.niri;
+  stylix = inputs.stylix.homeModules.stylix;
 in
 {
   imports = [
+    stylix
     noctalia
     niri
     ./programs
@@ -31,12 +33,12 @@ in
   };
 
   home.username = username;
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Amber";
-    size = 32;
-  };
+  ## home.pointerCursor = {
+  ##   gtk.enable = true;
+  ##   package = pkgs.bibata-cursors;
+  ##   name = "Bibata-Modern-Amber";
+  ##   size = 32;
+  ## };
 
   home.packages = with pkgs; [
       ## Hardware Tools

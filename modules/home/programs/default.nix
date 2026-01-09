@@ -7,7 +7,6 @@
     ./direnv
     ./firefox
     ./git
-    ./gtk
     ./niri
     ./ncmpcpp
     ./neovim
@@ -16,6 +15,7 @@
     ./starship
     ./noctalia
     ./discord
+    ## ./gtk
     ## ./qt
   ];
 }

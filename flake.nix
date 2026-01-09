@@ -37,6 +37,10 @@
     distro-grub-themes = {
       url = "github:AdisonCavani/distro-grub-themes";
     };
+
+    stylix = {
+      url = "github:danth/stylix";
+    };
   };
 
   outputs = { 
@@ -46,6 +50,7 @@
     disko,
     distro-grub-themes,
     noctalia,
+    stylix,
     ...
   }@inputs:
   let
