@@ -60,13 +60,6 @@ in
       ## Image Tools
       imagemagick
 
-      ## Fonts && Themes
-      nerd-fonts.fira-code
-      nerd-fonts.jetbrains-mono
-      inconsolata
-      font-awesome
-      numix-icon-theme-square
-
       ## Audio Tools
       pavucontrol
       pulsemixer

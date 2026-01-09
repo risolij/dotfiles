@@ -4,7 +4,10 @@
     enable = true;
     polarity = "dark";
     targets = {
-      gtk.enable = true;
+      gtk = {
+        enable = true;
+        flatpakSupport.enable = true;
+      };
       firefox = {
         profileNames = [ "default" ];
         colorTheme.enable = true;
@@ -18,13 +21,23 @@
         package = pkgs.nerd-fonts.fira-code;
         name = "FiraCode Nerd Font";
       };
+
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+
+      serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
     };
 
     icons = {
       enable = true;
-      dark = "Numix Square";
-      light = "Numix Square Light";
-      package = pkgs.numix-icon-theme-square;
+      dark = "Dracula";
+      light = "Dracula";
+      package = pkgs.dracula-icon-theme;
     };
 
     cursor = {
