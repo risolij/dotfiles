@@ -35,6 +35,7 @@
 
     profiles = {
       default = {
+        extensions.force = true;
         isDefault = true;
         settings = { 
           "beacon.enabled" = false;

@@ -3,6 +3,5 @@
   imports = [
     ## ./dconf
     ./virt-manager
-    ./stylix
   ];
 }

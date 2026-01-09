@@ -10,13 +10,13 @@
     ./niri
     ./ncmpcpp
     ./neovim
-    ./rofi
     ./cava
     ./starship
     ./noctalia
     ./discord
     ./stylix
     ## ./gtk
+    ## ./rofi
     ## ./qt
   ];
 }

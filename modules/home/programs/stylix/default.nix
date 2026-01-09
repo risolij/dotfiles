@@ -2,7 +2,13 @@
 {
   stylix = {
     enable = true;
-    targets.gtk.enable = true;
+    targets = {
+      gtk.enable = true;
+      firefox = {
+        profileNames = [ "default" ];
+        colorTheme.enable = true;
+      };
+    };
 
     ## icons = {
     ##   enable = true;

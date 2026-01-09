@@ -3,7 +3,7 @@
 {
   distro-grub-themes = {
     enable = true;
-    ## theme = "nixos";
+    theme = "nixos";
   };
 }
 
