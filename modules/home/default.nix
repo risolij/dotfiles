@@ -2,11 +2,9 @@
 let
   noctalia = inputs.noctalia.homeModules.default;
   niri = inputs.niri.homeModules.niri;
-  stylix = inputs.stylix.homeModules.stylix;
 in
 {
   imports = [
-    stylix
     noctalia
     niri
     ./programs
