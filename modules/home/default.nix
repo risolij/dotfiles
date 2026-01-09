@@ -1,11 +1,12 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, username, ... }:
 let
-  username = "req";
+  noctalia = inputs.noctalia.homeModules.default;
+  niri = inputs.niri.homeModules.niri;
 in
 {
   imports = [
-    inputs.noctalia.homeModules.default
-    inputs.niri.homeModules.niri
+    noctalia
+    niri
     ./programs
     ./services
   ];
@@ -18,11 +19,14 @@ in
     BROWSER = "firefox";
     XDG_PICTURES_DIR = "/home/${username}/Pictures";
     XDG_SESSION_TYPE = "wayland";
-    XDG_SESSION_DESKTOP = "niri";
-    XDG_CURRENT_DESKTOP = "niri";
+    XDG_SESSION_DESKTOP = "niri-session";
+    XDG_CURRENT_DESKTOP = "niri-session";
+    XDG_ICON_THEME = "Numix";
     MOZ_ENABLE_WAYLAND = "1";
     GDK_BACKEND = "wayland";
     GTK_USE_PORTAL = "1";
+    GTK_THEME = "Tokyonight-Dark";
+    QS_ICON_THEME="Numix-Square";
     NIXOS_XDG_OPEN_USE_PORTAL = "1";
   };
 
@@ -65,6 +69,7 @@ in
       nerd-fonts.jetbrains-mono
       inconsolata
       font-awesome
+      numix-icon-theme-square
 
       ## Audio Tools
       pavucontrol

@@ -15,8 +15,8 @@
     };
 
     iconTheme = {
-      name = "Pop";
-      package = pkgs.pop-icon-theme;
+      name = "Numix-Square";
+      package = pkgs.numix-icon-theme-square;
     };
 
     cursorTheme = {
@@ -24,4 +24,5 @@
       package = pkgs.bibata-cursors;
     };
   };
+  qt.platformTheme.name = "gtk";
 }

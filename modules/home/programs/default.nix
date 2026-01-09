@@ -16,7 +16,7 @@
     ./starship
     ./noctalia
     ./discord
-    ./qt
+    ## ./qt
   ];
 }
 

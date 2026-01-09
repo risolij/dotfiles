@@ -47,19 +47,27 @@
     distro-grub-themes,
     noctalia,
     ...
-  }@inputs: {
+  }@inputs:
+  let
+    system = "x86_64-linux";
+    username = "req";
+    imp = impermanence.nixosModules.impermanence;
+    dis = disko.nixosModules.disko;
+    dgt = distro-grub-themes.nixosModules.${system}.default;
+    hm = home-manager.nixosModules.home-manager;
+  in
+  {
     nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = {  inherit inputs; };
+      system = system;
       modules = [
           ./hosts/home 
-          impermanence.nixosModules.impermanence
-          disko.nixosModules.disko
-          distro-grub-themes.nixosModules."x86_64-linux".default
-          home-manager.nixosModules.home-manager {
+          imp
+          dis
+          dgt
+          hm {
             home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.req = import ./modules/home;
+            home-manager.extraSpecialArgs = { inherit inputs username; };
+            home-manager.users."${username}" = import ./modules/home;
           }
       ];
     };
