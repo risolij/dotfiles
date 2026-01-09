@@ -61,7 +61,6 @@
     dis = disko.nixosModules.disko;
     dgt = distro-grub-themes.nixosModules.${system}.default;
     hm = home-manager.nixosModules.home-manager;
-    sty = stylix.nixosModules.stylix;
   in
   {
     nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
@@ -71,7 +70,6 @@
           imp
           dis
           dgt
-          sty
           hm {
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs username; };

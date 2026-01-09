@@ -7,9 +7,9 @@
     ./system.nix
     ./networking.nix
     ./security.nix
-    ./xdg.nix
+    ## ./xdg.nix
     ./virtualization.nix
-    ./distro-grub-themes.nix
+    ## ./distro-grub-themes.nix
   ];
 }
 

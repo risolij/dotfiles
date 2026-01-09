@@ -2,9 +2,11 @@
 let
   noctalia = inputs.noctalia.homeModules.default;
   niri = inputs.niri.homeModules.niri;
+  stylix = inputs.stylix.homeModules.styles;
 in
 {
   imports = [
+    stylix
     noctalia
     niri
     ./programs
@@ -93,7 +95,7 @@ in
   fonts.fontconfig.enable = true;
 
   ## enable dconf
-  dconf.enable = true;
+  ## dconf.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 }

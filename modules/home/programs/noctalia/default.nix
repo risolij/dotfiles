@@ -10,8 +10,7 @@
         density = "spacious";
         showOutline = false;
         showCapsule = true;
-        capsuleOpacity = 1;
-        backgroundOpacity = 0.93;
+        ## capsuleOpacity = 1;
         useSeparateOpacity = false;
         floating = false;
         marginVertical = 0.25;
@@ -71,7 +70,7 @@
       };
       general = {
         avatarImage = "/home/req/Pictures/wallpapers/spaceman.png";
-        dimmerOpacity = 0.2;
+        ## dimmerOpacity = 0.2;
         showScreenCorners = false;
         forceBlackScreenCorners = false;
         scaleRatio = 1;
@@ -93,12 +92,12 @@
         allowPanelsOnScreenWithoutBar = true;
       };
       ui = {
-        fontDefault = "";
-        fontFixed = "";
+        ## fontDefault = "";
+        ## fontFixed = "";
         fontDefaultScale = 1;
         fontFixedScale = 1;
         tooltipsEnabled = true;
-        panelBackgroundOpacity = 0.93;
+        ## panelBackgroundOpacity = 0.93;
         panelsAttachedToBar = true;
         settingsPanelMode = "attached";
         boxBorderEnabled = false;
@@ -281,7 +280,7 @@
       dock = {
         enabled = true;
         displayMode = "auto_hide";
-        backgroundOpacity = 1;
+        ## backgroundOpacity = 1;
         floatingRatio = 1;
         size = 1;
         onlySameOutput = true;
@@ -290,7 +289,7 @@
         colorizeIcons = false;
         pinnedStatic = false;
         inactiveIndicators = false;
-        deadOpacity = 0.6;
+        ##deadOpacity = 0.6;
         animationSpeed = 1;
       };
       network = {
@@ -341,7 +340,7 @@
         monitors = [ ];
         location = "top_right";
         overlayLayer = true;
-        backgroundOpacity = 1;
+        ##backgroundOpacity = 1;
         respectExpireTimeout = false;
         lowUrgencyDuration = 3;
         normalUrgencyDuration = 8;
@@ -367,7 +366,7 @@
         location = "top_right";
         autoHideMs = 2000;
         overlayLayer = true;
-        backgroundOpacity = 1;
+        ##backgroundOpacity = 1;
         enabledTypes = [
           0
           1
