@@ -23,13 +23,13 @@ in
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "niri-session";
     XDG_CURRENT_DESKTOP = "niri-session";
-    XDG_ICON_THEME = "Numix";
     MOZ_ENABLE_WAYLAND = "1";
     GDK_BACKEND = "wayland";
     GTK_USE_PORTAL = "1";
-    GTK_THEME = "Tokyonight-Dark";
-    QS_ICON_THEME="Numix-Square";
     NIXOS_XDG_OPEN_USE_PORTAL = "1";
+    ## GTK_THEME = "Tokyonight-Dark";
+    ## QS_ICON_THEME="Numix-Square";
+    ## XDG_ICON_THEME = "Numix";
   };
 
   home.username = username;

@@ -1,7 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, stylix, ... }:
 {
   stylix = {
     enable = true;
+    targets.gtk.enable = true;
+
     icons = {
       enable = true;
       package = pkgs.numix-icon-theme-square;
@@ -13,6 +15,6 @@
       size = 32;
     };
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/dracula.yaml";
   };
 }

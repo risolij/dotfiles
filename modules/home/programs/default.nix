@@ -15,6 +15,7 @@
     ./starship
     ./noctalia
     ./discord
+    ./stylix
     ## ./gtk
     ## ./qt
   ];
