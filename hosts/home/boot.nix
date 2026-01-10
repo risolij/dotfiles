@@ -33,9 +33,12 @@
       "nowatchdog"
       "mmio_stale_data=full"
       "i8042.nopnp"
-      ## Turning off while on wayland "i915.enable_psr=0"
       "nmi_watchdog=0"
       "quiet"
+      "zswap.enabled=1"
+      "zswap.compressor=zstd"
+      "zswap.zpool=zsmalloc"
+      "zswap.max_pool_percent=50"
     ];
     tmp.cleanOnBoot = true;
     kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;
