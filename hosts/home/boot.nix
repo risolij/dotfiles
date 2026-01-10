@@ -38,6 +38,7 @@
       "zswap.enabled=1"
       "zswap.compressor=zstd"
       "zswap.zpool=zsmalloc"
+      "zswap.shrinker_enabled=1"
       "zswap.max_pool_percent=50"
     ];
     tmp.cleanOnBoot = true;
