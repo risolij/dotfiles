@@ -1,75 +1,79 @@
-{
-  disko.devices = {
-    disk = {
-      main = {
-        type = "disk";
-        device = "/dev/nvme0n1";
-        content = {
-          type = "gpt";
-          partitions = {
-            ESP = {
-              size = "1G";
-              type = "EF00";
-              content = {
-                type = "filesystem";
-                format = "vfat";
-                mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
-              };
-            };
-            zfs = {
-              size = "100%";
-              content = {
-                type = "zfs";
-                pool = "zroot";
-              };
-            };
-          };
-        };
-      };
-    };
-    zpool = {
-      zroot = {
-        type = "zpool";
-        rootFsOptions = {
-          # https://wiki.archlinux.org/title/Install_Arch_Linux_on_ZFS
-          acltype = "posixacl";
-          atime = "off";
-          compression = "zstd";
-          mountpoint = "none";
-          xattr = "sa";
-        };
-        options.ashift = "12";
+# disko.nix - Lenovo C940, NixOS, impermanent root, persistent /nix + /persist, zswap
+{ config, lib, pkgs, ... }:
 
-        datasets = {
-          "local" = {
-            type = "zfs_fs";
-            options.mountpoint = "none";
-          };
-          "local/home" = {
-            type = "zfs_fs";
-            mountpoint = "/home";
-            # Used by services.zfs.autoSnapshot options.
-            options."com.sun:auto-snapshot" = "true";
-          };
-          "local/nix" = {
-            type = "zfs_fs";
-            mountpoint = "/nix";
-            options."com.sun:auto-snapshot" = "false";
-          };
-          "local/persist" = {
-            type = "zfs_fs";
-            mountpoint = "/persist";
-            options."com.sun:auto-snapshot" = "false";
-          };
-          "local/root" = {
-            type = "zfs_fs";
-            mountpoint = "/";
-            options."com.sun:auto-snapshot" = "false";
-            postCreateHook = "zfs list -t snapshot -H -o name | grep -E '^zroot/local/root@blank$' || zfs snapshot zroot/local/root@blank";
-          };
-        };
-      };
-    };
+let
+  disk = "/dev/nvme0n1";
+in
+{
+  disko.targetDisk = disk;
+
+  # Partition layout
+  disko.partitions = [
+    # EFI system partition
+    {
+      mountPoint = "/boot";
+      size = "512M";
+      fsType = "vfat";
+      type = "efi";
+    }
+
+    # LUKS container for root, /nix, /persist
+    {
+      mountPoint = "/";
+      fsType = "btrfs";
+      type = "luks";
+      luksName = "cryptroot";
+      subvolumes = [
+        # Ephemeral root
+        {
+          name = "@root";
+          mountPoint = "/";
+          tmpfs = true;
+          size = "remaining";
+        }
+
+        # Persistent Nix store
+        {
+          name = "@nix";
+          mountPoint = "/nix";
+          size = "50G";
+        }
+
+        # Persistent configs & selective home
+        {
+          name = "@persist";
+          mountPoint = "/persist";
+          size = "50G";
+        }
+      ];
+    }
+
+    # LUKS-encrypted swap partition for zswap
+    {
+      mountPoint = "swap";
+      fsType = "swap";
+      type = "luks";
+      luksName = "cryptswap";
+      size = "8G";
+    }
+  ];
+
+  # User definition (home mapped to /persist/home)
+  disko.users = [
+    {
+      name = "yourusername";
+      uid = 1000;
+      home = "/persist/home/yourusername";
+      shell = pkgs.zsh;
+    }
+  ];
+
+  # Enable LUKS for root and swap
+  disko.enableLuks = true;
+  disko.luks = {
+    luksName = "cryptroot";
+    device = "/dev/nvme0n1p2";
+    preLVM = true;
   };
 }
+
