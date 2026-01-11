@@ -3,7 +3,7 @@
 {
   imports = [ 
       ../../modules/nixos
-      ./filesystem.nix
+      ./disko-config.nix
       ./boot.nix
       ./hardware.nix
       ./users.nix
