@@ -4,37 +4,40 @@
     initrd = {
       includeDefaultModules = true;
       availableKernelModules = [
-        "xhci_pci"
         "nvme"
-        "usb_storage"
-        "ext4"
-        "i8042"
-        "vfat"
+        "xhci_pci"
+        "ahci"
+        "usbhid"
+        "sd_mod"
       ];
     };
-    blacklistedKernelModules = [ "iTCO_wdt" ];
+    blacklistedKernelModules = [
+      "floppy"
+      "pcspkr"
+      "joydev"
+      "iTCO_wdt"
+    ];
     extraModprobeConfig = ''
-      options iwlwifi power_save=0
-      options iwlmvm power_scheme=0
+      options iwlwifi power_save=1
+      options iwlmvm power_scheme=2
       options snd slots=sof-hda-dsp
+      options snd_hda_intel power_save=1 power_save_controller=Y
     '';
     extraModulePackages = [ ];
     kernelModules = [
       "kvm-intel"
-      "mei_me"
       "thunderbolt"
-      "btusb"
-      "wacom"
-      "intel-lpss"
-      "i915"
-      "dm_mod"
     ];
     kernelParams = [
       "nowatchdog"
-      "mmio_stale_data=full"
-      "i8042.nopnp"
       "nmi_watchdog=0"
       "quiet"
+      "intel_pstate=active"
+      "i915.fastboot=1"
+      "i915.enable_psr=0"
+      "i915.enable_guc=3"
+      "i915.enable_fbc=1"
+      "i915.enable_dc=2"
       "zswap.enabled=1"
       "zswap.compressor=zstd"
       "zswap.zpool=zsmalloc"

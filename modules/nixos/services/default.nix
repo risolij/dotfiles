@@ -1,7 +1,6 @@
 { config, pkgs, ... }: {
   imports = [
       ./basic.nix
-      ./cron.nix
       ./fail2ban.nix
       ./journald.nix
       ./pipewire.nix
@@ -13,5 +12,7 @@
       ./xserver.nix
       ./thermald.nix
       ./keyd.nix
+      ./systemd.nix
+      ## ./cron.nix
   ];
 }

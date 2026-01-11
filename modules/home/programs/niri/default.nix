@@ -3,9 +3,16 @@
   programs.niri = {
     enable = true;
     settings = {
+      outputs."eDP-1".scale = 1.0;
+
       input = {
         mod-key = "Super";
         focus-follows-mouse.enable = true;
+
+        touchpad = {
+          scroll-method = "two-finger";
+          accel-profile = "flat";
+        };
 
         mouse = {
           accel-profile = "flat";

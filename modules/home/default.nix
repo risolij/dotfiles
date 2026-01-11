@@ -73,6 +73,9 @@ in
 
       ## Wayland Package for Niri
       xwayland-satellite
+
+      ## chrome
+      chromium
   ];
 
   ## Enable manual manpages
