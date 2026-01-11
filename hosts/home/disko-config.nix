@@ -3,13 +3,13 @@
     disk = {
       main = {
         type = "disk";
-        device = "/dev/vdb";
+        device = "/dev/nvme0n1";
         content = {
           type = "gpt";
           partitions = {
             ESP = {
-              size = "512M";
               type = "EF00";
+              size = "512M";
               content = {
                 type = "filesystem";
                 format = "vfat";
@@ -17,18 +17,24 @@
                 mountOptions = [ "umask=0077" ];
               };
             };
+
+            encryptedSwap = {
+              size = "12G";
+              content = {
+                type = "swap";
+                randomEncryption = true;
+                priority = 100;
+              };
+            };
+
             luks = {
               size = "100%";
               content = {
                 type = "luks";
                 name = "crypted";
-                # disable settings.keyFile if you want to use interactive password entry
-                #passwordFile = "/tmp/secret.key"; # Interactive
                 settings = {
                   allowDiscards = true;
-                  keyFile = "/tmp/secret.key";
                 };
-                additionalKeyFiles = [ "/tmp/additionalSecret.key" ];
                 content = {
                   type = "btrfs";
                   extraArgs = [ "-f" ];
@@ -40,13 +46,15 @@
                         "noatime"
                       ];
                     };
-                    "/home" = {
-                      mountpoint = "/home";
+
+                    "/persist" = {
+                      mountpoint = "/persist";
                       mountOptions = [
                         "compress=zstd"
                         "noatime"
                       ];
                     };
+
                     "/nix" = {
                       mountpoint = "/nix";
                       mountOptions = [
@@ -54,9 +62,12 @@
                         "noatime"
                       ];
                     };
-                    "/swap" = {
-                      mountpoint = "/.swapvol";
-                      swap.swapfile.size = "20M";
+
+                    "/home" = {
+                      mountOptions = [
+                        "compress-zstd"
+                        "noatime"
+                      ];
                     };
                   };
                 };
