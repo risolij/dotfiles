@@ -1,14 +1,14 @@
 * dotfiles
 This repository is to store all my dotfiles specifically for *nix* rebuilds if the time ever comes
 
-* Install from live iso
-** Clone
+** Install from live iso
+*** Clone
 #+begin_src sh
 git clone git@github.com:risolij/dotfiles.git
 #+end_src
 
 
-** Mounts && Filesystems
+*** Mounts && Filesystems
 #+begin_src sh
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount dotfiles/home/hosts/disko-config.nix
 #+end_src
@@ -27,7 +27,7 @@ nvme0n1                                      259:0    0 476.9G  0 disk
                                                                         /
 #+end_example
 
-** Install Nixos
+*** Install Nixos
 #+begin_src sh
 sudo nixos-install --flake dotfiles/.#nixos --root /mnt
 #+end_src
