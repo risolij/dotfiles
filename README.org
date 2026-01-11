@@ -1,27 +1,33 @@
 * dotfiles
 This repository is to store all my dotfiles specifically for *nix* rebuilds if the time ever comes
 
+* Install from live iso
+** Clone
+#+begin_src sh
+git clone git@github.com:risolij/dotfiles.git
+#+end_src
+
+
+** Mounts && Filesystems
+#+begin_src sh
+sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount dotfiles/home/hosts/disko-config.nix
+#+end_src
+
 #+begin_example
-I hope the day never comes
+NAME                                         MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
+nvme0n1                                      259:0    0 476.9G  0 disk
+├─nvme0n1p1                                  259:1    0   512M  0 part  /boot
+├─nvme0n1p2                                  259:2    0    12G  0 part
+│ └─dev-disk-byx2dpartlabel-diskx2dmainx2dencryptedSwap
+│                                            254:1    0    12G  0 crypt [SWAP]
+└─nvme0n1p3                                  259:3    0 464.4G  0 part
+  └─crypted                                  254:0    0 464.4G  0 crypt /persist
+                                                                        /nix/store
+                                                                        /nix
+                                                                        /
 #+end_example
 
-* TODO Items [50%]
-- [ ] Switch emacs configuration into nix
-- [X] Test out magit
-
-* System Configuration Setup
-** setup symlink
-  #+begin_src sh
-    ln -s ~/org/dev/git/dotfiles/system/configuraiton.nix /etc/nixos/configuration.nix
-    sudo nixos-rebuild switch
-  #+end_src
-
-** nix flakes
-*** initialize
-   #+begin_src sh
-     nix flake init
-   #+end_src
-*** build
-    #+begin_src sh
-      nixos-rebuild build --flake .# --impure
-    #+end_src
+** Install Nixos
+#+begin_src sh
+sudo nixos-install --flake dotfiles/.#nixos --root /mnt
+#+end_src
