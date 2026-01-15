@@ -31,3 +31,29 @@ nvme0n1                                      259:0    0 476.9G  0 disk
 #+begin_src sh
 sudo nixos-install --flake dotfiles/.#nixos --root /mnt
 #+end_src
+
+** System
+``` sh
+[nix-shell:~/Development/dotfiles]$ fastfetch
+          ▗▄▄▄       ▗▄▄▄▄    ▄▄▄▖             req@nixos
+          ▜███▙       ▜███▙  ▟███▛             ---------
+           ▜███▙       ▜███▙▟███▛              OS: NixOS 26.05 (Yarara) x86_64
+            ▜███▙       ▜██████▛               Host: 81Q9 (Lenovo Yoga C940-14IIL)
+     ▟█████████████████▙ ▜████▛     ▟▙         Kernel: Linux 6.18.4
+    ▟███████████████████▙ ▜███▙    ▟██▙        Uptime: 1 day, 23 hours, 32 mins
+           ▄▄▄▄▖           ▜███▙  ▟███▛        Packages: 1250 (nix-system), 754 (nix-user), 6 (flatpak-user)
+          ▟███▛             ▜██▛ ▟███▛         Shell: bash 5.3.3
+         ▟███▛               ▜▛ ▟███▛          Display (LGD061F): 1920x1080 in 14", 60 Hz [Built-in]
+▟███████████▛                  ▟██████████▙    WM: niri (Wayland)
+▜██████████▛                  ▟███████████▛    Theme: Base16Kvantum [Qt], adw-gtk3 [GTK2/3/4]
+      ▟███▛ ▟▙               ▟███▛             Icons: Dracula [Qt], Dracula [GTK2/3/4]
+     ▟███▛ ▟██▙             ▟███▛              Font: DejaVu Sans (12pt) [Qt], DejaVu Sans (12pt) [GTK2/3/4]
+    ▟███▛  ▜███▙           ▝▀▀▀▀               Cursor: Bibata-Modern-Amber (32px)
+    ▜██▛    ▜███▙ ▜██████████████████▛         Terminal: alacritty 0.16.1
+     ▜▛     ▟████▙ ▜████████████████▛          Terminal Font: monospace (14pt, Regular)
+           ▟██████▙       ▜███▙                CPU: Intel(R) Core(TM) i7-1065G7 (8) @ 3.90 GHz
+          ▟███▛▜███▙       ▜███▙               GPU: Intel Iris Plus Graphics G7 @ 1.10 GHz [Integrated]
+         ▟███▛  ▜███▙       ▜███▙              Memory: 2.41 GiB / 11.25 GiB (21%)
+         ▝▀▀▀    ▀▀▀▀▘       ▀▀▀▘              Swap: 0 B / 12.00 GiB (0%)
+                                               Disk (/): 11.10 GiB / 464.42 GiB (2%) - btrfs
+```
