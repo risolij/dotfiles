@@ -57,20 +57,16 @@
   let
     system = "x86_64-linux";
     username = "req";
-    imp = impermanence.nixosModules.impermanence;
-    dis = disko.nixosModules.disko;
-    dgt = distro-grub-themes.nixosModules.${system}.default;
-    hm = home-manager.nixosModules.home-manager;
   in
   {
-    nixosConfigurations.nixos = inputs.nixpkgs.lib.nixosSystem {
+    nixosConfigurations.c940 = inputs.nixpkgs.lib.nixosSystem {
       system = system;
       modules = [
-          ./hosts/home 
-          imp
-          dis
-          dgt
-          hm {
+          ./hosts/c940
+          impermanence.nixosModules.impermanence
+          disko.nixosModules.disko
+          distro-grub-themes.nixosModules.${system}.default
+          home-manager.nixosModules.home-manager {
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs username; };
             home-manager.users."${username}" = import ./modules/home;
