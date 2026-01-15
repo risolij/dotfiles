@@ -7,7 +7,6 @@ This repository is to store all my dotfiles specifically for *nix* rebuilds if t
 git clone git@github.com:risolij/dotfiles.git
 #+end_src
 
-
 *** Mounts && Filesystems
 #+begin_src sh
 sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount dotfiles/home/hosts/disko-config.nix
@@ -33,7 +32,7 @@ sudo nixos-install --flake dotfiles/.#nixos --root /mnt
 #+end_src
 
 ** System
-``` sh
+#+begin_src bash
 [nix-shell:~/Development/dotfiles]$ fastfetch
           ▗▄▄▄       ▗▄▄▄▄    ▄▄▄▖             req@nixos
           ▜███▙       ▜███▙  ▟███▛             ---------
@@ -56,4 +55,4 @@ sudo nixos-install --flake dotfiles/.#nixos --root /mnt
          ▟███▛  ▜███▙       ▜███▙              Memory: 2.41 GiB / 11.25 GiB (21%)
          ▝▀▀▀    ▀▀▀▀▘       ▀▀▀▘              Swap: 0 B / 12.00 GiB (0%)
                                                Disk (/): 11.10 GiB / 464.42 GiB (2%) - btrfs
-```
+#+end_src
