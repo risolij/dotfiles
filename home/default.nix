@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, username, ... }:
 {
   imports = [
     inputs.noctalia.homeModules.default
@@ -14,7 +14,7 @@
     EDITOR = "nvim";
     TERMINAL = "alacritty";
     BROWSER = "firefox";
-    XDG_PICTURES_DIR = "/home/req/Pictures";
+    XDG_PICTURES_DIR = "/home/${username}/Pictures";
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "niri-session";
     XDG_CURRENT_DESKTOP = "niri-session";
@@ -27,7 +27,7 @@
     XDG_ICON_THEME = "Numix Square";
   };
 
-  home.username = "req";
+  home.username = username;
 
   home.packages = with pkgs; [
       ## Hardware Tools
