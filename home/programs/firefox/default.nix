@@ -18,7 +18,8 @@
       ExtensionSettings = {
         "*".installation_mode = "blocked";
         "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/file/4458679/vimium_ff-2.2.1.xpi";
+          ## install_url = "https://addons.mozilla.org/firefox/downloads/file/4458679/vimium_ff-2.2.1.xpi";
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
           installation_mode = "force_installed";
         };
         "uBlock0@raymondhill.net" = {
@@ -31,7 +32,6 @@
         };
       };
     };
-
 
     profiles = {
       default = {
@@ -70,42 +70,22 @@
           "general.smoothScroll.msdPhysics.slowdownSpringConstant" = 250;
           "general.smoothScroll.stopDecelerationWeighting" = 1.0;
         };
+
         bookmarks = {
           force = true;
-          settings = [
-            {
-              name = "wiki";
-              keyword = "wiki";
-              url = "https://en.wikipedia.org/wiki/Special:Search?search=%s&go=Go";
-            }
-            {
-              name = "kernel";
-              url = "https://www.kernel.org";
-            }
-            {
-              name = "nix versions";
-              url = "https://lazamar.co.uk/nix-versions/";
-            }
-            {
-              name = "pi-hole configurations";
-              url = "https://discourse.pi-hole.net/t/how-do-i-configure-my-devices-to-use-pi-hole-as-their-dns-server/245";
-            }
-            {
-              name = "wolfram";
-              url = "https://www.wolframalpha.com/";
-            }
-            {
-              name = "firefox options";
-              url = "https://gitlab.com/rycee/configurations/-/blob/master/user/firefox.nix";
-            }
-            {
-              name = "NixOS & Flakes Book";
-              url = "https://nixos-and-flakes.thiscute.world/";
-            }
-            {
-              name = "Noogle";
-              url = "https://nixos-and-flakes.thiscute.world/";
-            }
+          settings =
+          let
+              mark = name: url: { name = name; url = url; };
+          in
+          [
+            (mark "wiki" "https://en.wikipedia.org/wiki/Special:Search?search=%s&go=Go")
+            (mark "kernel" "https://www.kernel.org")
+            (mark "nix versions" "https://lazamar.co.uk/nix-versions/")
+            (mark "pi-hole configurations" "https://discourse.pi-hole.net/t/how-do-i-configure-my-devices-to-use-pi-hole-as-their-dns-server/245")
+            (mark "wolfram" "https://www.wolframalpha.com/")
+            (mark "firefox options" "https://gitlab.com/rycee/configurations/-/blob/master/user/firefox.nix")
+            (mark "NixOS & Flakes Book" "https://nixos-and-flakes.thiscute.world/")
+            (mark "Noogle" "https://nixos-and-flakes.thiscute.world/")
           ];
         };
       };
