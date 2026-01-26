@@ -1,14 +1,10 @@
 { pkgs, inputs, username, ... }:
-
-let 
-  username = "req";
-in
 {
   imports = [ 
       ./disko-config.nix
       ./boot.nix
       ./hardware.nix
-      ./users.nix
+      ../../users/req.nix
       ../../features/system
       ../../features/security
       ../../features/media

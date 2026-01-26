@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, username, ... }:
 {
   users = {
-    users.req = {
+    users.${username} = {
       shell = pkgs.nushell;
       isNormalUser = true;
       extraGroups = [
