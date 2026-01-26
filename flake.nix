@@ -62,7 +62,7 @@
     nixosConfigurations.c940 = inputs.nixpkgs.lib.nixosSystem {
       system = system;
       specialArgs = {
-        inherit inputs;
+        inherit inputs username;
       };
 
       modules = [
@@ -71,11 +71,6 @@
           disko.nixosModules.disko
           distro-grub-themes.nixosModules.${system}.default
           home-manager.nixosModules.home-manager
-          ## home-manager.nixosModules.home-manager {
-          ##   home-manager.useUserPackages = true;
-          ##   home-manager.extraSpecialArgs = { inherit inputs username; };
-          ##   home-manager.users."${username}" = import ./modules/home;
-          ## }
       ];
     };
 

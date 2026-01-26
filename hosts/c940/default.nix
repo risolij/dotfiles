@@ -49,9 +49,11 @@
 
 
   ## Home Options
-  home-manager.useUserPackages = true;
-  home-manager.extraSpecialArgs = { inherit inputs username; };
-  home-manager.users."req" = import ../../modules/home;
+  home-manager = {
+    useUserPackages = true;
+    extraSpecialArgs = { inherit inputs username; };
+    users.${username} = import ../../modules/home;
+  };
 
   system.stateVersion = "20.09";
 }
