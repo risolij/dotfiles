@@ -13,5 +13,6 @@
     ./keyd.nix
     ./fwupd.nix
     ./logind.nix
+    ./dconf.nix
   ];
 }

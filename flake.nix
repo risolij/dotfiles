@@ -61,16 +61,21 @@
   {
     nixosConfigurations.c940 = inputs.nixpkgs.lib.nixosSystem {
       system = system;
+      specialArgs = {
+        inherit inputs;
+      };
+
       modules = [
           ./hosts/c940
           impermanence.nixosModules.impermanence
           disko.nixosModules.disko
           distro-grub-themes.nixosModules.${system}.default
-          home-manager.nixosModules.home-manager {
-            home-manager.useUserPackages = true;
-            home-manager.extraSpecialArgs = { inherit inputs username; };
-            home-manager.users."${username}" = import ./modules/home;
-          }
+          home-manager.nixosModules.home-manager
+          ## home-manager.nixosModules.home-manager {
+          ##   home-manager.useUserPackages = true;
+          ##   home-manager.extraSpecialArgs = { inherit inputs username; };
+          ##   home-manager.users."${username}" = import ./modules/home;
+          ## }
       ];
     };
 

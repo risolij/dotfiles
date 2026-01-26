@@ -1,8 +1,7 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./mpd
     ./mako
-    ## ./hyprpaper
   ];
 }

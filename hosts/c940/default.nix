@@ -1,8 +1,7 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, inputs, username, ... }:
 
 {
   imports = [ 
-      ../../modules/nixos/programs
       ./disko-config.nix
       ./boot.nix
       ./hardware.nix
@@ -16,6 +15,7 @@
       ../../features/misc
   ];
 
+  ## System Options
   nix-services-fail2ban.enable = true;
   nix-services-dnscrypt-proxy2.enable = false;
   nix-services-pipewire.enable = true;
@@ -44,6 +44,14 @@
   nix-locale.enable = true;
   nix-networking.enable = true;
   nix-virtualization.enable = true;
+  nix-programs-virt-manager.enable = true;
+  nix-programs-dconf.enable = true;
+
+
+  ## Home Options
+  home-manager.useUserPackages = true;
+  home-manager.extraSpecialArgs = { inherit inputs username; };
+  home-manager.users."req" = import ../../modules/home;
 
   system.stateVersion = "20.09";
 }

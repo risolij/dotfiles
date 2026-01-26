@@ -1,14 +1,9 @@
-{ config, pkgs, lib, inputs, username, ... }:
-let
-  noctalia = inputs.noctalia.homeModules.default;
-  niri = inputs.niri.homeModules.niri;
-  stylix = inputs.stylix.homeModules.stylix;
-in
+{ pkgs, inputs, ... }:
 {
   imports = [
-    stylix
-    noctalia
-    niri
+    inputs.noctalia.homeModules.default
+    inputs.niri.homeModules.niri
+    inputs.stylix.homeModules.stylix
     ./programs
     ./services
   ];
@@ -19,7 +14,7 @@ in
     EDITOR = "nvim";
     TERMINAL = "alacritty";
     BROWSER = "firefox";
-    XDG_PICTURES_DIR = "/home/${username}/Pictures";
+    XDG_PICTURES_DIR = "/home/req/Pictures";
     XDG_SESSION_TYPE = "wayland";
     XDG_SESSION_DESKTOP = "niri-session";
     XDG_CURRENT_DESKTOP = "niri-session";
@@ -32,7 +27,7 @@ in
     XDG_ICON_THEME = "Numix Square";
   };
 
-  home.username = username;
+  home.username = "req";
 
   home.packages = with pkgs; [
       ## Hardware Tools
