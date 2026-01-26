@@ -19,7 +19,7 @@ with lib;
           ExecStart = ''
             ${pkgs.clamav}/bin/clamdscan -m /home/req --fdpass
           '';
-          StandardOutput = "append:/home/req/scans/clamdscan.txt";
+          StandardOutput = "append:/home/req/Scans/clamdscan.txt";
           StandardError = "journal";
         };
       };
@@ -32,7 +32,7 @@ with lib;
           ExecStart = ''
             ${pkgs.vulnix}/bin/vulnix --system
           '';
-          StandardOutput = "append:/home/req/scans/vulnix.txt";
+          StandardOutput = "append:/home/req/Scans/vulnix.txt";
           StandardError = "journal";
         };
       };

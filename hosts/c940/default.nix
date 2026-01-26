@@ -1,5 +1,8 @@
 { pkgs, inputs, username, ... }:
 
+let 
+  username = "req";
+in
 {
   imports = [ 
       ./disko-config.nix
@@ -52,7 +55,7 @@
   home-manager = {
     useUserPackages = true;
     extraSpecialArgs = { inherit inputs username; };
-    users.${username} = import ../../modules/home;
+    users.${username} = import ../../home;
   };
 
   system.stateVersion = "20.09";

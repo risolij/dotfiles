@@ -56,13 +56,12 @@
   }@inputs:
   let
     system = "x86_64-linux";
-    username = "req";
   in
   {
     nixosConfigurations.c940 = inputs.nixpkgs.lib.nixosSystem {
       system = system;
       specialArgs = {
-        inherit inputs username;
+        inherit inputs;
       };
 
       modules = [
