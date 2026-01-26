@@ -69,7 +69,7 @@
         };
       };
       general = {
-        avatarImage = "/home/req/Pictures/wallpapers/spaceman.png";
+        avatarImage = "/home/req/Pictures/Wallpapers/spaceman.png";
         ## dimmerOpacity = 0.2;
         showScreenCorners = false;
         forceBlackScreenCorners = false;
@@ -149,7 +149,7 @@
       wallpaper = {
         enabled = true;
         overviewEnabled = false;
-        directory = "/home/req/Pictures/wallpapers/";
+        directory = "/home/req/Pictures/Wallpapers/";
         monitorDirectories = [ ];
         enableMultiMonitorDirectories = false;
         recursiveSearch = false;
