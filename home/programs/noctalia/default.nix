@@ -15,7 +15,7 @@
         floating = false;
         marginVertical = 0.25;
         marginHorizontal = 0.25;
-        outerCorners = true;
+        outerCorners = false;
         exclusive = true;
         widgets = {
           left = [
@@ -74,9 +74,9 @@
         showScreenCorners = false;
         forceBlackScreenCorners = false;
         scaleRatio = 1;
-        radiusRatio = 1;
-        iRadiusRatio = 1;
-        boxRadiusRatio = 1;
+        radiusRatio = .5;
+        iRadiusRatio = .5;
+        boxRadiusRatio = .5;
         screenRadiusRatio = 1;
         animationSpeed = 1;
         animationDisabled = false;
@@ -98,8 +98,8 @@
         fontFixedScale = 1;
         tooltipsEnabled = true;
         ## panelBackgroundOpacity = 0.93;
-        panelsAttachedToBar = true;
-        settingsPanelMode = "attached";
+        panelsAttachedToBar = false;
+        settingsPanelMode = "centered";
         boxBorderEnabled = false;
       };
       location = {
