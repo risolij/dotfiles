@@ -45,6 +45,7 @@
   nix-virtualization.enable = true;
   nix-programs-virt-manager.enable = true;
   nix-programs-dconf.enable = true;
+  nix-docker.enable = true;
 
 
   ## Home Options
