@@ -12,7 +12,7 @@ with lib;
   config = mkIf config.nix-docker.enable {
     virtualisation.docker = {
       enable = true;
-      storageDriver = "btrfs"
+      storageDriver = "btrfs";
       rootless = {
         enable = true;
         setSocketVariable = true;
