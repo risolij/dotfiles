@@ -12,6 +12,7 @@
         "kvm"
         "libvirtd"
         "qemu-libvirtd"
+        "docker"
       ];
     };
 
