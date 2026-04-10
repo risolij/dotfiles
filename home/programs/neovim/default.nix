@@ -1,9 +1,12 @@
 { pkgs, ... }:
 {
+  programs.fzf.enable = true;
   programs.neovim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
+    withPython3 = false;
+    withRuby = false;
     extraConfig = ''
       colorscheme desert
       set tabstop=4
@@ -40,7 +43,10 @@
     '';
     plugins = with pkgs.vimPlugins; [ 
       vim-nix 
-      yuck-vim
+      fzf-lua
     ];
+    initLua= ''
+      vim.keymap.set('n', '<leader>f', "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
+    '';
   };
 }
