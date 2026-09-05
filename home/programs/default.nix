@@ -9,11 +9,12 @@
     ./git
     ./niri
     ./ncmpcpp
-    ./neovim
+    ## ./neovim
     ./cava
     ./starship
     ./noctalia
     ./discord
     ./stylix
+    ./nixvim
   ];
 }

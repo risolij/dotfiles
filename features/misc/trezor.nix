@@ -1,5 +1,5 @@
 { pkgs, lib, config, ... }:
 
 {
-  services.trezor.enable = true;
+  services.trezord.enable = true;
 }

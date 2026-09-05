@@ -4,6 +4,7 @@
     inputs.noctalia.homeModules.default
     inputs.niri.homeModules.niri
     inputs.stylix.homeModules.stylix
+    inputs.nixvim.homeModules.nixvim
     ./programs
     ./services
   ];

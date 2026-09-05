@@ -53,6 +53,6 @@
       devices = [ "nodev" ];
     };
 
-    binfmt.emulatedSystems = [ "aarch64-linux" ];
+    ## binfmt.emulatedSystems = [ "armv7l-linux" ]; ##"aarch64-linux" " ];
   };
 }

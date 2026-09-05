@@ -19,6 +19,8 @@
     '';
 
     shellAliases = {
+      vim = "nvim";
+      v = "nvim";
       jctl = "journalctl -p3 -xb";
       cat = "bat --style=plain";
       info = "info --vi-keys";
