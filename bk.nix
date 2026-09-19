@@ -1,7 +1,7 @@
 {
   description = "System Configuration";
 
-  inputs = {
+  inputs = { 
     nixpkgs = {
       url = "nixpkgs/nixos-unstable";
     };
@@ -16,8 +16,7 @@
     };
 
     niri = {
-      # FIXED: Swapped out archived 'sodiboo' for the active 'epireyn' fork
-      url = "github:epireyn/niri-flake";
+      url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -50,7 +49,7 @@
     };
   };
 
-  outputs = {
+  outputs = { 
     home-manager,
     niri,
     impermanence,

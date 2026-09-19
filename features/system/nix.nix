@@ -10,12 +10,6 @@ with lib;
   };
 
   config = mkIf config.nix-nix.enable {
-    nixpkgs.overlays = [
-      (final: prev: {
-        libdisplay-info_0_2 = prev.libdisplay-info_0_3 or prev.libdisplay-info;
-      })
-    ];
-
     nix = {
       package = pkgs.nixVersions.latest;
 

@@ -10,12 +10,10 @@ with lib;
   };
 
   config = mkIf config.nix-services-journald.enable {
-    services.journald = {
-      extraConfig = ''
-        SystemMaxUse=100M
-        Compress=yes
-        MaxRetentionSec=1day
-      '';
+    services.journald.settings.Journal = {
+        SystemMaxUse = "100M";
+        Compress = "yes";
+        MaxRetentionSec = "1day";
     };
   };
 }
