@@ -1,7 +1,7 @@
 {
   description = "System Configuration";
 
-  inputs = { 
+  inputs = {
     nixpkgs = {
       url = "nixpkgs/nixos-unstable";
     };
@@ -16,6 +16,8 @@
     };
 
     niri = {
+      # Note: sodiboo/niri-flake is unmaintained. If build errors continue,
+      # change this line to: url = "github:epireyn/niri-flake";
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -49,7 +51,7 @@
     };
   };
 
-  outputs = { 
+  outputs = {
     home-manager,
     niri,
     impermanence,
@@ -76,6 +78,16 @@
           disko.nixosModules.disko
           distro-grub-themes.nixosModules.${system}.default
           home-manager.nixosModules.home-manager
+
+          # --- FIX: Inline module providing the missing package attribute ---
+          ({ ... }: {
+            nixpkgs.overlays = [
+              (final: prev: {
+                libdisplay-info_0_2 = prev.libdisplay-info_0_3 or prev.libdisplay-info;
+              })
+            ];
+          })
+          # ------------------------------------------------------------------
       ];
     };
 
