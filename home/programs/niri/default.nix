@@ -46,18 +46,21 @@
       prefer-no-csd = true;
 
       spawn-at-startup = [
-        { argv = ["noctalia-shell"]; }
+        { command = ["noctalia"]; }
       ];
 
       binds = {
-        "Mod+D".action.spawn = [ "noctalia-shell" "ipc" "call" "launcher" "toggle" ];
-        "XF86ScreenSaver".action.spawn = [ "noctalia-shell" "ipc" "call" "lockScreen" "lock" ];
-        "XF86MonBrightnessUp".action.spawn = [ "noctalia-shell" "ipc" "call" "brightness" "increase" ];
-        "XF86MonBrightnessDown".action.spawn = [ "noctalia-shell" "ipc" "call" "brightness" "decrease" ];
-        "XF86AudioRaiseVolume".action.spawn = [ "noctalia-shell" "ipc" "call" "volume" "increase" ];
-        "XF86AudioLowerVolume".action.spawn = [ "noctalia-shell" "ipc" "call" "volume" "decrease" ];
-        "XF86AudioMute".action.spawn = [ "noctalia-shell" "ipc" "call" "volume" "muteOutput" ];
-        "XF86AudioMicMute".action.spawn = [ "noctalia-shell" "ipc" "call" "volume" "muteInput" ];
+	"Mod+D".action.spawn = [ "noctalia" "msg" "panel-toggle" "launcher" ];
+	"XF86ScreenSaver".action.spawn = [ "noctalia" "msg" "session" "lock" ];
+	
+	"XF86MonBrightnessUp".action.spawn = [ "noctalia" "msg" "brightness-up" ];
+	"XF86MonBrightnessDown".action.spawn = [ "noctalia" "msg" "brightness-down" ];
+	
+	"XF86AudioRaiseVolume".action.spawn = [ "noctalia" "msg" "volume-up" ];
+	"XF86AudioLowerVolume".action.spawn = [ "noctalia" "msg" "volume-down" ];
+	"XF86AudioMute".action.spawn = [ "noctalia" "msg" "volume-mute-toggle" ];
+	"XF86AudioMicMute".action.spawn = [ "noctalia" "msg" "microphone-mute-toggle" ];
+
         "Print".action.screenshot-screen = [];
         "Mod+Return".action.spawn = "alacritty";
 
