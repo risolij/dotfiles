@@ -9,7 +9,6 @@
     ./git
     ./niri
     ./ncmpcpp
-    ## ./neovim
     ./cava
     ./starship
     ./noctalia

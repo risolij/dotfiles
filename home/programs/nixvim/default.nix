@@ -17,7 +17,7 @@
 	enable = true;
 	inlayHints = true;
       };
-      inlayHints = true;
+      ## inlayHints = true;
       indent-blankline = {
 	enable = true;
 	settings = {
