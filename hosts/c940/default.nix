@@ -46,6 +46,7 @@
   nix-programs-virt-manager.enable = true;
   nix-programs-dconf.enable = true;
   nix-docker.enable = true;
+  nix-services-thunderbolt.enable = true;
 
 
   ## Home Options

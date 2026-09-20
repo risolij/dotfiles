@@ -9,11 +9,14 @@
         flatpakSupport.enable = true;
       };
       firefox = {
+        enable = true;
         profileNames = [ "default" ];
         colorTheme.enable = true;
+	firefoxGnomeTheme.enable = true;
       };
       rofi.enable = false;
       noctalia.enable = false;
+      nixvim.enable = true;
     };
 
     fonts = {

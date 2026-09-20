@@ -3,6 +3,9 @@
   programs.niri = {
     enable = true;
     settings = {
+      overview = {
+        backdrop-color = "#1a1b26";
+      };
       outputs."eDP-1".scale = 1.0;
       screenshot-path = "/home/req/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
       input = {
@@ -11,12 +14,12 @@
 
         touchpad = {
           scroll-method = "two-finger";
-          accel-profile = "flat";
+          accel-profile = "adaptive";
         };
 
         mouse = {
           accel-profile = "flat";
-          scroll-factor = 5.0;
+          scroll-factor = 2.0;
         };
       };
 
@@ -56,8 +59,8 @@
         "XF86MonBrightnessDown".action.spawn = [ "noctalia" "msg" "brightness-down" ];
         "XF86AudioRaiseVolume".action.spawn = [ "noctalia" "msg" "volume-up" ];
         "XF86AudioLowerVolume".action.spawn = [ "noctalia" "msg" "volume-down" ];
-        "XF86AudioMute".action.spawn = [ "noctalia" "msg" "volume-mute-toggle" ];
-        "XF86AudioMicMute".action.spawn = [ "noctalia" "msg" "microphone-mute-toggle" ];
+        "XF86AudioMute".action.spawn = [ "noctalia" "msg" "volume-mute" ];
+        "XF86AudioMicMute".action.spawn = [ "noctalia" "msg" "mic-mute" ];
 
         "Print".action.screenshot-screen = [];
         "Shift+Print".action.screenshot = [];

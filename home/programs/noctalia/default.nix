@@ -25,7 +25,6 @@
               {
                 icon = "rocket";
                 id = "CustomButton";
-                # FIXED: Updated launcher payload string to native v5 format
                 leftClickExec = "noctalia msg panel-toggle launcher";
               }
               {

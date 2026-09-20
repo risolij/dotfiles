@@ -3,7 +3,6 @@
   programs.nixvim = {
     enable = true;
     nixpkgs.source = inputs.nixpkgs;
-    colorschemes.tokyonight.enable = true;
     globals.mapleader = " ";
 
     opts = {
@@ -11,6 +10,7 @@
       number = true;
       relativenumber = true;
       shiftwidth = 2;
+      clipboard = "unnamedplus";
     };
 
     plugins = {
@@ -18,7 +18,6 @@
 	enable = true;
 	inlayHints = true;
       };
-      ## inlayHints = true;
       indent-blankline = {
 	enable = true;
 	settings = {
