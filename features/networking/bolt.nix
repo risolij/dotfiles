@@ -3,13 +3,13 @@
 with lib;
 
 {
-  options.nix-services-thunderbolt.enable = mkOption {
+  options.nix-services-hardware-bolt.enable = mkOption {
     type = types.bool;
     default = false;
     description = "Enable ThunderboltBolt";
   };
 
-  config = mkIf config.nix-services-thunderbolt.enable {
-    services.thunderbolt.enable = true;
+  config = mkIf config.nix-services-hardware-bolt.enable {
+    services.hardware.bolt.enable = true;
   };
 }
