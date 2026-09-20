@@ -4,7 +4,7 @@
     enable = true;
     settings = {
       outputs."eDP-1".scale = 1.0;
-
+      screenshot-path = "/home/req/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
       input = {
         mod-key = "Super";
         focus-follows-mouse.enable = true;
@@ -50,18 +50,17 @@
       ];
 
       binds = {
-	"Mod+D".action.spawn = [ "noctalia" "msg" "panel-toggle" "launcher" ];
-	"XF86ScreenSaver".action.spawn = [ "noctalia" "msg" "session" "lock" ];
-	
-	"XF86MonBrightnessUp".action.spawn = [ "noctalia" "msg" "brightness-up" ];
-	"XF86MonBrightnessDown".action.spawn = [ "noctalia" "msg" "brightness-down" ];
-	
-	"XF86AudioRaiseVolume".action.spawn = [ "noctalia" "msg" "volume-up" ];
-	"XF86AudioLowerVolume".action.spawn = [ "noctalia" "msg" "volume-down" ];
-	"XF86AudioMute".action.spawn = [ "noctalia" "msg" "volume-mute-toggle" ];
-	"XF86AudioMicMute".action.spawn = [ "noctalia" "msg" "microphone-mute-toggle" ];
+        "Mod+D".action.spawn = [ "noctalia" "msg" "panel-toggle" "launcher" ];
+        "XF86ScreenSaver".action.spawn = [ "noctalia" "msg" "session" "lock" ];
+        "XF86MonBrightnessUp".action.spawn = [ "noctalia" "msg" "brightness-up" ];
+        "XF86MonBrightnessDown".action.spawn = [ "noctalia" "msg" "brightness-down" ];
+        "XF86AudioRaiseVolume".action.spawn = [ "noctalia" "msg" "volume-up" ];
+        "XF86AudioLowerVolume".action.spawn = [ "noctalia" "msg" "volume-down" ];
+        "XF86AudioMute".action.spawn = [ "noctalia" "msg" "volume-mute-toggle" ];
+        "XF86AudioMicMute".action.spawn = [ "noctalia" "msg" "microphone-mute-toggle" ];
 
         "Print".action.screenshot-screen = [];
+        "Shift+Print".action.screenshot = [];
         "Mod+Return".action.spawn = "alacritty";
 
         "Mod+O".action.toggle-overview = [];

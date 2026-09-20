@@ -33,7 +33,6 @@
       "nmi_watchdog=0"
       "quiet"
       "intel_pstate=active"
-      "i2c_hid.polling_mode=1"
       "i8042.nopnp=1"
       "i8042.noaux=1"
       "zswap.enabled=1"

@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, lib, ... }:
 {
   programs.noctalia = {
     enable = true;
@@ -327,16 +327,11 @@
         enable_ddc_support = false; # v5 updated
       };
 
-      # FIXED: Rewritten into native v5 snake_case and Tokyo Night preset mapping
-      color_chemes = { 
-        source = "predefined";
-        palette = "Tokyo Night";
-        dark_mode = true;
-        scheduling_mode = "off";
-        manual_sunrise = "06:30";
-        manual_sunset = "18:30";
-        matugen_scheme_type = "scheme-fruit-salad";
-        generate_templates_for_predefined = true;
+      theme = {
+        mode = "dark";
+        shell_mode = "follow";
+        source = "builtin";
+        builtin = "Tokyo-Night";
       };
 
       templates = {
