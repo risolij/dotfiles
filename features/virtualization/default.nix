@@ -1,8 +1,8 @@
 { ... }:
 {
-  imports = [
-    ./virtualization.nix
-    ./virt-manager.nix
-    ./docker.nix
-  ];
+    imports = [
+        ./virtualization.nix
+        ./virt-manager.nix
+        ./docker.nix
+    ];
 }

@@ -6,4 +6,3 @@
     "col.active_border" = "rgba(F8814CAA)";
     "col.inactive_border" = "rgba(595959aa)";
 }
-

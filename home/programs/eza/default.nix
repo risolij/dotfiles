@@ -1,8 +1,8 @@
 { pkgs, ...}:
 
 {
-  programs.eza = {
-    enable = true;
-    enableBashIntegration = true;
-  };
+    programs.eza = {
+        enable = true;
+        enableBashIntegration = true;
+    };
 }

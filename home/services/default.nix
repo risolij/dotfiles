@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
-  imports = [
-    ./mpd
-    ./mako
-  ];
+    imports = [
+        ./mpd
+        ./mako
+    ];
 }

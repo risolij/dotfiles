@@ -1,8 +1,8 @@
 { ... }:
 {
-  imports = [
-    ./networking.nix
-    ./openssh.nix
-    ./bolt.nix
-  ];
+    imports = [
+        ./networking.nix
+        ./openssh.nix
+        ./bolt.nix
+    ];
 }

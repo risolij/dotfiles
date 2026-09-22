@@ -3,17 +3,17 @@
 with lib;
 
 {
-  options.nix-services-journald.enable = mkOption {
-    type = types.bool;
-    default = false;
-    description = "Enable journald";
-  };
-
-  config = mkIf config.nix-services-journald.enable {
-    services.journald.settings.Journal = {
-        SystemMaxUse = "100M";
-        Compress = "yes";
-        MaxRetentionSec = "1day";
+    options.nix-services-journald.enable = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enable journald";
     };
-  };
+
+    config = mkIf config.nix-services-journald.enable {
+        services.journald.settings.Journal = {
+            SystemMaxUse = "100M";
+            Compress = "yes";
+            MaxRetentionSec = "1day";
+        };
+    };
 }

@@ -1,7 +1,7 @@
 { ... }:
 {
-  imports = [
-    ./power.nix
-    ./thermald.nix
-  ];
+    imports = [
+        ./power.nix
+        ./thermald.nix
+    ];
 }

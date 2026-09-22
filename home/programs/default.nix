@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [
+    imports = [
     ./alacritty
     ./nushell
     ./bat
@@ -15,5 +15,5 @@
     ./discord
     ./stylix
     ./nixvim
-  ];
+    ];
 }

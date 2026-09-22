@@ -1,87 +1,91 @@
 { pkgs, inputs, username, ... }:
 {
-  imports = [
-    inputs.noctalia.homeModules.default
-    inputs.niri.homeModules.niri
-    inputs.stylix.homeModules.stylix
-    inputs.nixvim.homeModules.nixvim
-    ./programs
-    ./services
-  ];
+    imports = [
+        inputs.noctalia.homeModules.default
+        inputs.niri.homeModules.niri
+        inputs.stylix.homeModules.stylix
+        inputs.nixvim.homeModules.nixvim
+        ./programs
+        ./services
+    ];
 
-  home.stateVersion = "23.05";
+    home.stateVersion = "23.05";
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    TERMINAL = "alacritty";
-    BROWSER = "firefox";
-    XDG_PICTURES_DIR = "/home/${username}/Pictures";
-    XDG_SESSION_TYPE = "wayland";
-    XDG_SESSION_DESKTOP = "niri-session";
-    XDG_CURRENT_DESKTOP = "niri-session";
-    MOZ_ENABLE_WAYLAND = "1";
-    NIXOS_XDG_OPEN_USE_PORTAL = "1";
-    GDK_BACKEND = "wayland";
-    GTK_USE_PORTAL = "1";
-    QS_ICON_THEME="Numix-Square";
-    GTK_THEME = "Tokyonight-Dark";
-    XDG_ICON_THEME = "Numix Square";
-  };
+    home.sessionVariables = {
+        EDITOR = "nvim";
+        TERMINAL = "alacritty";
+        BROWSER = "firefox";
+        XDG_PICTURES_DIR = "/home/${username}/Pictures";
+        XDG_SESSION_TYPE = "wayland";
+        XDG_SESSION_DESKTOP = "niri-session";
+        XDG_CURRENT_DESKTOP = "niri-session";
+        MOZ_ENABLE_WAYLAND = "1";
+        NIXOS_XDG_OPEN_USE_PORTAL = "1";
+        GDK_BACKEND = "wayland";
+        GTK_USE_PORTAL = "1";
+        QS_ICON_THEME="Numix-Square";
+        GTK_THEME = "Tokyonight-Dark";
+        XDG_ICON_THEME = "Numix Square";
+    };
 
-  home.username = username;
+    home.username = username;
 
-  home.packages = with pkgs; [
-      ## Hardware Tools
-      acpi
-      dmidecode
-      inxi
-      pciutils
-      usbutils
-      lm_sensors
-      ethtool
+    home.packages = with pkgs; [
+        ## Hardware Tools
+        acpi
+        dmidecode
+        inxi
+        pciutils
+        usbutils
+        lm_sensors
+        ethtool
+        
+        ## Networking Tools
+        dig
+        lsof
+        nmap
+        tcpdump
+        
+        ## Security Tools
+        vulnix
+        lynis
+        
+        ## Notifications
+        libnotify
+        
+        ## Image Tools
+        imagemagick
+        
+        ## Audio Tools
+        pavucontrol
+        pulsemixer
+        
+        ## Ledger
+        ledger-live-desktop
+        trezor-suite
+        
+        ## Other
+        mpv
+        
+        ## Wayland Package for Niri
+        xwayland-satellite
+        
+        ## chrome
+        chromium
+        
+        ## quickshell legacy
+        quickshell
+        qt6.qtimageformats
+    ];
 
-      ## Networking Tools
-      dig
-      lsof
-      nmap
-      tcpdump
+    ## Enable manual manpages
+    manual.manpages.enable = true;
 
-      ## Security Tools
-      vulnix
-      lynis
+    ## enable fontconfig
+    fonts.fontconfig.enable = true;
 
-      ## Notifications
-      libnotify
+    ## enable dconf
+    dconf.enable = true;
 
-      ## Image Tools
-      imagemagick
-
-      ## Audio Tools
-      pavucontrol
-      pulsemixer
-
-      ## Ledger
-      ledger-live-desktop
-      trezor-suite
-
-      ## Other
-      mpv
-
-      ## Wayland Package for Niri
-      xwayland-satellite
-
-      ## chrome
-      chromium
-  ];
-
-  ## Enable manual manpages
-  manual.manpages.enable = true;
-
-  ## enable fontconfig
-  fonts.fontconfig.enable = true;
-
-  ## enable dconf
-  dconf.enable = true;
-
-  nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.allowUnfree = true;
 }

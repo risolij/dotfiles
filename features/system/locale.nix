@@ -3,13 +3,13 @@
 with lib;
 
 {
-  options.nix-locale.enable = mkOption {
+    options.nix-locale.enable = mkOption {
     type = types.bool;
     default = false;
     description = "Enable local options";
-  };
+    };
 
-  config = mkIf config.nix-locale.enable {
+    config = mkIf config.nix-locale.enable {
     i18n.defaultLocale = "en_US.UTF-8";
     time.timeZone = "America/Phoenix";
 
@@ -22,5 +22,5 @@ with lib;
       font = "Lat2-Terminus16";
       keyMap = "us";
     };
-  };
+    };
 }

@@ -1,9 +1,8 @@
 { ... }:
 {
-  imports = [
-    ./pipewire.nix
-    ./speechd.nix
-    ./flatpak.nix
-  ];
+    imports = [
+        ./pipewire.nix
+        ./speechd.nix
+        ./flatpak.nix
+    ];
 }
-

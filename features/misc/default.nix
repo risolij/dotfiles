@@ -1,7 +1,7 @@
 { ... }:
 {
-  imports = [
-    ./ledger.nix
-    ./trezor.nix
-  ];
+    imports = [
+        ./ledger.nix
+        ./trezor.nix
+    ];
 }
