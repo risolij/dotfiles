@@ -7,7 +7,7 @@
                 backdrop-color = "#1a1b26";
             };
             outputs."eDP-1".scale = 1.0;
-            screenshot-path = "/home/req/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png";
+            screenshot-path = "~/Pictures/Screenshots/%Y-%m-%dT%H:%M:%S.png";
             input = {
                 mod-key = "Super";
                 focus-follows-mouse.enable = true;
@@ -29,8 +29,34 @@
                 horizontal-view-movement.enable = true;
             };
 
+            window-rules = [ 
+                {
+                    geometry-corner-radius = 
+                    let
+                        radius = 5.0;
+                    in
+                    {
+                        top-left = radius;
+                        top-right = radius;
+                        bottom-left = radius;
+                        bottom-right = radius;
+                    };
+
+                    clip-to-geometry = true;
+                    focus-ring = {
+                        enable = false;
+                    };
+                }
+            ];
+
             layout = {
-                gaps = 10;
+                gaps = 15;
+                border = {
+                    width = 5;
+                    enable = true;
+                    active.color = "#7dcfff";
+                    inactive.color = "#24283b";
+                };
                 default-column-width = {
                     proportion = .5;
                 };
@@ -38,7 +64,7 @@
                 struts = {
                     left = 50;
                     right = 50;
-                    top = 50;
+                    top = 0;
                     bottom = 50;
                 };
             };

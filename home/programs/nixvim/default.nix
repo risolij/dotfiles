@@ -4,7 +4,6 @@
         enable = true;
         nixpkgs.source = inputs.nixpkgs;
         globals.mapleader = " ";
-
         opts = {
             scrolloff = 999;
             number = true;
@@ -42,18 +41,13 @@
 	                    ];
 	                };
 	            };
+
+                keymaps = {
+                    "<leader>f" = "find_files";
+                    "<leader>k" = "keymaps";
+                };
             };
             rustaceanvim.enable = true;
         };
-        keymaps = [
-            {
-                action = "<cmd>Telescope find_files<CR>";
-                key = "<leader>f";
-            }
-            {
-                action = "<cmd>ToggleTerm<CR>";
-            	key = "<leader>gg";
-            }
-        ];
     };
 }

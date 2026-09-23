@@ -25,8 +25,10 @@
         fonts = {
             sizes.terminal = 14;
             monospace = {
-                package = pkgs.nerd-fonts.fira-code;
-                name = "FiraCode Nerd Font";
+                package = pkgs.nerd-fonts.jetbrains-mono;
+                name = "JetBrains Mono Nerd Font";
+                ## package = pkgs.nerd-fonts.fira-code;
+                ## name = "FiraCode Nerd Font";
             };
 
             sansSerif = {
@@ -37,6 +39,10 @@
             serif = {
                 package = pkgs.dejavu_fonts;
                 name = "DejaVu Serif";
+            };
+            emoji = {
+                package = pkgs.noto-fonts-color-emoji;
+                name = "Noto Color Emoji";
             };
         };
 

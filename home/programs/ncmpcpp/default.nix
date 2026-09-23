@@ -3,7 +3,7 @@
 {
     programs.ncmpcpp = {
         enable = true;
-        mpdMusicDir = /home/req/music;
+        mpdMusicDir = "/home/req/Music";
         settings = {
             header_visibility = "no";
             volume_color = "green";

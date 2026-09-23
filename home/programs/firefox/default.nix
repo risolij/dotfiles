@@ -19,7 +19,6 @@
             ExtensionSettings = {
                 "*".installation_mode = "blocked";
                 "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = {
-                    ## install_url = "https://addons.mozilla.org/firefox/downloads/file/4458679/vimium_ff-2.2.1.xpi";
                     install_url = "https://addons.mozilla.org/firefox/downloads/latest/vimium-ff/latest.xpi";
                     installation_mode = "force_installed";
                 };
@@ -42,6 +41,16 @@
                     "beacon.enabled" = false;
                     "browser.contentblocking.category" = "strict";
                     "browser.preferences.defaultPerformanceSettings.enabled" = false;
+                    "browser.newtabpage.activity-stream.feeds.discoverystreamfeed" = false;
+                    "browser.newtabpage.activity-stream.feeds.section.topstories" = false;
+                    "browser.newtabpage.activity-stream.showSponsored" = false;
+                    "browser.newtabpage.activity-stream.weather.enabled" = false;
+                    "browser.newtabpage.activity-stream.showWeather" = false;
+                    "browser.newtabpage.activity-stream.weather.optInDisplayed" = false;
+                    "browser.newtabpage.activity-stream.widgets.weather.enabled" = false;
+                    "browser.newtabpage.activity-stream.widgets.system.weather.enabled" = false;
+                    "browser.newtabpage.activity-stream.discoverystream.sections.contextualAds.enabled" = false;
+                    "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
                     "browser.privatebrowsing.autostart" = false;
                     "browser.security.https_only_mode" = true;
                     "browser.startup.homepage" = "https://nixos.org";
@@ -53,13 +62,19 @@
                     "places.history.enabled" = true;
                     "privacy.donottrackheader.enabled" = true;
                     "privacy.donottrackheader.value" = 1;
+                    "privacy.trackingprotection.enabled" = true;
+                    "privacy.trackingprotection.socialtracking.enabled" = true;
                     "browser.display.os-zoom-behavior" = 0;
-                    "gfx.webrender.all" = false;
-                    "gfx.webrender.compositor" = false;
-                    "gfx.webrender.compositor.force-enabled" = false;
-                    "media.ffmpeg.vaapi.enabled" = false;
-                    "media.hardware-video-decoding.force-enabled" = false;
-                    "media.hardware-video-encoding.force-enabled" = false;
+
+                    "gfx.webrender.all" = true;
+                    "gfx.webrender.compositor" = true;
+                    "gfx.webrender.compositor.force-enabled" = true;
+
+                    "media.ffmpeg.vaapi.enabled" = true;
+                    "media.hardware-video-decoding.force-enabled" = true;
+                    "media.hardware-video-encoding.force-enabled" = true;
+                    "media.ffmpeg.vaapi.isolated-process" = true;
+
                     "general.smoothScroll" = true;
                     "general.smoothScroll.currentVelocityWeighting" = 1;
                     "general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS" = 12;

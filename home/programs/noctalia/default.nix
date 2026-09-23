@@ -25,24 +25,27 @@ in
                   transitionDuration = carouselCfg.transitionDuration;
                 };
             };
-
             bar = {
                 default = {
+
+                    font_family = "JetBrainsMono Nerd Font";
                     position = "top";
 	                capsule = true;
 	                capsule_padding = 10;
-	                capsule_radius = 4;
-                    margin_ends = 100.0;
+	                capsule_radius = 5;
+                    margin_ends = 68.0;
 	                margin_edge = 10;
-	                background_opacity = 1.0;
+	                background_opacity = 0.5;
 	                widget_spacing = 10;
-	                icon_color = "tertiary";
+	                icon_color = "primary";
                     reserve_space = true;
-                    radius = 4;
-                    scale = 1.2;
-                    font_scale = 1.0;
+                    radius = 5;
+                    scale = 1.1;
 	                concave_edge_corners = false;
-                    thickness = 55;
+                    shadow = false;
+                    thickness = 50;
+                    font_weight = 500;
+
                     start = [
 	                    "launcher"
                         "workspaces"
@@ -53,14 +56,30 @@ in
 	                    "clipboard"
 	                    "wallpaper"
                     ];
+
+                    capsule_group = [
+                        {
+                            id = "g1";
+                            fill = "secondary";
+                            foreground = "on_secondary";
+                            radius = 5.0;
+                            members = [ "volume" "brightness" "sysmon" ];
+                            padding = 20;
+                            accordion = false;
+                            widget_spacing = 10;
+                        }
+                    ];
+
                     end = [
                         "taskbar"
 	                    "screenshot"
                         "notifications"
-                        "volume"
-                        "brightness"
+                        "group:g1"
+                        "spacer"
+                        "spacer"
+                        "spacer"
                         "battery"
-                        "sysmon"
+                        "spacer"
                         "control-center"
                     ];
                 };
@@ -70,11 +89,18 @@ in
 
             widget = {
                 launcher = {
-                    glyph = "rocket";
+                    glyph = "snowflake";
+                };
+
+                battery = {
+                    capsule = false;
                 };
 
 	            control-center = {
-	                glyph = "skull";
+	                glyph = "settings-2";
+                    scale = 1.2;
+                    capsule_fill = "tertiary";
+                    icon_color = "on_tertiary";
 	            };
             };
 
