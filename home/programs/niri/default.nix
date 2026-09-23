@@ -65,7 +65,7 @@
                     left = 50;
                     right = 50;
                     top = 0;
-                    bottom = 50;
+                    bottom = 10;
                 };
             };
 

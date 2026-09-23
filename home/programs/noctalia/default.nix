@@ -27,14 +27,13 @@ in
             };
             bar = {
                 default = {
-
                     font_family = "JetBrainsMono Nerd Font";
                     position = "top";
 	                capsule = true;
 	                capsule_padding = 10;
 	                capsule_radius = 5;
                     margin_ends = 68.0;
-	                margin_edge = 10;
+	                margin_edge = 20;
 	                background_opacity = 0.5;
 	                widget_spacing = 10;
 	                icon_color = "primary";
@@ -49,12 +48,9 @@ in
                     start = [
 	                    "launcher"
                         "workspaces"
-                        "media"
 	                ];
                     center = [
                         "clock"
-	                    "clipboard"
-	                    "wallpaper"
                     ];
 
                     capsule_group = [
@@ -64,22 +60,29 @@ in
                             foreground = "on_secondary";
                             radius = 5.0;
                             members = [ "volume" "brightness" "sysmon" ];
-                            padding = 20;
+                            padding = 10;
                             accordion = false;
                             widget_spacing = 10;
+                        }
+
+                        {
+                            id = "g2";
+                            fill = "primary";
+                            foreground = "on_primary";
+                            radius = 5.0;
+                            members = [ "clipboard" "wallpaper" "screenshot" "notifications" ];
+                            padding = 10;
+                            widget_spacing = 10;
+                            accordion = true;
+                            accordion_direction = "end";
                         }
                     ];
 
                     end = [
                         "taskbar"
-	                    "screenshot"
-                        "notifications"
+                        "group:g2"
                         "group:g1"
-                        "spacer"
-                        "spacer"
-                        "spacer"
                         "battery"
-                        "spacer"
                         "control-center"
                     ];
                 };
@@ -93,15 +96,23 @@ in
                 };
 
                 battery = {
+                    scale = 0.9;
+                    display_mode = "graphic";
+                    show_label = false;
+                    label_content = "percent";
                     capsule = false;
                 };
 
 	            control-center = {
 	                glyph = "settings-2";
-                    scale = 1.2;
+                    scale = 1.1;
                     capsule_fill = "tertiary";
                     icon_color = "on_tertiary";
 	            };
+
+                taskbar = {
+                    capsule = false;
+                };
             };
 
             shell = {
@@ -158,12 +169,12 @@ in
                 auto_locate = false;
                 address = "Tokyo, Japan";
             };
-    
+
             weather = {
                 enabled = true;
                 unit = "metric";
             };
-    
+
             calendar = {};
 
             wallpaper = {
