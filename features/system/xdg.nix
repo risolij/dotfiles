@@ -16,12 +16,12 @@ with lib;
                 enable = true; 
                 config = {
                     common = {
-                        default = [ "gtk" ];
+                        default = [ "gnome" "gtk" ];
                     };
                 };
                 extraPortals = [ 
-                    pkgs.xdg-desktop-portal
                     pkgs.xdg-desktop-portal-gtk 
+                    pkgs.xdg-desktop-portal-gnome
                 ];
             };
         };

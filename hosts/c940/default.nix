@@ -18,14 +18,12 @@
     nix-services-fail2ban.enable = true;
     nix-services-dnscrypt-proxy2.enable = false;
     nix-services-pipewire.enable = true;
-    nix-services-speechd.enable = true;
     nix-services-upower.enable = true;
     nix-services-power-profiles-daemon.enable = false;
     nix-services-thermald.enable = true;
     nix-services-journald.enable = true;
     nix-services-displayManager.enable = true;
-    nix-services-keyd.enable = true;
-    nix-services-libinput.enable = true;
+    nix-services-keyd.enable = false;
     nix-services-udev.enable = true;
     nix-services-openssh.enable = true;
     nix-services-flatpak.enable = true;

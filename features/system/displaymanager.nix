@@ -17,7 +17,7 @@ with lib;
                     package = pkgs.kdePackages.sddm;
                     extraPackages = with pkgs; [
                         kdePackages.qtsvg
-                        kdePackages.qtmultimedia
+                        ## kdePackages.qtmultimedia
                     ];
                     enable = true;
                     wayland.enable = true;

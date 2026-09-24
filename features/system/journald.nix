@@ -13,7 +13,7 @@ with lib;
         services.journald.settings.Journal = {
             SystemMaxUse = "100M";
             Compress = "yes";
-            MaxRetentionSec = "1day";
+            MaxRetentionSec = "1d";
         };
     };
 }
