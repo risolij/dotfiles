@@ -2,19 +2,19 @@
 {
     imports = [
         ./alacritty
-        ./nushell
         ./bat
         ./direnv
+        ./discord
         ./firefox
         ./git
-        ./niri
+        ./mpv
         ./ncmpcpp
-        ./cava
-        ./starship
-        ./noctalia
-        ./discord
-        ./stylix
+        ./niri
         ./nixvim
+        ./noctalia
+        ./nushell
+        ./starship
+        ./stylix
         ./system-packages.nix
     ];
 }

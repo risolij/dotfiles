@@ -40,6 +40,7 @@
                 package = pkgs.dejavu_fonts;
                 name = "DejaVu Serif";
             };
+
             emoji = {
                 package = pkgs.noto-fonts-color-emoji;
                 name = "Noto Color Emoji";

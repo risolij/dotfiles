@@ -4,7 +4,6 @@
         ## Hardware Tools
         acpi
         dmidecode
-        inxi
         pciutils
         usbutils
         lm_sensors
@@ -20,9 +19,6 @@
         vulnix
         lynis
         
-        ## Notifications
-        libnotify
-        
         ## Image Tools
         imagemagick
         
@@ -34,14 +30,8 @@
         ledger-live-desktop
         trezor-suite
         
-        ## Other
-        mpv
-        
         ## Wayland Package for Niri
         xwayland-satellite
-        
-        ## chrome
-        chromium
         
         ## quickshell legacy
         quickshell
