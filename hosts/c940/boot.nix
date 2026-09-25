@@ -2,13 +2,18 @@
 {
     boot = {
         initrd = {
-            includeDefaultModules = true;
+            systemd = {
+                enable = true;
+                tpm2.enable = true;
+            };
+            includeDefaultModules = false;
             availableKernelModules = [
                 "nvme"
                 "xhci_pci"
-                "ahci"
-                "usbhid"
                 "sd_mod"
+                "atkbd"
+                "i8042"
+                "tpm_tis"
             ];
         };
 
@@ -32,6 +37,7 @@
           "thunderbolt"
         ];
         kernelParams = [
+            "8250.nr_uarts=0"
             "nowatchdog"
             "nmi_watchdog=0"
             "quiet"

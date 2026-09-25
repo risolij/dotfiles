@@ -31,6 +31,26 @@
                     installation_mode = "force_installed";
                 };
             };
+
+            "3rdparty".Extensions = {
+                "uBlock0@raymondhill.net" = {
+                    adminSettings = {
+                        filterLists = [
+                            "user-filters"
+                            "ublock-filters"
+                            "ublock-badware"
+                            "ublock-privacy"
+                            "ublock-unbreak"
+                            "ublock-quick-fixes"
+                        ];
+                        
+                        userFilters = ''
+                            www.youtube.com##.paper-toast-open.yt-notification-action-renderer.toast-button
+                            www.youtube.com##yt-notification-action-renderer.ytd-popup-container
+                        '';
+                    };
+                };
+            };
         };
 
         profiles = {
