@@ -4,7 +4,7 @@
         initrd = {
             systemd = {
                 enable = true;
-                tpm2.enable = true;
+                ## tpm2.enable = true;
             };
             includeDefaultModules = false;
             availableKernelModules = [
@@ -13,7 +13,6 @@
                 "sd_mod"
                 "atkbd"
                 "i8042"
-                "tpm_tis"
             ];
         };
 
@@ -35,6 +34,10 @@
         kernelModules = [
           "kvm-intel"
           "thunderbolt"
+          "i915"
+          "typec_ucsi"
+          "typec_displayport"
+          "ucsi_acpi"
         ];
         kernelParams = [
             "8250.nr_uarts=0"
@@ -49,6 +52,7 @@
             "zswap.zpool=zsmalloc"
             "zswap.shrinker_enabled=1"
             "zswap.max_pool_percent=50"
+            "pci=realloc"
         ];
         tmp.cleanOnBoot = true;
         kernelPackages = pkgs.linuxPackagesFor pkgs.linux_latest;

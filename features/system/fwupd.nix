@@ -11,5 +11,12 @@ with lib;
 
     config = mkIf config.nix-services-fwupd.enable {
         services.fwupd.enable = true;
+
+        systemd.timers."fwupd-refresh" = {
+            timerConfig = {
+                OnCalendar = "monthly";
+                Persistent = true;
+            };
+        };
     };
 }

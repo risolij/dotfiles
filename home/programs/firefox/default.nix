@@ -105,6 +105,8 @@
                     "general.smoothScroll.msdPhysics.slowdownMinDeltaRatio" = 0.3;
                     "general.smoothScroll.msdPhysics.slowdownSpringConstant" = 250;
                     "general.smoothScroll.stopDecelerationWeighting" = 1.0;
+
+                    "widget.wayland.opaque-region.enabled" = false;
                 };
 
                 bookmarks = {
