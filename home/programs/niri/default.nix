@@ -136,6 +136,7 @@
                 "Mod+R".action.switch-preset-column-width = [];
                 "Mod+F".action.maximize-column = [];
                 "Mod+Shift+F".action.fullscreen-window = [];
+                "Mod+Ctrl+Shift+F".action.toggle-windowed-fullscreen = [];
 
                 "Mod+Ctrl+H".action.set-column-width = "-10%";
                 "Mod+Ctrl+L".action.set-column-width = "+10%";

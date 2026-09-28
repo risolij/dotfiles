@@ -59,6 +59,7 @@
                 isDefault = true;
                 settings = { 
                     "beacon.enabled" = false;
+                    "browser.ai.control.default" = "blocked";
                     "browser.contentblocking.category" = "strict";
                     "browser.preferences.defaultPerformanceSettings.enabled" = false;
                     "browser.newtabpage.activity-stream.feeds.discoverystreamfeed" = false;
@@ -107,6 +108,20 @@
                     "general.smoothScroll.stopDecelerationWeighting" = 1.0;
 
                     "widget.wayland.opaque-region.enabled" = false;
+                };
+
+
+                search = {
+                    engines = {
+                        bing.metaData.hidden = true;
+                        perplexity.metaData.hidden = true;
+                        amazon.metaData.hidden = true;
+                    };
+
+                    force = true;
+                    default = "ddg";
+                    privateDefault = "ddg";
+                    order = [ "ddg" "brave" ];
                 };
 
                 bookmarks = {

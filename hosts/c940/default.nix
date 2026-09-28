@@ -15,37 +15,37 @@
     ];
 
     ## System Options
-    nix-services-fail2ban.enable = true;
-    nix-services-dnscrypt-proxy2.enable = false;
-    nix-services-pipewire.enable = true;
-    nix-services-upower.enable = true;
-    nix-services-power-profiles-daemon.enable = false;
-    nix-services-thermald.enable = true;
-    nix-services-journald.enable = true;
     nix-services-displayManager.enable = true;
-    nix-services-keyd.enable = false;
-    nix-services-udev.enable = true;
-    nix-services-openssh.enable = true;
+    nix-services-dnscrypt-proxy2.enable = false;
+    nix-services-fail2ban.enable = true;
     nix-services-flatpak.enable = true;
     nix-services-fwupd.enable = true;
+    nix-services-hardware-bolt.enable = true;
+    nix-services-journald.enable = true;
+    nix-services-keyd.enable = false;
     nix-services-logind.enable = true;
-    nix-hardware-ledger.enable = true;
-    nix-distro-grub-themes.enable = true;
-    nix-systemd-services-scans.enable = true;
+    nix-services-openssh.enable = true;
+    nix-services-pipewire.enable = true;
+    nix-services-power-profiles-daemon.enable = false;
+    nix-services-thermald.enable = true;
+    nix-services-udev.enable = true;
+    nix-services-upower.enable = true;
     nix-auto-cpufreq.enable = true;
-    nix-polkit.enable = true;
-    nix-rtkit.enable = true;
-    nix-pam-services-sshd-showMotd.enable  = true;
-    nix-nix.enable = true;
-    nix-xdg.enable = true;
+    nix-distro-grub-themes.enable = true;
+    nix-docker.enable = true;
+    nix-hardware-ledger.enable = true;
     nix-locale.enable = true;
     nix-networking.enable = true;
-    nix-virtualization.enable = true;
-    nix-programs-virt-manager.enable = true;
+    nix-nix.enable = true;
+    nix-pam-services-sshd-showMotd.enable  = true;
+    nix-polkit.enable = true;
     nix-programs-dconf.enable = true;
-    nix-docker.enable = true;
-    nix-services-hardware-bolt.enable = true;
-
+    nix-programs-localsend.enable = true;
+    nix-programs-virt-manager.enable = true;
+    nix-rtkit.enable = true;
+    nix-systemd-services-scans.enable = true;
+    nix-virtualization.enable = true;
+    nix-xdg.enable = true;
 
     ## Home Options
     home-manager = {

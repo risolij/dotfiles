@@ -79,11 +79,20 @@
             ];
         };
 
-        nixosConfigurations.pi-kube = inputs.nixpkgs.lib.nixosSystem {
-            system = "aarch64-linux";
+        nixosConfigurations.pi = inputs.nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = {
+                inherit inputs username;
+            };
             modules = [
+                {
+                    nixpkgs.crossSystem = {
+                        system = "aarch64-linux";
+                    };
+                }
+                "${inputs.nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
                 inputs.nixos-hardware.nixosModules.raspberry-pi-3
-                ./hosts/rpi/configuration.nix
+                ./hosts/rpi
             ];
         };
     };
